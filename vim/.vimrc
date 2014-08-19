@@ -23,6 +23,11 @@
 
     "  Key (re)Mappings 
     let mapleader = ','
+    " Search {{{{
+        let s:has_ag = executable('ag')
+        let s:has_ack = executable('ack')
+    " }}}}
+
 " }}}
 " NeoBundle setup {{{ 
     if has('vim_starting') 
@@ -151,10 +156,6 @@
         nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
         nnoremap <silent> <leader>gg :GitGutterToggle<CR>
     "}}}}
-" }}}
-" Search {{{
-    let s:has_ag = executable('ag')
-    let s:has_ack = executable('ack')
 " }}}
 " General Configuration {{{
 filetype plugin indent on
