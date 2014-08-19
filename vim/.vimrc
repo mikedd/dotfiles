@@ -80,6 +80,9 @@
 
     " Org
     NeoBundle 'jceb/vim-orgmode'
+
+    "DB
+    NeoBundle 'vim-scripts/dbext.vim'
 "}}}
 " Plugin Config {{{
     " Delimitmate {{{
@@ -314,4 +317,32 @@ syntax on
     else 
         set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
     endif
+" }}}
+"
+"
+" Unsorted {{{
+
+" html tidy
+command Tidy  : %!tidy -qicbn -w 160 -asxhtml
+command Txml  : %!tidy -qicbn -w 160 -xml --show-errors 0
+
+" Filetypes 
+au BufRead,BufNewFile,BufFilePost *.gradle set filetype=groovy
+au BufRead,BufNewFile,BufFilePost *.sql set filetype=sql
+au BufRead,BufNewFile,BufFilePost *.org set filetype=org
+
+"DBext history location
+let g:dbext_default_history_file = '$HOME/.vim/dbext_history.txt'
+"
+"F5 to remove trailing whitespace
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>"
+
+" Javascript tab size
+autocmd FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
+
+" Remove trailing spaces on save
+autocmd BufWritePre *.js :%s/\s\+$//e
+
+" Tagbar
+nnoremap <silent> <leader>tt :TagbarToggle<CR>
 " }}}
