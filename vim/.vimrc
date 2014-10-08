@@ -303,6 +303,14 @@ syntax on
 
     " Remove trailing whitespace
     autocmd FileType c,cpp,js autocmd BufWritePre <buffer> :%s/\s\+$//e"
+
+    "Tidy yo XML
+    let s:has_tidy = executable('tidy')
+    if s:has_tidy
+        command Thtml :%!tidy -q -i --show-errors 0
+        command Txml  :%!tidy -q -i --show-errors 0 -xml
+    endif
+
 "}}}
 " GVIM {{{
     " GVIM- (here instead of .gvimrc)
