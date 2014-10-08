@@ -300,6 +300,9 @@ syntax on
 
     " Filetypes 
     au BufRead,BufNewFile,BufFilePost *.gradle set filetype=gradle
+
+    " Remove trailing whitespace
+    autocmd FileType c,cpp,js autocmd BufWritePre <buffer> :%s/\s\+$//e"
 "}}}
 " GVIM {{{
     " GVIM- (here instead of .gvimrc)
