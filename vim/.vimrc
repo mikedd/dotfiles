@@ -302,14 +302,22 @@ syntax on
     au BufRead,BufNewFile,BufFilePost *.gradle set filetype=gradle
 
     " Remove trailing whitespace
-    autocmd FileType c,cpp,js autocmd BufWritePre <buffer> :%s/\s\+$//e"
+    autocmd FileType c,cpp,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e"
+    nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
     "Tidy yo XML
     let s:has_tidy = executable('tidy')
     if s:has_tidy
-        command Thtml :%!tidy -q -i --show-errors 0
-        command Txml  :%!tidy -q -i --show-errors 0 -xml
+        if !exists(':Thtml')
+            command Thtml :%!tidy -q -i --show-errors 0
+        endif
+        if !exists(':Txml')
+            command Txml  :%!tidy -q -i --show-errors 0 -xml
+        endif
     endif
+
+    "{{{{ JavaScript}}}}
+    autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 noexpandtab
 
 "}}}
 " GVIM {{{
