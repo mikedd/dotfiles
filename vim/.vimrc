@@ -47,16 +47,16 @@
     Plug 'scrooloose/nerdtree'
 
     " Coding
-    Plug 'scrooloose/nerdcommenter' { 'on' : 'NERDTreeToggle' }
+    Plug 'scrooloose/nerdcommenter', { 'on' : 'NERDTreeToggle' }
     Plug 'scrooloose/syntastic'
     Plug 'majutsushi/tagbar'
     Plug 'vim-scripts/delimitMate.vim'
     Plug 'Valloric/YouCompleteMe'
-    Plug 'vim-scripts/javacomplete' { 'for' : 'java' }
+    Plug 'vim-scripts/javacomplete', { 'for' : 'java' }
     Plug 'basilgor/vim-autotags'
 
     " Org
-    Plug 'jceb/vim-orgmode'{ 'for' : 'org' }
+    Plug 'jceb/vim-orgmode', { 'for' : 'org' }
 
     "DB
     Plug 'vim-scripts/dbext.vim'
