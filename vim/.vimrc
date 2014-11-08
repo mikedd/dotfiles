@@ -1,5 +1,4 @@
 " vim:fdm=marker
-
 " Initialization {{{
     set nocompatible    " Be iMproved
 
@@ -29,66 +28,45 @@
     " }}}}
 
 " }}}
-" NeoBundle setup {{{ 
-    if has('vim_starting') 
-        set runtimepath+=~/.vim/bundle/neobundle.vim
-    end
-
-    call neobundle#rc(expand('~/.vim/bundle'))
-
-    " Let Neobundle manage neoBundle
-    NeoBundleFetch 'Shougo/neobundle.vim'
+" Vim Plug setup {{{ 
+    call plug#begin('~/.vim/plugged')
 " }}}
-" Plugin list {{{
-    "
-    " Recommended by Shougo / neobundle readme
-    " After install, turn shell ~/.vim/bundle/vimproc, (n,g)mage -f
-    " your_machines_makefile
-    "
-    NeoBundle 'Shougo/vimproc', {
-        \ 'build' : {
-        \   'windows' : 'make -f make_mingw32.mak',
-        \   'cygwin' : 'make -f make_cygwin.mak',
-        \   'mac' : 'make -f make_mac.mak',
-        \   'unix' : 'make -f make_unix.mak',
-        \   },
-        \ }
-    NeoBundle 'Shougo/unite.vim'
-
-    " Git
-    NeoBundle 'tpope/vim-fugitive'
-    NeoBundle 'tpope/vim-surround'
-    NeoBundle 'airblade/vim-gitgutter'
+" Vim Plug plugin list {{{
+" Git
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-surround'
+    Plug 'airblade/vim-gitgutter'
 
     " Colors
-    NeoBundle 'tomasr/molokai'
+    Plug 'tomasr/molokai'
 
     " Tmux
-    NeoBundle 'christoomey/vim-tmux-navigator'
+    Plug 'christoomey/vim-tmux-navigator'
 
     " Files 
-    NeoBundle 'scrooloose/nerdtree'
+    Plug 'scrooloose/nerdtree'
 
     " Coding
-    NeoBundle 'scrooloose/nerdcommenter'
-    NeoBundle 'scrooloose/syntastic'
-    NeoBundle 'majutsushi/tagbar'
-    NeoBundle 'vim-scripts/delimitMate.vim'
-    NeoBundle 'Valloric/YouCompleteMe'
-    NeoBundle 'vim-scripts/javacomplete'
-    NeoBundle 'bpowell/vim-android'
-    NeoBundle 'basilgor/vim-autotags'
-
+    Plug 'scrooloose/nerdcommenter' { 'on' : 'NERDTreeToggle' }
+    Plug 'scrooloose/syntastic'
+    Plug 'majutsushi/tagbar'
+    Plug 'vim-scripts/delimitMate.vim'
+    Plug 'Valloric/YouCompleteMe'
+    Plug 'vim-scripts/javacomplete' { 'for' : 'java' }
+    Plug 'basilgor/vim-autotags'
 
     " Org
-    NeoBundle 'jceb/vim-orgmode'
+    Plug 'jceb/vim-orgmode'{ 'for' : 'org' }
 
     "DB
-    NeoBundle 'vim-scripts/dbext.vim'
+    Plug 'vim-scripts/dbext.vim'
 
     "Search
-    NeoBundle 'rking/ag.vim'
-"}}}
+    Plug 'rking/ag.vim'
+
+    call plug#end()
+
+" }}}
 " Plugin Config {{{
     " Delimitmate {{{
         " Delimitmate cr
@@ -99,30 +77,6 @@
         " Helps with background color in tmux 
         set t_ut=
     " }}}
-    " Unite {{{{ 
-        " Makes Unite faster.
-        if s:has_ag
-            let g:unite_source_rec_async_command = 'ag -l . '
-        elseif s:has_ack
-            let g:unite_source_rec_async_command = 'ack -f --nofilter'
-        end
-
-        " Make unite match fuzzy? 
-        "call unite#custom_source('file_rec', 'matchers', ['matcher_fuzzy'])
-        call unite#custom_source('file_rec', 'ignore_pattern', '[A-Z|a-z]*\.class|target|.*\.iml')
-
-        "Does not appear to work :(
-        let g:unite_source_history_yank_enable = 1 
-        "" Does not sort but does do fairly good fuzzy matching. 
-        call unite#filters#matcher_default#use(['matcher_fuzzy'])
-        "call unite#filters#matcher_default#use(['unite-filter-sorter_rank'])
-        nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async<cr>
-        nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
-        nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-        nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
-        nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
-        nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
-    " }}}}
     " NerdTree {{{{
         map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
         map <leader>e :NERDTreeFind<CR>
@@ -232,7 +186,7 @@ syntax on
 "}}}
 " Colors {{{ 
     set background=dark
-    if filereadable(expand("~/.vim/bundle/molokai/colors/molokai.vim"))
+    if filereadable(expand("~/.vim/plugged/molokai/colors/molokai.vim"))
         color molokai
     endif
 " }}}
