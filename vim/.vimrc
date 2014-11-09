@@ -129,6 +129,10 @@
     Plug 'croaker/mustang-vim'
 " }}}}
 
+" xoria256-vim color scheme {{{{
+    Plug 'vim-scripts/xorai256.cim'
+" }}}}
+"
 call plug#end()
 " }}}
 " General Configuration {{{
