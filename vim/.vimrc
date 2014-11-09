@@ -93,12 +93,9 @@
 " Autotags {{{{ 
     Plug 'basilgor/vim-autotags'
 " }}}}
-    " Org
 " OrgMode {{{{ 
     Plug 'jceb/vim-orgmode', { 'for' : 'org' }
 " }}}}
-
-    "DB
 " DBExt {{{{ 
     Plug 'vim-scripts/dbext.vim'
 " }}}}
@@ -120,6 +117,10 @@
         nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
         vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 "}}}}
+" CtrlP {{{{"
+    Plug 'kien/ctrlp.vim'
+        let g:ctrlp_map = '<c-t>'
+" }}}}
     call plug#end()
 " }}}
 " General Configuration {{{
