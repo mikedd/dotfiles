@@ -121,7 +121,11 @@
     Plug 'kien/ctrlp.vim'
         let g:ctrlp_map = '<c-t>'
 " }}}}
-    call plug#end()
+" ZenCoding for fast HTML completions {{{{
+    Plug 'mattn/emmet-vim'
+" }}}}
+
+call plug#end()
 " }}}
 " General Configuration {{{
 filetype plugin indent on
