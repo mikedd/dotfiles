@@ -28,10 +28,8 @@
     " }}}}
 
 " }}}
-" Vim Plug setup {{{ 
-    call plug#begin('~/.vim/plugged')
-" }}}
 " Vim Plug plugin list {{{
+    call plug#begin('~/.vim/plugged')
 " Fugitive {{{{ 
     Plug 'tpope/vim-fugitive'
         nnoremap <silent> <leader>gs :Gstatus<CR>
