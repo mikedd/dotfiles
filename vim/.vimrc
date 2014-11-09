@@ -124,6 +124,10 @@
 " ZenCoding for fast HTML completions {{{{
     Plug 'mattn/emmet-vim'
 " }}}}
+"
+" Mustang-vim color scheme {{{{
+    Plug 'croaker/mustang-vim'
+" }}}}
 
 call plug#end()
 " }}}
