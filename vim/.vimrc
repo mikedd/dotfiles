@@ -32,56 +32,36 @@
     call plug#begin('~/.vim/plugged')
 " }}}
 " Vim Plug plugin list {{{
-" Git
+" Fugitive {{{{ 
     Plug 'tpope/vim-fugitive'
+        nnoremap <silent> <leader>gs :Gstatus<CR>
+        nnoremap <silent> <leader>gd :Gdiff<CR>
+        nnoremap <silent> <leader>gc :Gcommit<CR>
+        nnoremap <silent> <leader>gb :Gblame<CR>
+        nnoremap <silent> <leader>gl :Glog<CR>
+        nnoremap <silent> <leader>gp :Git push<CR>
+        nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
+        nnoremap <silent> <leader>gg :GitGutterToggle<CR>
+" }}}}
+" Surround {{{{ 
     Plug 'tpope/vim-surround'
+" }}}}
+" GitGutter {{{{ 
     Plug 'airblade/vim-gitgutter'
-
-    " Colors
+" }}}}
+" Molokai {{{{ 
     Plug 'tomasr/molokai'
-
-    " Tmux
+" }}}}
+" Tmux navigator {{{{ 
     Plug 'christoomey/vim-tmux-navigator'
-
-    " Files 
-    Plug 'scrooloose/nerdtree'
-
-    " Coding
-    Plug 'scrooloose/nerdcommenter', { 'on' : 'NERDTreeToggle' }
-    Plug 'scrooloose/syntastic'
-    Plug 'majutsushi/tagbar'
-    Plug 'vim-scripts/delimitMate.vim'
-    Plug 'Valloric/YouCompleteMe'
-    Plug 'vim-scripts/javacomplete', { 'for' : 'java' }
-    Plug 'basilgor/vim-autotags'
-
-    " Org
-    Plug 'jceb/vim-orgmode', { 'for' : 'org' }
-
-    "DB
-    Plug 'vim-scripts/dbext.vim'
-
-    "Search
-    Plug 'rking/ag.vim'
-
-    call plug#end()
-
-" }}}
-" Plugin Config {{{
-    " Delimitmate {{{
-        " Delimitmate cr
-        let delimitMate_expand_cr = 1
-        let delimitMate_smart_matchpairs=1
-    "}}}
-    " Tmux {{{ 
         " Helps with background color in tmux 
         set t_ut=
-    " }}}
-    " NerdTree {{{{
+" }}}}
+" NerdTree {{{{ 
+    Plug 'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
         map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
         map <leader>e :NERDTreeFind<CR>
         nmap <leader>nt :NERDTreeFind<CR>
-
         let NERDTreeShowBookmarks=1
         let NERDTreeIgnore=['\.pyc', '\.class', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
         let NERDTreeChDirMode=0
@@ -90,11 +70,45 @@
         let NERDTreeShowHidden=1
         let NERDTreeKeepTreeInNewTab=1
         let g:nerdtree_tabs_open_on_gui_startup=0
-
-        "NerdTree toggle
         map <silent> <F2> :NERDTreeToggle <CR>
-    " }}}}
-    " Tabularize {{{{
+" }}}}
+" NerdCommenter {{{{ 
+    Plug 'scrooloose/nerdcommenter'
+" }}}}
+" Syntastic {{{{ 
+    Plug 'scrooloose/syntastic'
+" }}}}
+" Tagbar {{{{ 
+    Plug 'majutsushi/tagbar'
+" }}}}
+" Delimitmate {{{{ 
+    Plug 'vim-scripts/delimitMate.vim'
+        let delimitMate_expand_cr = 1
+        let delimitMate_smart_matchpairs=1
+" }}}}
+" YouCompleteMe {{{{ 
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+" }}}}
+" JavaComplete {{{{ 
+    Plug 'vim-scripts/javacomplete', { 'for' : 'java' }
+" }}}}
+" Autotags {{{{ 
+    Plug 'basilgor/vim-autotags'
+" }}}}
+    " Org
+" OrgMode {{{{ 
+    Plug 'jceb/vim-orgmode', { 'for' : 'org' }
+" }}}}
+
+    "DB
+" DBExt {{{{ 
+    Plug 'vim-scripts/dbext.vim'
+" }}}}
+" Ag - quick grep {{{{ 
+    Plug 'rking/ag.vim'
+" }}}
+" Tabularize {{{{
+    Plug 'godlygeek/tabular'
         nmap <Leader>a& :Tabularize /&<CR>
         vmap <Leader>a& :Tabularize /&<CR>
         nmap <Leader>a= :Tabularize /=<CR>
@@ -107,17 +121,8 @@
         vmap <Leader>a, :Tabularize /,<CR>
         nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
         vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-    " }}}}
-    " Fugitive {{{{
-        nnoremap <silent> <leader>gs :Gstatus<CR>
-        nnoremap <silent> <leader>gd :Gdiff<CR>
-        nnoremap <silent> <leader>gc :Gcommit<CR>
-        nnoremap <silent> <leader>gb :Gblame<CR>
-        nnoremap <silent> <leader>gl :Glog<CR>
-        nnoremap <silent> <leader>gp :Git push<CR>
-        nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
-        nnoremap <silent> <leader>gg :GitGutterToggle<CR>
-    "}}}}
+"}}}}
+    call plug#end()
 " }}}
 " General Configuration {{{
 filetype plugin indent on
