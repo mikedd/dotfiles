@@ -126,7 +126,7 @@
 " }}}}
 " {{{{ airline and bufferline 
     Plug 'bling/vim-airline'
-    Plug 'bling/vim-bufferline'
+    "Plug 'bling/vim-bufferline'
 " }}}}
 "
 " Mustang-vim color scheme {{{{
@@ -136,9 +136,18 @@
 " xoria256-vim color scheme {{{{
     Plug 'vim-scripts/xoria256.vim'
 " }}}}
-"
+
+" Vinegar netrw enhancement {{{{
+    Plug 'tpope/vim-vinegar'
+" }}}}
+
+" SpeedDating  - needed by some other plugin? {{{{
+    Plug 'tpope/vim-speeddating'
+" }}}}
+
 call plug#end()
 " }}}
+
 " General Configuration {{{
 filetype plugin indent on
 syntax on 
@@ -360,7 +369,8 @@ syntax on
     set complete=.,w,b,u,t,i
 
     " Filetypes 
-    au BufRead,BufNewFile,BufFilePost *.gradle set filetype=gradle
+    " gradle syntax highlighting
+    au BufNewFile,BufRead *.gradle set filetype=groovy
 
     " Remove trailing whitespace
     autocmd FileType c,cpp,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e"
