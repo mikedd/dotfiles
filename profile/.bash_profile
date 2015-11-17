@@ -19,3 +19,5 @@ export CATALINA_HOME=/home/mikedd/dev/apache-tomcat-7.0.47/
 export MINERVA_HOME=/home/mikedd/dev/minerva_home/
 
 export TERM=xterm-256color
+
+export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '']]]]'
