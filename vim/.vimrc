@@ -31,7 +31,7 @@
 " Vim Plug plugin list {{{
     call plug#begin('~/.vim/plugged')
 " Fugitive {{{{ 
-    Plug 'tpope/vim-fugitive'
+    Plug 'git@github.com:tpope/vim-fugitive'
         nnoremap <silent> <leader>gs :Gstatus<CR>
         nnoremap <silent> <leader>gd :Gdiff<CR>
         nnoremap <silent> <leader>gc :Gcommit<CR>
@@ -42,24 +42,24 @@
         nnoremap <silent> <leader>gg :GitGutterToggle<CR>
 " }}}}
 " Surround {{{{ 
-    Plug 'tpope/vim-surround'
+    Plug 'git@github.com:tpope/vim-surround'
 " }}}}
 " GitGutter {{{{ 
-    Plug 'airblade/vim-gitgutter'
+    Plug 'git@github.com:airblade/vim-gitgutter'
 " }}}}
 " Molokai {{{{ 
-    Plug 'tomasr/molokai'
+    Plug 'git@github.com:tomasr/molokai'
 " }}}}
 " Tmux navigator {{{{ 
-    Plug 'christoomey/vim-tmux-navigator'
+    Plug 'git@github.com:christoomey/vim-tmux-navigator'
         " Helps with background color in tmux 
         set t_ut=
 " }}}}
 " NerdTree {{{{ 
-    Plug 'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
+    Plug 'git@github.com:scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
         map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
         map <leader>e :NERDTreeFind<CR>
-        nmap <leader>nt :NERDTreeFind<CR>
+tpope/vim-fugitive        nmap <leader>nt :NERDTreeFind<CR>
         let NERDTreeShowBookmarks=1
         let NERDTreeIgnore=['\.pyc', '\.class', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
         let NERDTreeChDirMode=0
@@ -71,39 +71,39 @@
         map <silent> <F2> :NERDTreeToggle <CR>
 " }}}}
 " NerdCommenter {{{{ 
-    Plug 'scrooloose/nerdcommenter'
+    Plug 'git@github.com:scrooloose/nerdcommenter'
 " }}}}
 " Syntastic {{{{ 
-    Plug 'scrooloose/syntastic'
+    Plug 'git@github.com:scrooloose/syntastic'
 " }}}}
 " Tagbar {{{{ 
-    Plug 'majutsushi/tagbar'
+    Plug 'git@github.com:majutsushi/tagbar'
 " }}}}
 " Delimitmate {{{{ 
-    Plug 'vim-scripts/delimitMate.vim'
+    Plug 'git@github.com:vim-scripts/delimitMate.vim'
         let delimitMate_expand_cr = 1
         let delimitMate_smart_matchpairs=1
 " }}}}
 " YouCompleteMe {{{{ 
-    Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+    Plug 'git@github.com:Valloric/YouCompleteMe', { 'do': './install.sh' }
 " }}}}
 " JavaComplete {{{{ 
-    Plug 'vim-scripts/javacomplete', { 'for' : 'java' }
+    Plug 'git@github.com:vim-scripts/javacomplete', { 'for' : 'java' }
 " }}}}
 " Autotags {{{{ 
-    Plug 'basilgor/vim-autotags'
+    Plug 'git@github.com:basilgor/vim-autotags'
 " }}}}
 " OrgMode {{{{ 
-    Plug 'jceb/vim-orgmode', { 'for' : 'org' }
+    Plug 'git@github.com:jceb/vim-orgmode', { 'for' : 'org' }
 " }}}}
 " DBExt {{{{ 
-    Plug 'vim-scripts/dbext.vim'
+    Plug 'git@github.com:vim-scripts/dbext.vim'
 " }}}}
 " Ag - quick grep {{{{ 
-    Plug 'rking/ag.vim'
+    Plug 'git@github.com:rking/ag.vim'
 " }}}
 " Tabularize {{{{
-    Plug 'godlygeek/tabular'
+    Plug 'git@github.com:godlygeek/tabular'
         nmap <Leader>a& :Tabularize /&<CR>
         vmap <Leader>a& :Tabularize /&<CR>
         nmap <Leader>a= :Tabularize /=<CR>
@@ -118,31 +118,31 @@
         vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 "}}}}
 " CtrlP {{{{"
-    Plug 'kien/ctrlp.vim'
+    Plug 'git@github.com:kien/ctrlp.vim'
         let g:ctrlp_map = '<c-t>'
 " }}}}
 " ZenCoding for fast HTML completions {{{{
-    Plug 'mattn/emmet-vim'
+    Plug 'git@github.com:mattn/emmet-vim'
 " }}}}
 " {{{{ airline and bufferline 
-    Plug 'bling/vim-airline'
-    "Plug 'bling/vim-bufferline'
+    Plug 'git@github.com:bling/vim-airline'
+    "Plug 'git@github.com:bling/vim-bufferline'
 " }}}}
 "
 " Mustang-vim color scheme {{{{
-    Plug 'croaker/mustang-vim'
+    Plug 'git@github.com:croaker/mustang-vim'
 " }}}}
 
 " xoria256-vim color scheme {{{{
-    Plug 'vim-scripts/xoria256.vim'
+    Plug 'git@github.com:vim-scripts/xoria256.vim'
 " }}}}
 
 " Vinegar netrw enhancement {{{{
-    Plug 'tpope/vim-vinegar'
+    Plug 'git@github.com:tpope/vim-vinegar'
 " }}}}
 
 " SpeedDating  - needed by some other plugin? {{{{
-    Plug 'tpope/vim-speeddating'
+    Plug 'git@github.com:tpope/vim-speeddating'
 " }}}}
 
 call plug#end()
