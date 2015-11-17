@@ -59,7 +59,7 @@
     Plug 'git@github.com:scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
         map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
         map <leader>e :NERDTreeFind<CR>
-tpope/vim-fugitive        nmap <leader>nt :NERDTreeFind<CR>
+        nmap <leader>nt :NERDTreeFind<CR>
         let NERDTreeShowBookmarks=1
         let NERDTreeIgnore=['\.pyc', '\.class', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
         let NERDTreeChDirMode=0
