@@ -23,7 +23,6 @@ fi
 
 export JAVA_HOME=/home/mikedd/apps/jdk1.7.0_09
 
-
 GRADLE_VERSION=1.8
 export GRADLE_HOME=${HOME}/dev/gradle-${GRADLE_VERSION}
 
@@ -41,3 +40,5 @@ export CATALINA_HOME=/home/mikedd/dev/apache-tomcat-7.0.47/
 export MINERVA_HOME=/home/mikedd/dev/minerva_home/
 
 export TERM=xterm-256color
+
+alias ls='ls -G'
