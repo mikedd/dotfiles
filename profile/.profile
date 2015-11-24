@@ -21,24 +21,27 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-export JAVA_HOME=/home/mikedd/apps/jdk1.7.0_09
-
-GRADLE_VERSION=1.8
-export GRADLE_HOME=${HOME}/dev/gradle-${GRADLE_VERSION}
-
-GROOVY_VERSION=2.1.4
-export GROOVY_HOME=~/apps/groovy-${GROOVY_VERSION}
-
-MAVEN_VERSION=3.0.4
-export MAVEN_BIN=~/apps/apache-maven-${MAVEN_VERSION}/bin
-
-export PATH=${JAVA_HOME}/bin:${PATH}:${GRADLE_HOME}/bin:${GROOVY_HOME}/bin:${MAVEN_BIN}
-
-# ZFA setup
-export CATALINA_HOME=/home/mikedd/dev/apache-tomcat-7.0.47/
-
-export MINERVA_HOME=/home/mikedd/dev/minerva_home/
-
 export TERM=xterm-256color
 
 alias ls='ls -G'
+
+#============================================
+# Setting up Target Proxy
+#============================================
+proxy=http://sqdlx0001.hq.target.com:3128
+no_proxy=127.0.0.1,localhost,target.com,corp.target.com,hq.target.com,dist.target.com,Email.target.com,stores.target.com,labs.target.com
+
+export http_proxy=$proxy
+export https_proxy=$proxy
+export no_proxy=$no_proxy
+export vagrant_http_proxy=$proxy
+export vagrant_https_proxy=$proxy
+export vagrant_no_proxy=$no_proxy
+
+export HOMEBREW_GITHUB_API_TOKEN=00d3e34d0d8aa76491cbfb9ba4ca7085cb903b61
+
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home
+
+# No idea why Gradle can't figure this out. Probably some OSX stupidity.
+
+export GRADLE_USER_HOME=/Users/z001rw6
