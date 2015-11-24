@@ -145,6 +145,10 @@
     Plug 'git@github.com:tpope/vim-speeddating'
 " }}}}
 
+" Chef syntax {{{{
+    Plug 'git@github.com:dougireton/vim-chef'
+" }}}}
+
 call plug#end()
 " }}}
 
