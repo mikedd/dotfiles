@@ -146,7 +146,7 @@
 " }}}}
 
 " Chef syntax {{{{
-    Plug 'git@github.com:dougireton/vim-chef'
+    Plug 'git@github.com:vadv/vim-chef'
 " }}}}
 
 call plug#end()
