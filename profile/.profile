@@ -25,19 +25,6 @@ export TERM=xterm-256color
 
 alias ls='ls -G'
 
-#============================================
-# Setting up Target Proxy
-#============================================
-proxy=http://sqdlx0001.hq.target.com:3128
-no_proxy=127.0.0.1,localhost,target.com,corp.target.com,hq.target.com,dist.target.com,Email.target.com,stores.target.com,labs.target.com
-
-export http_proxy=$proxy
-export https_proxy=$proxy
-export no_proxy=$no_proxy
-export vagrant_http_proxy=$proxy
-export vagrant_https_proxy=$proxy
-export vagrant_no_proxy=$no_proxy
-
 # Keep your homebrew token out of the repository you idiot...
 . ${HOME}/.homebrew.token.sh
 
