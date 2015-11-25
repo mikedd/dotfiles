@@ -38,7 +38,8 @@ export vagrant_http_proxy=$proxy
 export vagrant_https_proxy=$proxy
 export vagrant_no_proxy=$no_proxy
 
-export HOMEBREW_GITHUB_API_TOKEN=00d3e34d0d8aa76491cbfb9ba4ca7085cb903b61
+# Keep your homebrew token out of the repository you idiot...
+. ${HOME}/.homebrew.token.sh
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home
 
