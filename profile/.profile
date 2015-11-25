@@ -35,3 +35,6 @@ export GRADLE_USER_HOME=/Users/z001rw6
 
 # VI plz
 set -o vi
+
+# enable target proxy
+proxyon
