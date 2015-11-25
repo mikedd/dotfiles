@@ -23,6 +23,9 @@ fi
 
 export TERM=xterm-256color
 
+# Better colors for LS
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
 alias ls='ls -G'
 
 # Keep your homebrew token out of the repository you idiot...
