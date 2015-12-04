@@ -85,7 +85,7 @@
         let delimitMate_smart_matchpairs=1
 " }}}}
 " YouCompleteMe {{{{ 
-    Plug 'git@github.com:Valloric/YouCompleteMe', { 'do': './install.sh' }
+    "Plug 'git@github.com:Valloric/YouCompleteMe', { 'do': './install.sh' }
 " }}}}
 " JavaComplete {{{{ 
     Plug 'git@github.com:vim-scripts/javacomplete', { 'for' : 'java' }
