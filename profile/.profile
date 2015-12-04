@@ -33,9 +33,6 @@ alias ls='ls -G'
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home
 
-# No idea why Gradle can't figure this out. Probably some OSX stupidity.
-export GRADLE_USER_HOME=/Users/z001rw6
-
 # VI plz
 set -o vi
 
