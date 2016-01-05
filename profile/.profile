@@ -8,14 +8,6 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
-fi
-
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
@@ -23,18 +15,18 @@ fi
 
 export TERM=xterm-256color
 
-# Better colors for LS
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
 alias ls='ls -G'
 
 # Keep your homebrew token out of the repository you idiot...
 . ${HOME}/.homebrew.token.sh
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home
 
 # VI plz
 set -o vi
 
-# enable target proxy
+# check target certs
+# If you ever lose them, uncomment this line. It does not need to run every time you log in.
+# . ~/.target_certs.sh
+
 proxyon

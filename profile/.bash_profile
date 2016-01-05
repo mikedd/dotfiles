@@ -1,10 +1,15 @@
-export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-source ~/.bash_functions
-source ~/.bashrc
-source ~/.profile
+# include the shell agnostic profile
+. ${HOME}/.profile
 
-if [ -f `brew --prefix`/etc/bash_completion ]
-then
-    . `brew --prefix`/etc/bash_completion
+# if running bash
+## MDD this check seems redundant, I moved this cruft from .prfoile which was 
+## probably auto-generated.
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+    . "$HOME/.bashrc"
+    fi
 fi
+
+source ~/.bash_functions
 
