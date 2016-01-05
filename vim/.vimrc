@@ -149,6 +149,10 @@
     Plug 'git@github.com:vadv/vim-chef'
 " }}}}
 
+" MediaWiki syntax {{{{
+    Plug 'git@github.com:chikamichi/mediawiki.vim'
+" }}}}
+
 call plug#end()
 " }}}
 
