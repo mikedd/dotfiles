@@ -29,4 +29,3 @@ set -o vi
 # If you ever lose them, uncomment this line. It does not need to run every time you log in.
 # . ~/.target_certs.sh
 
-proxyon
