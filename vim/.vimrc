@@ -20,7 +20,7 @@
     " disable the bells
     set noeb vb t_vb=
 
-    "  Key (re)Mappings 
+    "  Key (re)Mappings
     let mapleader = ','
     " Search {{{{
         let s:has_ag = executable('ag')
@@ -30,7 +30,7 @@
 " }}}
 " Vim Plug plugin list {{{
     call plug#begin('~/.vim/plugged')
-" Fugitive {{{{ 
+" Fugitive {{{{
     Plug 'git@github.com:tpope/vim-fugitive'
         nnoremap <silent> <leader>gs :Gstatus<CR>
         nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -41,21 +41,21 @@
         nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
         nnoremap <silent> <leader>gg :GitGutterToggle<CR>
 " }}}}
-" Surround {{{{ 
+" Surround {{{{
     Plug 'git@github.com:tpope/vim-surround'
 " }}}}
-" GitGutter {{{{ 
+" GitGutter {{{{
     Plug 'git@github.com:airblade/vim-gitgutter'
 " }}}}
-" Molokai {{{{ 
+" Molokai {{{{
     Plug 'git@github.com:tomasr/molokai'
 " }}}}
-" Tmux navigator {{{{ 
+" Tmux navigator {{{{
     Plug 'git@github.com:christoomey/vim-tmux-navigator'
-        " Helps with background color in tmux 
+        " Helps with background color in tmux
         set t_ut=
 " }}}}
-" NerdTree {{{{ 
+" NerdTree {{{{
     Plug 'git@github.com:scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
         map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
         map <leader>e :NERDTreeFind<CR>
@@ -70,36 +70,36 @@
         let g:nerdtree_tabs_open_on_gui_startup=0
         map <silent> <F2> :NERDTreeToggle <CR>
 " }}}}
-" NerdCommenter {{{{ 
+" NerdCommenter {{{{
     Plug 'git@github.com:scrooloose/nerdcommenter'
 " }}}}
-" Syntastic {{{{ 
+" Syntastic {{{{
     Plug 'git@github.com:scrooloose/syntastic'
 " }}}}
-" Tagbar {{{{ 
+" Tagbar {{{{
     Plug 'git@github.com:majutsushi/tagbar'
 " }}}}
-" Delimitmate {{{{ 
+" Delimitmate {{{{
     Plug 'git@github.com:vim-scripts/delimitMate.vim'
         let delimitMate_expand_cr = 1
         let delimitMate_smart_matchpairs=1
 " }}}}
-" YouCompleteMe {{{{ 
+" YouCompleteMe {{{{
     "Plug 'git@github.com:Valloric/YouCompleteMe', { 'do': './install.sh' }
 " }}}}
-" JavaComplete {{{{ 
+" JavaComplete {{{{
     Plug 'git@github.com:vim-scripts/javacomplete', { 'for' : 'java' }
 " }}}}
-" Autotags {{{{ 
+" Autotags {{{{
     Plug 'git@github.com:basilgor/vim-autotags'
 " }}}}
-" OrgMode {{{{ 
+" OrgMode {{{{
     Plug 'git@github.com:jceb/vim-orgmode', { 'for' : 'org' }
 " }}}}
-" DBExt {{{{ 
+" DBExt {{{{
     Plug 'git@github.com:vim-scripts/dbext.vim'
 " }}}}
-" Ag - quick grep {{{{ 
+" Ag - quick grep {{{{
     Plug 'git@github.com:rking/ag.vim'
 " }}}
 " Tabularize {{{{
@@ -124,7 +124,7 @@
 " ZenCoding for fast HTML completions {{{{
     Plug 'git@github.com:mattn/emmet-vim'
 " }}}}
-" {{{{ airline and bufferline 
+" {{{{ airline and bufferline
     Plug 'git@github.com:bling/vim-airline'
     "Plug 'git@github.com:bling/vim-bufferline'
 " }}}}
@@ -162,14 +162,14 @@ call plug#end()
 
 " General Configuration {{{
 filetype plugin indent on
-syntax on 
+syntax on
 
     " Copy Pasta {{{{
         if has('x') && has ('gui') " on linux use + register for copy/paste
             set clipboard=unnamedplus
         elseif has('gui') " Windows and Mac use *
             set clipboard=unnamed
-        endif 
+        endif
     "}}}}
 
     set showmode                    " Display the current mode
@@ -225,7 +225,7 @@ syntax on
         set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
     endif
 "}}}
-" Colors {{{ 
+" Colors {{{
     set background=dark
     if filereadable(expand("~/.vim/plugged/molokai/colors/molokai.vim"))
         color molokai
@@ -283,7 +283,7 @@ syntax on
 
         "recalculate the trailing whitespace warning when idle, and after saving
         autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
-        
+
         "return '[\s]' if trailing white space is detected
         "return '' otherwise
         function! StatuslineTrailingSpaceWarning()
@@ -300,7 +300,7 @@ syntax on
             endif
             return b:statusline_trailing_space_warning
         endfunction
-        
+
         "return the syntax highlight group under the cursor ''
         function! StatuslineCurrentHighlight()
             let name = synIDattr(synID(line('.'),col('.'),1),'name')
@@ -310,10 +310,10 @@ syntax on
                 return '[' . name . ']'
             endif
         endfunction
-        
+
         "recalculate the tab warning flag when idle and after writing
         autocmd cursorhold,bufwritepost * unlet! b:statusline_tab_warning
-        
+
         "return '[&et]' if &et is set wrong
         "return '[mixed-indenting]' if spaces and tabs are used to indent
         "return an empty string if everything is fine
@@ -370,17 +370,17 @@ syntax on
             endif
         endfor
     endfunction
-    " Finish local init (SPF13) 
+    " Finish local init (SPF13)
     call InitializeDirectories()
 " }}}
 " Development {{{
-    " set ctags 
+    " set ctags
     set tags=$HOME/.tags,$HOME/athena.tags
 
     " set completion
     set complete=.,w,b,u,t,i
 
-    " Filetypes 
+    " Filetypes
     " gradle syntax highlighting
     au BufNewFile,BufRead *.gradle set filetype=groovy
 
@@ -404,7 +404,7 @@ syntax on
     autocmd Filetype javascript setlocal shiftwidth=2       "Auto indent = 2"
     autocmd Filetype javascript setlocal softtabstop=2      "Backspace will delete two spaces for auto-indenting"
     autocmd Filetype javascript setlocal expandtab          "Use spaces instead of tabs"
-    
+
     "{{{{ Chef & Other devops cruft}}}}
     autocmd BufNewFile,BufRead Gemfile set filetype=ruby
     autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
@@ -426,10 +426,10 @@ syntax on
             set guifont=Consolas\ Regular:h16,Courier\ New\ Regular:h18
         elseif has("gui_win32")
             set guifont=Consolas:h10,Courier_New:h10
-        else 
+        else
             set guifont=Inconsolata\ Regular\ 11,Consolas\ Regular\ 16,Courier\ New\ Regular\ 18
         endif
-    else 
+    else
         set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
     endif
 " }}}
@@ -445,15 +445,15 @@ syntax on
 
     " add any cscope database in current directory
     if filereadable("cscope.out")
-        cs add cscope.out  
-    " else add the database pointed to by environment variable 
+        cs add cscope.out
+    " else add the database pointed to by environment variable
     elseif $CSCOPE_DB != ""
         cs add $CSCOPE_DB
     endif
     " }}}}
 
     " show msg when any other cscope db added
-    set cscopeverbose  
+    set cscopeverbose
     " {{{{ My cscope/vim key mappings
     "
     " The following maps all invoke one of the following cscope search types:
@@ -490,44 +490,44 @@ syntax on
     " To do the first type of search, hit 'CTRL-\', followed by one of the
     " cscope search types above (s,g,c,t,e,f,i,d).  The result of your cscope
     " search will be displayed in the current window.  You can use CTRL-T to
-    " go back to where you were before the search.  
+    " go back to where you were before the search.
     "
     " }}}}
 
-    " {{{{ No split 
-    nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>  
-    nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>  
-    nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>  
-    nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>  
-    nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>  
-    nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>  
+    " {{{{ No split
+    nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
     nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-    nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>  
+    nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
     " }}}}
 
 
-    " {{{{ Horizontal split 
+    " {{{{ Horizontal split
     " Using 'CTRL-spacebar' (intepreted as CTRL-@ by vim) then a search type
     " makes the vim window split horizontally, with search result displayed in
     " the new window.
     "
     " (Note: earlier versions of vim may not have the :scs command, but it
     " can be simulated roughly via:
-    "    nmap <C-@>s <C-W><C-S> :cs find s <C-R>=expand("<cword>")<CR><CR>  
+    "    nmap <C-@>s <C-W><C-S> :cs find s <C-R>=expand("<cword>")<CR><CR>
 
-    nmap <C-@>s :scs find s <C-R>=expand("<cword>")<CR><CR> 
-    nmap <C-@>g :scs find g <C-R>=expand("<cword>")<CR><CR> 
-    nmap <C-@>c :scs find c <C-R>=expand("<cword>")<CR><CR> 
-    nmap <C-@>t :scs find t <C-R>=expand("<cword>")<CR><CR> 
-    nmap <C-@>e :scs find e <C-R>=expand("<cword>")<CR><CR> 
-    nmap <C-@>f :scs find f <C-R>=expand("<cfile>")<CR><CR> 
-    nmap <C-@>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>   
-    nmap <C-@>d :scs find d <C-R>=expand("<cword>")<CR><CR> 
+    nmap <C-@>s :scs find s <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@>g :scs find g <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@>c :scs find c <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@>t :scs find t <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@>e :scs find e <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
+    nmap <C-@>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    nmap <C-@>d :scs find d <C-R>=expand("<cword>")<CR><CR>
     " }}}}
 
 
-    " {{{{ Vertical  split 
-    " Hitting CTRL-space *twice* before the search type does a vertical 
+    " {{{{ Vertical  split
+    " Hitting CTRL-space *twice* before the search type does a vertical
     " split instead of a horizontal one (vim 6 and up only)
     "
     " (Note: you may wish to put a 'set splitright' in your .vimrc
@@ -538,8 +538,8 @@ syntax on
     nmap <C-@><C-@>c :vert scs find c <C-R>=expand("<cword>")<CR><CR>
     nmap <C-@><C-@>t :vert scs find t <C-R>=expand("<cword>")<CR><CR>
     nmap <C-@><C-@>e :vert scs find e <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@><C-@>f :vert scs find f <C-R>=expand("<cfile>")<CR><CR>   
-    nmap <C-@><C-@>i :vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR> 
+    nmap <C-@><C-@>f :vert scs find f <C-R>=expand("<cfile>")<CR><CR>
+    nmap <C-@><C-@>i :vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
     nmap <C-@><C-@>d :vert scs find d <C-R>=expand("<cword>")<CR><CR>
     " }}}}
 " }}}
