@@ -157,6 +157,11 @@
     Plug 'git@github.com:autowitch/hive.vim'
 " }}}}
 
+" Docker syntax {{{{
+    Plug 'git@github.com:docker/docker',  {'rtp' : '/contrib/syntax/vim'}
+" }}}}
+
+
 call plug#end()
 " }}}
 
