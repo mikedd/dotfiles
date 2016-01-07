@@ -153,6 +153,10 @@
     Plug 'git@github.com:chikamichi/mediawiki.vim'
 " }}}}
 
+" Hive syntax {{{{
+    Plug 'git@github.com:autowitch/hive.vim'
+" }}}}
+
 call plug#end()
 " }}}
 
