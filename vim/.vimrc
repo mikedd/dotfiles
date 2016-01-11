@@ -161,6 +161,10 @@
     Plug 'git@github.com:docker/docker',  {'rtp' : '/contrib/syntax/vim'}
 " }}}}
 
+" Json syntax {{{{
+    Plug 'git@github.com:elzr/vim-json'
+" }}}}
+
 
 call plug#end()
 " }}}
