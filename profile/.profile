@@ -25,7 +25,13 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home
 # VI plz
 set -o vi
 
+# And VIM
+export EDITOR=vim
+
 # check target certs
 # If you ever lose them, uncomment this line. It does not need to run every time you log in.
 # . ~/.target_certs.sh
 
+# Docker env
+DOCKER_ENV_NAME=default
+eval "$(docker-machine env ${DOCKER_ENV_NAME})"
