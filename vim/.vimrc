@@ -165,6 +165,11 @@
     Plug 'git@github.com:elzr/vim-json'
 " }}}}
 
+" PlantUml syntax {{{{
+    Plug 'git@github.com:aklt/plantuml-syntax'
+    let g:plantuml_executable_script='java -jar /usr/local/Cellar/plantuml/8031/plantuml.8031.jar'
+" }}}}
+
 
 call plug#end()
 " }}}
@@ -424,6 +429,9 @@ syntax on
     autocmd BufNewFile,BufRead Gemfile set filetype=ruby
     autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
     autocmd BufNewFile,BufRead Berksfile set filetype=ruby
+
+    "{{{{ plantuml }}}}
+    autocmd Filetype plantuml let s:makecommand='java -jar /usr/local/Cellar/plantuml/8031/plantuml.8031.jar %'
 
 "}}}
 " GVIM {{{
