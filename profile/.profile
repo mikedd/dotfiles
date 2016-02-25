@@ -19,6 +19,7 @@ alias ls='ls -G'
 
 # Keep your homebrew token out of the repository you idiot...
 . ${HOME}/.homebrew.token.sh
+. ${HOME}/.drone.token.sh
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home
 
