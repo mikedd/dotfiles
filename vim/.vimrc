@@ -184,11 +184,7 @@ filetype plugin indent on
 syntax on
 
     " Copy Pasta {{{{
-        if has('x') && has ('gui') " on linux use + register for copy/paste
-            set clipboard=unnamedplus
-        elseif has('gui') " Windows and Mac use *
-            set clipboard=unnamed
-        endif
+        set clipboard=unnamed       "Share clipboard with OSX
     "}}}}
 
     set showmode                    " Display the current mode
