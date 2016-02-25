@@ -168,6 +168,11 @@
 " PlantUml syntax {{{{
     Plug 'git@github.com:aklt/plantuml-syntax'
     let g:plantuml_executable_script='java -jar /usr/local/Cellar/plantuml/8031/plantuml.8031.jar'
+
+" NGINX syntax {{{{
+    " This script is maintained in NGXIN under the contrib directory 
+    " nginx uses hg though so this is likely out of date
+    Plug 'git@github.com:evanmiller/nginx-vim-syntax'
 " }}}}
 
 
