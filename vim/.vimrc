@@ -403,6 +403,8 @@ syntax on
     " Filetypes
     " gradle syntax highlighting
     au BufNewFile,BufRead *.gradle set filetype=groovy
+    " hive ql highlighting
+    au BufNewFile,BufRead *.hql set filetype=sql
 
     " Remove trailing whitespace
     autocmd FileType c,cpp,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e"
