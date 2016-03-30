@@ -149,6 +149,11 @@
     Plug 'git@github.com:vadv/vim-chef'
 " }}}}
 
+
+" Scala syntax {{{{
+    Plug 'git@github.com:derekwyatt/vim-scala'
+" }}}}
+
 " MediaWiki syntax {{{{
     Plug 'git@github.com:chikamichi/mediawiki.vim'
 " }}}}
