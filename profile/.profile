@@ -36,3 +36,8 @@ export EDITOR=vim
 # Docker env
 DOCKER_ENV_NAME=default
 eval "$(docker-machine env ${DOCKER_ENV_NAME})"
+
+# Spark environment variables for findspark
+export SPARK_LOCAL_IP=127.0.0.1
+export SPARK_HOME=/usr/local/Cellar/apache-spark/1.6.0/libexec
+
