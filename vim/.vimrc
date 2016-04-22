@@ -408,6 +408,8 @@ syntax on
     au BufNewFile,BufRead *.gradle set filetype=groovy
     " hive ql highlighting
     au BufNewFile,BufRead *.hql set filetype=sql
+    " markdown  highlighting
+    au BufNewFile,BufRead *.md set filetype=markdown
 
     " Remove trailing whitespace
     autocmd FileType c,cpp,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e"
