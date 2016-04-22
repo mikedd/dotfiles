@@ -43,3 +43,5 @@ export SPARK_HOME=/usr/local/Cellar/apache-spark/1.6.0/libexec
 
 # Hadoop
 export HADOOP_HOME=/usr/local/share/hadoop-2.7.1
+
+. ${HOME}/target_certs.sh
