@@ -75,6 +75,8 @@
 " }}}}
 " Syntastic {{{{
     Plug 'git@github.com:scrooloose/syntastic'
+    " Can't trust fsc to work properly
+    let g:syntastic_mode_map = { 'passive_filetypes': ['scala'] }
 " }}}}
 " Tagbar {{{{
     Plug 'git@github.com:majutsushi/tagbar'
