@@ -154,6 +154,9 @@
     Plug 'git@github.com:vadv/vim-chef'
 " }}}}
 
+" Cassandra CQL syntax {{{{
+    Plug 'git@github.com:elubow/cql-vim'
+" }}}}
 
 " Scala syntax {{{{
     Plug 'git@github.com:derekwyatt/vim-scala'
