@@ -108,3 +108,8 @@ bindkey '^r' history-incremental-search-backward
 export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
 
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/z001rw6/Downloads/google-cloud-sdk/path.zsh.inc'
+
+# The next line enables shell command completion for gcloud.
+source '/Users/z001rw6/Downloads/google-cloud-sdk/completion.zsh.inc'
