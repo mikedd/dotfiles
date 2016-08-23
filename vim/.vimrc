@@ -79,7 +79,7 @@
     let g:syntastic_mode_map = { 'passive_filetypes': ['scala'] }
 " }}}}
 " Tagbar {{{{
-    Plug 'git@github.com:majutsushi/tagbar'
+    "Plug 'git@github.com:majutsushi/tagbar'
 " }}}}
 " Delimitmate {{{{
     Plug 'git@github.com:vim-scripts/delimitMate.vim'
