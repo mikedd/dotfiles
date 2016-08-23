@@ -113,3 +113,6 @@ source '/Users/z001rw6/Downloads/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables shell command completion for gcloud.
 source '/Users/z001rw6/Downloads/google-cloud-sdk/completion.zsh.inc'
+
+alias osa="source ~/python_openstack/bin/activate"
+alias osd="source ~/PRD-Enterprise-Forecasting-openrc.sh"
