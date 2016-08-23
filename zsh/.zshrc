@@ -103,3 +103,8 @@ bindkey '^w' backward-kill-word
 
 # crtl-r history
 bindkey '^r' history-incremental-search-backward
+
+# Node version manager
+export NVM_DIR="$HOME/.nvm"
+. "$(brew --prefix nvm)/nvm.sh"
+
