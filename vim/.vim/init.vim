@@ -111,6 +111,11 @@
         nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
         vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 " }}}}
+" Rainbow parens {{{{
+    Plug 'luochen1990/rainbow'
+    let g:rainbow_active = 1
+" }}}}
+
 call plug#end()
 " }}}
 " General Configuration {{{
