@@ -21,7 +21,7 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-export JAVA_HOME=/home/mikedd/apps/jdk1.7.0_09
+export JAVA_HOME=/opt/java/jdk1.8.0_60
 
 
 GRADLE_VERSION=1.8
@@ -41,3 +41,7 @@ export CATALINA_HOME=/home/mikedd/dev/apache-tomcat-7.0.47/
 export MINERVA_HOME=/home/mikedd/dev/minerva_home/
 
 export TERM=xterm-256color
+
+## Spark settings
+export SPARK_HOME=/home/mikedd/Downloads/spark-1.6.0/
+export PYTHONPATH=${SPARK_HOME}/python:${PYTHONPATH}
