@@ -111,6 +111,9 @@
         nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
         vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 " }}}}
+" Json syntax   {{{{
+    Plug 'elzr/vim-json'
+" }}}}
 " Rainbow parens {{{{
     Plug 'luochen1990/rainbow'
     let g:rainbow_active = 1
