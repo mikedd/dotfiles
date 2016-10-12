@@ -331,9 +331,6 @@ syntax on
     call InitializeDirectories()
 " }}}
 " Development {{{
-    " set ctags
-    set tags=$HOME/.tags,$HOME/athena.tags
-
     " set completion
     set complete=.,w,b,u,t,i
 
