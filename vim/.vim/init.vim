@@ -359,25 +359,4 @@ syntax on
     autocmd Filetype javascript setlocal expandtab          "Use spaces instead of tabs"
 
 "}}}
-" GVIM {{{
-    " GVIM- (here instead of .gvimrc)
-    if has('gui_running')
-        set guioptions-=T           " Remove the toolbar
-        set guioptions-=L           " Remove the leftbar
-        set guioptions-=l           " Remove the ?
-        set guioptions-=r           " Remove the ?
-        set guioptions-=R           " Remove the ?
-        set lines=40                " 40 lines of text instead of 24
-        if has("gui_gtk2")
-            set guifont=Inconsolata\ Regular\ 11,Consolas\ Regular\ 16,Courier\ New\ Regular\ 18
-        elseif has("gui_mac")
-            set guifont=Consolas\ Regular:h16,Courier\ New\ Regular:h18
-        elseif has("gui_win32")
-            set guifont=Consolas:h10,Courier_New:h10
-        else
-            set guifont=Inconsolata\ Regular\ 11,Consolas\ Regular\ 16,Courier\ New\ Regular\ 18
-        endif
-    else
-        set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
-    endif
-" }}}
+
