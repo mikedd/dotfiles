@@ -127,8 +127,15 @@
         vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 "}}}}
 " CtrlP {{{{"
-    Plug 'git@github.com:kien/ctrlp.vim'
-        let g:ctrlp_map = '<c-t>'
+    "Plug 'git@github.com:kien/ctrlp.vim'
+        "let g:ctrlp_map = '<c-t>'
+" }}}}
+" FZF {{{{"
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+        "let g:ctrlp_map = '<c-t>'
+        let $FZF_DEFAULT_COMMAND = 'ag -l '
+        nnoremap <silent> <leader>t :FZF<CR>
+        nnoremap <silent> <c-p> :FZF<CR>
 " }}}}
 " ZenCoding for fast HTML completions {{{{
     Plug 'git@github.com:mattn/emmet-vim'
