@@ -80,7 +80,7 @@
     let g:syntastic_mode_map = { 'passive_filetypes': ['scala'] }
     " Eslint autodetection on OSX is muddy.. Try eslint_d.
     let g:syntastic_javascript_checkers = [ 'eslint_d', 'eslint' ]
-    let g:syntastic_javascript_eslint_exec = 'eslint_d'
+    let g:syntastic_javascript_eslint_exec = '/Users/z001rw6/.nvm/versions/node/v6.9.4/bin/eslint_d'
 " }}}}
 " Tagbar {{{{
     "Plug 'git@github.com:majutsushi/tagbar'
