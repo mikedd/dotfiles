@@ -179,6 +179,21 @@
     Plug 'git@github.com:luochen1990/rainbow'
     let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 " }}}}
+" DirDiff {{{{
+    Plug 'git@github.com:will133/vim-dirdiff'
+"}}}}}
+" EditorConfig {{{{
+    Plug 'git@github.com:editorconfig/editorconfig-vim'
+    let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+    let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
+    let g:EditorConfig_code_mode = 'external_command'
+"}}}}}
+
+" Markdown preview {{{{
+    Plug 'git@github.com:JamshedVesuna/vim-markdown-preview'
+    let vim_markdown_preview_github=1
+    let vim_markdown_preview_hotkey='<C-m>'
+"}}}}}
 
 call plug#end()
 " }}}
