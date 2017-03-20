@@ -22,10 +22,14 @@
 
     "  Key (re)Mappings
     let mapleader = ','
-    " Search {{{{
-        let s:has_ag = executable('ag')
-        let s:has_ack = executable('ack')
-    " }}}}
+
+    " Get out of insert mode
+    :imap  jj <Esc>
+
+" Search {{{{
+    let s:has_ag = executable('ag')
+    let s:has_ack = executable('ack')
+" }}}}
 
 " }}}
 " Vim Plug plugin list {{{
