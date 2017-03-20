@@ -59,5 +59,9 @@ fi
       #export LESSCOLORIZER='pygmentize'
 #fi
 
+
+## Secrets directory - from Dave
+export CONFIG_SECRETS=${HOME}/work/devops/efs/secrets
+
 # kube complete
 source <(kubectl completion zsh)  # setup autocomplete in zsh
