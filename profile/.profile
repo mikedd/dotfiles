@@ -40,4 +40,5 @@ export SPARK_HOME=/usr/local/Cellar/apache-spark/1.6.1/libexec
 # Hadoop
 export HADOOP_HOME=/usr/local/share/hadoop-2.7.1
 
-. ${HOME}/target_certs.sh
+#. ${HOME}/target_certs.sh
+export SSL_CERT_FILE=${HOME}/tgt-ca-bundle.crt
