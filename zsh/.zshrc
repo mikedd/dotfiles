@@ -61,6 +61,9 @@ fi
 
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export OLD_PATH=${PATH}
+export PATH=${OLD_PATH}:${HOME}/bin
+
 ## Secrets directory - from Dave
 export CONFIG_SECRETS=${HOME}/work/devops/efs/secrets
 
