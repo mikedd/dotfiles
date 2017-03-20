@@ -33,3 +33,8 @@ export NVM_DIR="$HOME/.nvm"
 
 alias osa="source ~/python_openstack/bin/activate"
 alias osd="source ~/PRD-Enterprise-Forecasting-openrc.sh"
+
+alias kk="kubectl"
+
+# kube complete
+source <(kubectl completion zsh)  # setup autocomplete in zsh
