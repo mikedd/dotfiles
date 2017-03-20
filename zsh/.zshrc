@@ -3,16 +3,13 @@ export ZSH=/Users/z001rw6/.oh-my-zsh
 
 ZSH_THEME="mikedd"
 
-plugins=(git, docker)
+plugins=(git, docker, vi-mode)
 
 # User configuration
 
 export PATH="/opt/chefdk/bin:/Users/z001rw6/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/embedded/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/chefdk/bin:/Users/z001rw6/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/embedded/bin"
 
 source $ZSH/oh-my-zsh.sh
-
-## VI mode FTW
-bindkey -v
 
 # Killing the lag
 # Sets the ESC key delay to 0.1 seconds..
