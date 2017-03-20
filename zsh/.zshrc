@@ -59,6 +59,7 @@ fi
       #export LESSCOLORIZER='pygmentize'
 #fi
 
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ## Secrets directory - from Dave
 export CONFIG_SECRETS=${HOME}/work/devops/efs/secrets
