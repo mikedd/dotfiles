@@ -150,9 +150,6 @@
     Plug 'git@github.com:bling/vim-airline'
     "Plug 'git@github.com:bling/vim-bufferline'
 " }}}}
-" Vinegar netrw enhancement {{{{
-    Plug 'git@github.com:tpope/vim-vinegar'
-" }}}}
 " SpeedDating  - needed by some other plugin? {{{{
     Plug 'git@github.com:tpope/vim-speeddating'
 " }}}}
