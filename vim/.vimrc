@@ -103,7 +103,7 @@
     Plug 'git@github.com:vim-scripts/dbext.vim'
     "let g:dbext_default_profile_ASA_ODBC = 'type=ODBC:user=dba:passwd=sql:dsnname=SQL Anywhere 10 Demo'
     " Does not work, not a valid database type
-    let g:dbext_default_profile_EDW = 'type=ODBC:user=z001rw6:dsnname=EDW'
+    source $HOME/.psql.vim 
 " }}}}
 " Ag - quick grep {{{{
     Plug 'git@github.com:rking/ag.vim'
