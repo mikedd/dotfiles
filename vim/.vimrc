@@ -357,9 +357,9 @@ syntax on
     autocmd Filetype javascript setlocal expandtab          "Use spaces instead of tabs"
 
     "{{{{ Java}}}}
-    autocmd Filetype java setlocal tabstop=2          "Tab width = 2"
-    autocmd Filetype java setlocal shiftwidth=2       "Auto indent = 2"
-    autocmd Filetype java setlocal softtabstop=2      "Backspace will delete two spaces for auto-indenting"
+    autocmd Filetype java setlocal tabstop=4          "Tab width = 2"
+    autocmd Filetype java setlocal shiftwidth=4       "Auto indent = 2"
+    autocmd Filetype java setlocal softtabstop=4      "Backspace will delete two spaces for auto-indenting"
     autocmd Filetype java setlocal expandtab          "Use spaces instead of tabs"
 
     "{{{{ Ruby}}}}
