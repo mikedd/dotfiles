@@ -42,15 +42,12 @@
         nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
         nnoremap <silent> <leader>gg :GitGutterToggle<CR>
 " }}}}
-
 " Surround {{{{
     Plug 'tpope/vim-surround'
 " }}}}
-
 "GitGutter {{{{
     Plug 'airblade/vim-gitgutter'
 " }}}}
-
 " Molokai {{{{
     Plug 'tomasr/molokai'
 " }}}}
@@ -118,6 +115,10 @@
     Plug 'luochen1990/rainbow'
     let g:rainbow_active = 1
 " }}}}
+" fuzzy search {{{{
+    Plug 'junegunn/fzf'
+" }}}}
+
 
 call plug#end()
 " }}}
