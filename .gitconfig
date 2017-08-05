@@ -3,3 +3,6 @@
 	name = mikedd
 [push]
 	default = simple
+[alias]
+	co = checkout
+	stat = status
