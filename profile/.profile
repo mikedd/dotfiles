@@ -28,3 +28,6 @@ export PYTHONPATH=${SPARK_HOME}/python:${PYTHONPATH}
 alias pbcopy='xclip -selection cliboard'
 alias pbpaste='xclip -selection cliboard -o'
 
+# Neovim
+export EDITOR=nvim
+
