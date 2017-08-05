@@ -1,18 +1,31 @@
+orange=202
+
+typeset -A context
+context=(
+    tfm-test-ttc green
+    tfm-test-tte green
+    tfm-stage-ttc yellow
+    tfm-stage-tte yellow
+    tfm-prod-ttc red
+    tfm-prod-tte red
+    efs-ttc-dev  green
+    efs-tte-dev  green
+    efs-ttc-stage  yellow
+    efs-tte-stage  yellow
+    efs-ttc  magenta
+    efs-tte  magenta
+)
+
 k8s_prompt() {
     local ctx
     local color
     ctx=$(kubectl config current-context)
-    if [[ ${ctx} == *"dev"* ]]; then
-        color='green'
-    elif [[ ${ctx} == *"stage"* ]]; then
-        color='yellow'
-    else 
-        color='magenta'
-    fi
 
-    print -n %{$fg[${color}]%}${ctx}%{$reset_color%} 
+    color=$context[$ctx]
 
+    print -n %{$fg[${color}]%}${ctx}%{$reset_color%}
 }
+
 
 local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 
