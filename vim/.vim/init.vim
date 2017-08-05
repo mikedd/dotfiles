@@ -49,7 +49,10 @@
     Plug 'airblade/vim-gitgutter'
 " }}}}
 " Molokai {{{{
-    Plug 'tomasr/molokai'
+    Plug 'git@github.com:tomasr/molokai'
+" }}}}
+" Vim Colorschemes {{{{
+    Plug 'git@github.com:flazz/vim-colorschemes'
 " }}}}
 " Tmux navigator {{{{
     Plug 'christoomey/vim-tmux-navigator'
