@@ -144,8 +144,9 @@
     Plug 'luochen1990/rainbow'
     let g:rainbow_active = 1
 " }}}}
-" fuzzy search {{{{
-    Plug 'junegunn/fzf'
+" {{{{ airline and bufferline
+    Plug 'git@github.com:bling/vim-airline'
+    "Plug 'git@github.com:bling/vim-bufferline'
 " }}}}
 
 
