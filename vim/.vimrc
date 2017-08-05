@@ -54,6 +54,9 @@
 " Molokai {{{{
     Plug 'git@github.com:tomasr/molokai'
 " }}}}
+" Vim Colorschemes {{{{
+    Plug 'git@github.com:flazz/vim-colorschemes'
+" }}}}
 " Tmux navigator {{{{
     Plug 'git@github.com:christoomey/vim-tmux-navigator'
         " Helps with background color in tmux
