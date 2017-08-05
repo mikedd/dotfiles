@@ -134,6 +134,12 @@
 " Json syntax {{{{
     Plug 'git@github.com:elzr/vim-json'
 " }}}}
+" EditorConfig {{{{
+    Plug 'git@github.com:editorconfig/editorconfig-vim'
+    let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+    let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
+    let g:EditorConfig_code_mode = 'external_command'
+"}}}}}
 " Rainbow parens {{{{
     Plug 'luochen1990/rainbow'
     let g:rainbow_active = 1
