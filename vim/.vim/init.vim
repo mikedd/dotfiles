@@ -124,8 +124,15 @@
     "Plug 'git@github.com:kien/ctrlp.vim'
         "let g:ctrlp_map = '<c-t>'
 " }}}}
-" Json syntax   {{{{
-    Plug 'elzr/vim-json'
+" FZF {{{{"
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+        "let g:ctrlp_map = '<c-t>'
+        let $FZF_DEFAULT_COMMAND = 'ag -l '
+        nnoremap <silent> <leader>t :FZF<CR>
+        nnoremap <silent> <c-p> :FZF<CR>
+" }}}}
+" Json syntax {{{{
+    Plug 'git@github.com:elzr/vim-json'
 " }}}}
 " Rainbow parens {{{{
     Plug 'luochen1990/rainbow'
