@@ -94,8 +94,17 @@
     Plug 'vim-scripts/dbext.vim'
 " }}}}
 " Ag - quick grep {{{{
-    Plug 'rking/ag.vim'
-" }}}}
+    "Plug 'git@github.com:rking/ag.vim'
+" }}}
+" Ack - actually Ag in disguise{{{{
+    Plug 'git@github.com:mileszs/ack.vim'
+    if executable('ag')
+        let g:ackprg = 'ag --vimgrep'
+    endif
+    cnoreabbrev Ack Ack!
+    cnoreabbrev Ag Ack!
+    "nnoremap <Leader>a :Ack!<Space>
+" }}}
 " Tabularize {{{{
     Plug 'godlygeek/tabular'
         nmap <Leader>a& :Tabularize /&<CR>
