@@ -148,6 +148,21 @@
     Plug 'git@github.com:bling/vim-airline'
     "Plug 'git@github.com:bling/vim-bufferline'
 " }}}}
+" Java complete 2 {{{{
+    Plug 'git@github.com:artur-shaik/vim-javacomplete2'
+    let g:JavaComplete_ImportSortType='packageName'
+    " Google Style import order
+    let g:JavaComplete_ImportOrder = ['com.google.', '*', 'java.', 'javax.']
+    autocmd FileType java setlocal omnifunc=javacomplete#Complete
+    nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+    imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+    nmap <F5> <Plug>(JavaComplete-Imports-Add)
+    imap <F5> <Plug>(JavaComplete-Imports-Add)
+    nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
+    imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
+    nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
+    imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
+"}}}}}
 
 
 call plug#end()
