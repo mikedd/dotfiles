@@ -119,6 +119,10 @@
         vmap <Leader>a, :Tabularize /,<CR>
         nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
         vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+"}}}}
+" CtrlP {{{{"
+    "Plug 'git@github.com:kien/ctrlp.vim'
+        "let g:ctrlp_map = '<c-t>'
 " }}}}
 " Json syntax   {{{{
     Plug 'elzr/vim-json'
