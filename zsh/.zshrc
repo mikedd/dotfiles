@@ -3,11 +3,11 @@ export ZSH=/Users/z001rw6/.oh-my-zsh
 
 ZSH_THEME="mikedd"
 
-plugins=(git, docker, vi-mode)
+plugins=(git vi-mode docker)
 
 # User configuration
 
-export PATH="/opt/chefdk/bin:/Users/z001rw6/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/embedded/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/chefdk/bin:/Users/z001rw6/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/embedded/bin"
+export PATH="/opt/chefdk/bin:/Users/z001rw6/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/embedded/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/chefdk/bin:/Users/z001rw6/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/embedded/bin:/usr/local/go/bin"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -18,7 +18,7 @@ export KEYTIMEOUT=1
 bindkey '^P' up-history
 bindkey '^N' down-history
 
-# Backspace and ^h working after rturning from command mode
+# Backspace and ^h working after returning from command mode
 bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 
@@ -30,9 +30,6 @@ bindkey '^r' history-incremental-search-backward
 # Node version manager
 export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
-
-alias osa="source ~/python_openstack/bin/activate"
-alias osd="source ~/PRD-Enterprise-Forecasting-openrc.sh"
 
 alias kk="kubectl"
 
@@ -61,11 +58,13 @@ fi
 
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export OLD_PATH=${PATH}
+OLD_PATH=${PATH}
 export PATH=${OLD_PATH}:${HOME}/bin
 
 ## Secrets directory - from Dave
-export CONFIG_SECRETS=${HOME}/work/devops/efs/secrets
+export CONFIG_SECRETS=${HOME}/work/ima/kubernetes/secrets
 
 # kube complete
 source <(kubectl completion zsh)  # setup autocomplete in zsh
+
+export PATH="$HOME/.yarn/bin:$PATH"
