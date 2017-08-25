@@ -33,8 +33,5 @@ export EDITOR=vim
 # If you ever lose them, uncomment this line. It does not need to run every time you log in.
 # . ~/.target_certs.sh
 
-# Hadoop
-export HADOOP_HOME=/usr/local/share/hadoop-2.7.1
-
 #. ${HOME}/target_certs.sh
 export SSL_CERT_FILE=${HOME}/tgt-ca-bundle.crt
