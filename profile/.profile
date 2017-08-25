@@ -33,10 +33,6 @@ export EDITOR=vim
 # If you ever lose them, uncomment this line. It does not need to run every time you log in.
 # . ~/.target_certs.sh
 
-# Spark environment variables for findspark
-export SPARK_LOCAL_IP=127.0.0.1
-export SPARK_HOME=/usr/local/Cellar/apache-spark/1.6.1/libexec
-
 # Hadoop
 export HADOOP_HOME=/usr/local/share/hadoop-2.7.1
 
