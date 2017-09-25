@@ -362,6 +362,13 @@ syntax on
     autocmd Filetype java setlocal softtabstop=4      "Backspace will delete two spaces for auto-indenting"
     autocmd Filetype java setlocal expandtab          "Use spaces instead of tabs"
 
+    "{{{{ xml}}}}
+    autocmd Filetype xml setlocal foldmethod=syntax  "Makeit fold"
+    autocmd Filetype xml setlocal tabstop=4          "Tab width = 2"
+    autocmd Filetype xml setlocal shiftwidth=4       "Auto indent = 2"
+    autocmd Filetype xml setlocal softtabstop=4      "Backspace will delete two spaces for auto-indenting"
+    autocmd Filetype xml setlocal expandtab          "Use spaces instead of tabs"
+
     "{{{{ Ruby}}}}
     autocmd Filetype ruby  setlocal tabstop=2          "Tab width = 2"
     autocmd Filetype ruby  setlocal shiftwidth=2       "Auto indent = 2"
