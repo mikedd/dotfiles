@@ -68,3 +68,9 @@ export CONFIG_SECRETS=${HOME}/work/ima/kubernetes/secrets
 source <(kubectl completion zsh)  # setup autocomplete in zsh
 
 export PATH="$HOME/.yarn/bin:$PATH"
+
+##############################################################################
+# Enable auto loading environment variables
+##############################################################################
+eval "$(direnv hook zsh)"
+
