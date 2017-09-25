@@ -94,7 +94,7 @@
         let delimitMate_smart_matchpairs=1
 " }}}}
 " YouCompleteMe {{{{
-    "Plug 'git@github.com:Valloric/YouCompleteMe', { 'do': './install.sh' }
+    Plug 'git@github.com:Valloric/YouCompleteMe', { 'do': './install.sh' }
 " }}}}
 " Autotags {{{{
     Plug 'git@github.com:basilgor/vim-autotags'
