@@ -26,6 +26,14 @@ k8s_prompt() {
     print -n %{$fg[${color}]%}${ctx}%{$reset_color%}
 }
 
+show_virtual_env(){
+    if [ -n "$VIRTUAL_ENV" ]
+    then
+        venv=$(basename $VIRTUAL_ENV)
+        print -n "%{$fg[magenta]%}(${venv})%{$reset_color%} "
+    fi
+}
+
 
 local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 
@@ -34,4 +42,4 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 
-PROMPT='${ret_status} %{$fg[green]%}${PWD/#$HOME/~}%{$reset_color%} $(k8s_prompt) $(git_prompt_info) '
+PROMPT='${ret_status} $(show_virtual_env)%{$fg[green]%}${PWD/#$HOME/~}%{$reset_color%} $(k8s_prompt) $(git_prompt_info) '
