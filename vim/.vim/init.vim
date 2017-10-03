@@ -50,9 +50,13 @@
 " }}}}
 " Molokai {{{{
     Plug 'git@github.com:tomasr/molokai'
+    let g:molokai_original=1
 " }}}}
-" Vim Colorschemes {{{{
-    Plug 'git@github.com:flazz/vim-colorschemes'
+" Molokai-dark {{{{
+    Plug 'git@github.com:pR0Ps/molokai-dark'
+" }}}}
+" Dracula {{{{
+    Plug 'git@github.com:dracula/vim'
 " }}}}
 " Tmux navigator {{{{
     Plug 'christoomey/vim-tmux-navigator'
