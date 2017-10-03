@@ -54,3 +54,7 @@ fi
 OLD_PATH=${PATH}
 export PATH=${OLD_PATH}:${HOME}/bin
 
+alias tmux='tmux -2'
+
+## sharing history is a giant pain in the ass
+unsetopt share_history
