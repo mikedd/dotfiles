@@ -28,6 +28,9 @@ export PYTHONPATH=${SPARK_HOME}/python:${PYTHONPATH}
 alias pbcopy='xclip -selection cliboard'
 alias pbpaste='xclip -selection cliboard -o'
 
+# Force 256 color mode.. 
+alias tmux='tmux -2'
+
 # Neovim
 export EDITOR=nvim
 
