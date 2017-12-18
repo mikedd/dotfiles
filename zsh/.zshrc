@@ -3,7 +3,7 @@ export ZSH=${HOME}/.oh-my-zsh
 
 ZSH_THEME="mikedd"
 
-plugins=(git vi-mode docker)
+plugins=(git vi-mode)
 
 # User configuration
 
@@ -55,6 +55,8 @@ OLD_PATH=${PATH}
 export PATH=${OLD_PATH}:${HOME}/bin
 
 alias tmux='tmux -2'
+
+eval "$(direnv hook zsh)"
 
 ## sharing history is a giant pain in the ass
 unsetopt share_history
