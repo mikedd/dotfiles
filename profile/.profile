@@ -19,7 +19,6 @@ export PATH=${JAVA_HOME}/bin:${PATH}:${GRADLE_HOME}/bin:${GROOVY_HOME}/bin:${MAV
 # ZFA setup
 export CATALINA_HOME=/home/mikedd/dev/apache-tomcat-7.0.47/
 
-
 ## Spark settings
 export SPARK_HOME=/home/mikedd/Downloads/spark-1.6.0/
 export PYTHONPATH=${SPARK_HOME}/python:${PYTHONPATH}
@@ -34,3 +33,5 @@ alias tmux='tmux -2'
 # Neovim
 export EDITOR=nvim
 
+# FZF
+export PATH=${PATH}:${HOME}/.fzf/bin
