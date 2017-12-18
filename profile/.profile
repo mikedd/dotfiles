@@ -24,3 +24,6 @@ export EDITOR=nvim
 
 # FZF
 export PATH=${PATH}:${HOME}/.fzf/bin
+
+## Python changed where virtualenv live (I think)
+export PATH=${PATH}:${HOME}/.local/bin
