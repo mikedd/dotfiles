@@ -28,7 +28,7 @@ k8s_prompt() {
 show_virtual_env() {
     if [ -n "${VIRTUAL_ENV}" ]
     then
-        print -n "%{$fg[cyan]%}\($(basename ${VIRTUAL_ENV})%{$reset_color%}\) "
+        print -n "%{$fg[cyan]%}\($(basename ${VIRTUAL_ENV})\)%{$reset_color%} "
         #echo "($(basename ${VIRTUAL_ENV}))"
     fi
 }
