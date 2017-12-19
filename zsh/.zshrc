@@ -60,3 +60,6 @@ eval "$(direnv hook zsh)"
 
 ## sharing history is a giant pain in the ass
 unsetopt share_history
+
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
