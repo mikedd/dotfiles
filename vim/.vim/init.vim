@@ -292,6 +292,9 @@ syntax on
     "No Modula for me - just markdown please
     au BufNewFile,BufRead *.md set filetype=markdown
 
+    " Oh my zsh themes
+    au BufNewFile,BufRead *.zsh-theme set filetype=zsh
+
     " Remove trailing whitespace
     autocmd FileType c,cpp,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e"
     nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
