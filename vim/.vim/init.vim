@@ -243,7 +243,6 @@ syntax on
     " set it to the first line when editing a git commit message
     au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 "}}}
-
 " Initialize directories {{{
 " =========================================================================================
 " Functions (from SPF13)
@@ -296,7 +295,7 @@ syntax on
     au BufNewFile,BufRead *.zsh-theme set filetype=zsh
 
     " Remove trailing whitespace
-    autocmd FileType c,cpp,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e"
+    autocmd FileType c,cpp,javascript,json,css autocmd BufWritePre <buffer> :%s/\s\+$//e"
     nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
     "Tidy yo XML
