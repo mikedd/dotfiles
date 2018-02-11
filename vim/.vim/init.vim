@@ -5,7 +5,7 @@
     set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
     let g:rehash256 = 1
 
-    " Windows compatibility {{{{
+    " Windows compatibility {{{
     if !(has('win16') || has('win32') || has('win64'))
         set shell=/bin/sh
     endif
@@ -15,23 +15,22 @@
     endif
     " backspace doesn't work on windows without doing this
     set bs=2
-    " }}}}
+    " }}}
 
     " disable the bells
     set noeb vb t_vb=
 
     "  Key (re)Mappings
     let mapleader = ','
-    " Search {{{{
+    " Search {{{
         let s:has_ag = executable('ag')
         let s:has_ack = executable('ack')
-    " }}}}
+    " }}}
 
 " }}}
 " Vim Plug plugin list {{{
     call plug#begin('~/.vim/plugged')
-
-" Fugitive {{{{
+" Fugitive {{{
     Plug 'tpope/vim-fugitive'
         nnoremap <silent> <leader>gs :Gstatus<CR>
         nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -41,29 +40,29 @@
         nnoremap <silent> <leader>gp :Git push<CR>
         nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
         nnoremap <silent> <leader>gg :GitGutterToggle<CR>
-" }}}}
-" Surround {{{{
+" }}}
+" Surround {{{
     Plug 'tpope/vim-surround'
-" }}}}
-"GitGutter {{{{
+" }}}
+"GitGutter {{{
     Plug 'airblade/vim-gitgutter'
-" }}}}
-" Molokai {{{{
+" }}}
+" Molokai {{{
     Plug 'git@github.com:tomasr/molokai'
     let g:molokai_original=1
-" }}}}
-" Molokai-dark {{{{
+" }}}
+" Molokai-dark {{{
     Plug 'git@github.com:pR0Ps/molokai-dark'
-" }}}}
-" Dracula {{{{
+" }}}
+" Dracula {{{
     Plug 'git@github.com:dracula/vim'
-" }}}}
-" Tmux navigator {{{{
+" }}}
+" Tmux navigator {{{
     Plug 'christoomey/vim-tmux-navigator'
         " Helps with background color in tmux
         set t_ut=
-" }}}}
-" NerdTree {{{{
+" }}}
+" NerdTree {{{
     Plug 'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
         "map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
         map <leader>e :NERDTreeFind<CR>
@@ -76,31 +75,28 @@
         let NERDTreeKeepTreeInNewTab=1
         let g:nerdtree_tabs_open_on_gui_startup=0
         map <silent> <F2> :NERDTreeToggle <CR>
-" }}}}
-" NerdCommenter {{{{
+" }}}
+" NerdCommenter {{{
     Plug 'scrooloose/nerdcommenter'
-" }}}}
-" Syntastic {{{{
+" }}}
+" Syntastic {{{
     Plug 'scrooloose/syntastic'
-" }}}}
-" Delimitmate {{{{
+" }}}
+" Delimitmate {{{
     Plug 'vim-scripts/delimitMate.vim'
         let delimitMate_expand_cr = 1
         let delimitMate_smart_matchpairs=1
-" }}}}
-" JavaComplete {{{{
-    Plug 'vim-scripts/javacomplete', { 'for' : 'java' }
-" }}}}
-" OrgMode {{{{
-    Plug 'jceb/vim-orgmode', { 'for' : 'org' }
-" }}}}
-" DBExt {{{{
-    Plug 'vim-scripts/dbext.vim'
-" }}}}
-" Ag - quick grep {{{{
-    "Plug 'git@github.com:rking/ag.vim'
 " }}}
-" Ack - actually Ag in disguise{{{{
+" JavaComplete {{{
+    Plug 'vim-scripts/javacomplete', { 'for' : 'java' }
+" }}}
+" OrgMode {{{
+    Plug 'jceb/vim-orgmode', { 'for' : 'org' }
+" }}}
+" DBExt {{{
+    Plug 'vim-scripts/dbext.vim'
+" }}}
+" Ack - actually Ag in disguise{{{
     Plug 'git@github.com:mileszs/ack.vim'
     if executable('ag')
         let g:ackprg = 'ag --vimgrep'
@@ -109,7 +105,7 @@
     cnoreabbrev Ag Ack!
     "nnoremap <Leader>a :Ack!<Space>
 " }}}
-" Tabularize {{{{
+" Tabularize {{{
     Plug 'godlygeek/tabular'
         nmap <Leader>a& :Tabularize /&<CR>
         vmap <Leader>a& :Tabularize /&<CR>
@@ -123,36 +119,36 @@
         vmap <Leader>a, :Tabularize /,<CR>
         nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
         vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-"}}}}
-" CtrlP {{{{"
+"}}}
+" CtrlP {{{"
     "Plug 'git@github.com:kien/ctrlp.vim'
         "let g:ctrlp_map = '<c-t>'
-" }}}}
-" FZF {{{{"
+" }}}
+" FZF {{{"
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
         "let g:ctrlp_map = '<c-t>'
         let $FZF_DEFAULT_COMMAND = 'ag -l '
         nnoremap <silent> <leader>t :FZF<CR>
         nnoremap <silent> <c-p> :FZF<CR>
-" }}}}
-" Json syntax {{{{
+" }}}
+" Json syntax {{{
     Plug 'git@github.com:elzr/vim-json'
-" }}}}
-" EditorConfig {{{{
+" }}}
+" EditorConfig {{{
     Plug 'git@github.com:editorconfig/editorconfig-vim'
     let g:EditorConfig_exclude_patterns = ['fugitive://.*']
     let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
     let g:EditorConfig_code_mode = 'external_command'
-"}}}}}
-" Rainbow parens {{{{
+"}}}}
+" Rainbow parens {{{
     Plug 'luochen1990/rainbow'
     let g:rainbow_active = 1
-" }}}}
-" {{{{ airline and bufferline
+" }}}
+" airline and bufferline {{{
     Plug 'git@github.com:bling/vim-airline'
     "Plug 'git@github.com:bling/vim-bufferline'
-" }}}}
-" Java complete 2 {{{{
+" }}}
+" Java complete 2 {{{
     Plug 'git@github.com:artur-shaik/vim-javacomplete2'
     let g:JavaComplete_ImportSortType='packageName'
     " Google Style import order
@@ -166,18 +162,16 @@
     imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
     nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
     imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
-"}}}}}
-
-
+"}}}}
 call plug#end()
 " }}}
 " General Configuration {{{
 filetype plugin indent on
 syntax on
 
-    " Copy Pasta {{{{
+    " Copy Pasta {{{
         set clipboard=unnamedplus
-    "}}}}
+    "}}}
 
     set showmode                    " Display the current mode
     set cursorline                  " Highlight current line
@@ -309,26 +303,26 @@ syntax on
         endif
     endif
 
-    "{{{{ JavaScript}}}}
+    "{{{ JavaScript}}}
     autocmd Filetype javascript setlocal tabstop=2          "Tab width = 2"
     autocmd Filetype javascript setlocal shiftwidth=2       "Auto indent = 2"
     autocmd Filetype javascript setlocal softtabstop=2      "Backspace will delete two spaces for auto-indenting"
     autocmd Filetype javascript setlocal expandtab          "Use spaces instead of tabs"
 
-    "{{{{ Java}}}}
+    "{{{ Java}}}
     autocmd Filetype java setlocal tabstop=4          "Tab width = 2"
     autocmd Filetype java setlocal shiftwidth=4       "Auto indent = 2"
     autocmd Filetype java setlocal softtabstop=4      "Backspace will delete two spaces for auto-indenting"
     autocmd Filetype java setlocal expandtab          "Use spaces instead of tabs"
 
-    "{{{{ Yaml}}}}
+    "{{{ Yaml}}}
     autocmd Filetype yaml  setlocal tabstop=2          "Tab width = 2"
     autocmd Filetype yaml  setlocal shiftwidth=2       "Auto indent = 2"
     autocmd Filetype yaml  setlocal softtabstop=2      "Backspace will delete two spaces for auto-indenting"
     autocmd Filetype yaml  setlocal expandtab          "Use spaces instead of tabs"
 
 
-    "{{{{ plantuml }}}}
+    "{{{ plantuml }}}
     autocmd Filetype plantuml let s:makecommand='java -jar /usr/local/Cellar/plantuml/8031/plantuml.8031.jar %'
 "}}}
 
