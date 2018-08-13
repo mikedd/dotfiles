@@ -19,19 +19,22 @@ alias ls='ls -G'
 
 # Keep your homebrew token out of the repository you idiot...
 . ${HOME}/.homebrew.token.sh
-. ${HOME}/.drone.token.sh
+. ${HOME}/.drone6.token.sh
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home
 
-# VI plz
-set -o vi
-
 # And VIM
-export EDITOR=vim
+export EDITOR=nvim
 
 # check target certs
 # If you ever lose them, uncomment this line. It does not need to run every time you log in.
 # . ~/.target_certs.sh
 
-#. ${HOME}/target_certs.sh
 export SSL_CERT_FILE=${HOME}/tgt-ca-bundle.crt
+
+##
+. ${HOME}/.tfm-db.sh
+
+## Add the pem key for openstack
+# Slows down new windows in tmux
+#ssh-add ${HOME}/Desktop/supply-test.pem
