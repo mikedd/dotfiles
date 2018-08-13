@@ -54,9 +54,6 @@
 " Molokai {{{{
     Plug 'git@github.com:tomasr/molokai'
 " }}}}
-" Vim Colorschemes {{{{
-    Plug 'git@github.com:flazz/vim-colorschemes'
-" }}}}
 " Tmux navigator {{{{
     Plug 'git@github.com:christoomey/vim-tmux-navigator'
         " Helps with background color in tmux
@@ -85,9 +82,6 @@
     let g:syntastic_javascript_checkers = [ 'eslint_d', 'eslint' ]
     let g:syntastic_javascript_eslint_exec = '/Users/z001rw6/.nvm/versions/node/v6.9.4/bin/eslint_d'
 " }}}}
-" Tagbar {{{{
-    "Plug 'git@github.com:majutsushi/tagbar'
-" }}}}
 " Delimitmate {{{{
     Plug 'git@github.com:vim-scripts/delimitMate.vim'
         let delimitMate_expand_cr = 1
@@ -99,18 +93,12 @@
 " Autotags {{{{
     Plug 'git@github.com:basilgor/vim-autotags'
 " }}}}
-" OrgMode {{{{
-    Plug 'git@github.com:jceb/vim-orgmode', { 'for' : 'org' }
-" }}}}
 " DBExt {{{{
     Plug 'git@github.com:vim-scripts/dbext.vim'
     "let g:dbext_default_profile_ASA_ODBC = 'type=ODBC:user=dba:passwd=sql:dsnname=SQL Anywhere 10 Demo'
     " Does not work, not a valid database type
     source $HOME/.psql.vim 
 " }}}}
-" Ag - quick grep {{{{
-    "Plug 'git@github.com:rking/ag.vim'
-" }}}
 " Ack - actually Ag in disguise{{{{
     Plug 'git@github.com:mileszs/ack.vim'
     if executable('ag')
@@ -156,9 +144,6 @@
 " SpeedDating  - needed by some other plugin? {{{{
     Plug 'git@github.com:tpope/vim-speeddating'
 " }}}}
-" Chef syntax {{{{
-    Plug 'git@github.com:vadv/vim-chef'
-" }}}}
 " Cassandra CQL syntax {{{{
     Plug 'git@github.com:elubow/cql-vim'
 " }}}}
@@ -193,7 +178,7 @@
 "}}}}}
 " Markdown preview {{{{
     Plug 'git@github.com:JamshedVesuna/vim-markdown-preview'
-    let vim_markdown_preview_github=1
+    let vim_markdown_preview_github=0
     let vim_markdown_preview_hotkey='<C-m>'
 "}}}}}
 " Java complete 2 {{{{
@@ -211,6 +196,20 @@
     nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
     imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
 "}}}}}
+" Vim http client (REST) {{{{
+    let g:http_client_verify_ssl=0
+    Plug 'git@github.com:aquach/vim-http-client'
+    let g:http_client_focus_output_window=0
+"}}}}}
+" Colors"? {{{{
+   Plug 'git@github.com:joshdick/onedark.vim'
+" }}}}
+" Vim Kotlin {{{{
+    Plug 'git@github.com:udalov/kotlin-vim'
+"}}}}
+" VS Code colorscheme {{{{
+    Plug 'git@github.com:tomasiser/vim-code-dark'
+"}}}}
 
 call plug#end()
 " }}}
@@ -277,9 +276,13 @@ syntax on
 "}}}
 " Colors {{{
     set background=dark
-    if filereadable(expand("~/.vim/plugged/molokai/colors/molokai.vim"))
-        color molokai
-    endif
+    "if filereadable(expand("~/.vim/plugged/vim-one/colors/one.vim"))
+        color codedark
+    "else
+    "if filereadable(expand("~/.vim/plugged/molokai/colors/molokai.vim"))
+        "color molokai
+    "endif
+    "endif
 " }}}
 " Git {{{
     " Instead of reverting the cursor to the last position in the buffer, we
@@ -355,6 +358,12 @@ syntax on
     autocmd Filetype javascript setlocal shiftwidth=2       "Auto indent = 2"
     autocmd Filetype javascript setlocal softtabstop=2      "Backspace will delete two spaces for auto-indenting"
     autocmd Filetype javascript setlocal expandtab          "Use spaces instead of tabs"
+
+    "{{{{ json }}}}
+    autocmd Filetype json setlocal tabstop=2          "Tab width = 2"
+    autocmd Filetype json setlocal shiftwidth=2       "Auto indent = 2"
+    autocmd Filetype json setlocal softtabstop=2      "Backspace will delete two spaces for auto-indenting"
+    autocmd Filetype json setlocal expandtab          "Use spaces instead of tabs"
 
     "{{{{ Java}}}}
     autocmd Filetype java setlocal tabstop=4          "Tab width = 2"
