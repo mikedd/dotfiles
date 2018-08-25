@@ -163,6 +163,9 @@
     nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
     imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
 "}}}}
+" Http client {{{
+    Plug 'git@github.com:aquach/vim-http-client'
+" }}}
 call plug#end()
 " }}}
 " General Configuration {{{
