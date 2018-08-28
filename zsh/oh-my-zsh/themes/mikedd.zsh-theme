@@ -2,6 +2,10 @@ orange=202
 
 typeset -A context
 context=(
+    dmo-ttc 161
+    dmo-tte 161
+    dmo-test-ttc 140
+    dmo-test-tte 140
     tfm-test-ttc green
     tfm-test-tte green
     tfm-stage-ttc yellow
@@ -23,7 +27,8 @@ k8s_prompt() {
 
     color=$context[$ctx]
 
-    print -n %{$fg[${color}]%}${ctx}%{$reset_color%}
+    #print -n %{$fg[${color}]%}${ctx}%{$reset_color%}
+    print -P "%F{$color}${ctx}%{$reset_color%}"
 }
 
 show_virtual_env(){

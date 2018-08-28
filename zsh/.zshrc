@@ -32,6 +32,11 @@ export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
 
 alias kk="kubectl"
+alias gw="./gradlew"
+alias kkcp="kubectl --context dmo-ttc"
+alias kkep="kubectl --context dmo-tte"
+alias kkcs="kubectl --context dmo-test-ttc"
+alias kkes="kubectl --context dmo-test-tte"
 
 ## From https://www.topbug.net/blog/2016/09/27/make-gnu-less-more-powerful/
 #export LESS='--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
@@ -61,8 +66,6 @@ fi
 OLD_PATH=${PATH}
 export PATH=${OLD_PATH}:${HOME}/bin
 
-## Secrets directory - from Dave
-export CONFIG_SECRETS=${HOME}/work/ima/kubernetes/secrets
 
 # kube complete
 source <(kubectl completion zsh)  # setup autocomplete in zsh
