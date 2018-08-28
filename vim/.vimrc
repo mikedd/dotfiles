@@ -260,6 +260,8 @@ syntax on
     highlight clear SignColumn      " SignColumn should match background for
                                     " things like vim-gitgutter
 
+    set nofixendofline              " Do not add a new line character
+
     if has('cmdline_info')
         set ruler                   " Show the ruler
         set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
