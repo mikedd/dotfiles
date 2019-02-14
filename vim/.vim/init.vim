@@ -328,4 +328,3 @@ syntax on
     "{{{ plantuml }}}
     autocmd Filetype plantuml let s:makecommand='java -jar /usr/local/Cellar/plantuml/8031/plantuml.8031.jar %'
 "}}}
-
