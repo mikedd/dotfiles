@@ -7,3 +7,5 @@ fi
 
 source ~/.bash_functions
 
+
+export PATH="$HOME/.cargo/bin:$PATH"
