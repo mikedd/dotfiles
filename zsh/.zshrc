@@ -7,7 +7,7 @@ plugins=(git vi-mode docker)
 
 # User configuration
 
-export PATH="/opt/chefdk/bin:/Users/z001rw6/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/embedded/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/chefdk/bin:/Users/z001rw6/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/embedded/bin:/usr/local/go/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -76,4 +76,11 @@ export PATH="$HOME/.yarn/bin:$PATH"
 # Enable auto loading environment variables
 ##############################################################################
 eval "$(direnv hook zsh)"
+eval "$(pyenv init -)"
 
+
+## This would logically belong in .zprofile - but that is only sourced on a new interactive login - not on
+# a new alacritty instance
+# Keep your homebrew token out of the repository you idiot...
+. ${HOME}/.homebrew.token.sh
+. ${HOME}/.drone6.token.sh

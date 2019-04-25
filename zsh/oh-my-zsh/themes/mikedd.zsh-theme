@@ -18,12 +18,17 @@ context=(
     efs-tte-stage  yellow
     efs-ttc  magenta
     efs-tte  magenta
+    dmo-ttc-bigoli-prod red
+    dmo-tte-bigoli-prod red
+    dmo-ttc-bigoli-test yellow
+    dmo-tte-bigoli-test yellow
 )
 
 k8s_prompt() {
     local ctx
     local color
     ctx=$(kubectl config current-context)
+    #ctx=$(cat ${HOME}/.kube_ctx)
 
     color=$context[$ctx]
 
@@ -47,4 +52,4 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 
-PROMPT='${ret_status} $(show_virtual_env)%{$fg[green]%}${PWD/#$HOME/~}%{$reset_color%} $(k8s_prompt) $(git_prompt_info) '
+PROMPT='${ret_status} $(show_virtual_env)%{$fg[green]%}${PWD/#$HOME/~}%{$reset_color%} $(git_prompt_info) '
