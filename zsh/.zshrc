@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/z001rw6/.oh-my-zsh
+export ZSH=${HOME}/.oh-my-zsh
 
 ZSH_THEME="mikedd"
 
@@ -9,7 +9,7 @@ plugins=(git vi-mode docker)
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin"
 
-source $ZSH/oh-my-zsh.sh
+source ${ZSH}/oh-my-zsh.sh
 
 # Killing the lag
 # Sets the ESC key delay to 0.1 seconds..
@@ -26,17 +26,6 @@ bindkey '^w' backward-kill-word
 
 # crtl-r history
 bindkey '^r' history-incremental-search-backward
-
-# Node version manager
-export NVM_DIR="$HOME/.nvm"
-. "$(brew --prefix nvm)/nvm.sh"
-
-alias kk="kubectl"
-alias gw="./gradlew"
-alias kkcp="kubectl --context dmo-ttc"
-alias kkep="kubectl --context dmo-tte"
-alias kkcs="kubectl --context dmo-test-ttc"
-alias kkes="kubectl --context dmo-test-tte"
 
 ## From https://www.topbug.net/blog/2016/09/27/make-gnu-less-more-powerful/
 #export LESS='--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
@@ -57,30 +46,12 @@ if type lesspipe.sh >/dev/null 2>&1; then
    export LESSOPEN='|lesspipe.sh %s'
 fi
 
-#if type pygmentize >/dev/null 2>&1; then
-      #export LESSCOLORIZER='pygmentize'
-#fi
-
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-OLD_PATH=${PATH}
-export PATH=${OLD_PATH}:${HOME}/bin
+#export TERM=screen-256color
+export EDITOR=nvim
 
+export PATH="/home/mike/.pyenv/bin:$PATH"
 
-# kube complete
-source <(kubectl completion zsh)  # setup autocomplete in zsh
-
-export PATH="$HOME/.yarn/bin:$PATH"
-
-##############################################################################
-# Enable auto loading environment variables
-##############################################################################
-eval "$(direnv hook zsh)"
 eval "$(pyenv init -)"
-
-
-## This would logically belong in .zprofile - but that is only sourced on a new interactive login - not on
-# a new alacritty instance
-# Keep your homebrew token out of the repository you idiot...
-. ${HOME}/.homebrew.token.sh
-. ${HOME}/.drone6.token.sh
+eval "$(pyenv virtualenv-init -)"
