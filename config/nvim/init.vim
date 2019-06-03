@@ -122,7 +122,7 @@ call plug#end()
     syntax on
 
     " Copy Pasta {{{{
-        set clipboard=unnamed       "Share clipboard with OSX
+        set clipboard+=unnamedplus       "Share clipboard with OSX
     "}}}}
 
     set showmode                    " Display the current mode

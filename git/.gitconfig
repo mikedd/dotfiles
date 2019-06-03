@@ -1,0 +1,8 @@
+[user]
+	name = mike
+	email = mike@aureuscattus.org
+[alias]
+	co = checkout
+	stat = status
+	st = status
+	br = branch
