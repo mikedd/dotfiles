@@ -46,12 +46,15 @@ if type lesspipe.sh >/dev/null 2>&1; then
    export LESSOPEN='|lesspipe.sh %s'
 fi
 
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #export TERM=screen-256color
 export EDITOR=nvim
 
-export PATH="/home/mike/.pyenv/bin:$PATH"
+alias pe=pipenv
+
+export PATH="/home/mike/.pyenv/bin:${HOME}/.local/bin:$PATH"
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+

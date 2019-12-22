@@ -70,7 +70,7 @@ let mapleader=","
 " FZF {{{{"
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
         "let g:ctrlp_map = '<c-t>'
-        let $FZF_DEFAULT_COMMAND = 'ag -l '
+        let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
         nnoremap <silent> <leader>t :FZF<CR>
         nnoremap <silent> <c-p> :FZF<CR>
 " }}}}
@@ -100,20 +100,27 @@ let mapleader=","
     Plug 'git@github.com:tomasiser/vim-code-dark'
 "}}}}
 " ALE {{{{
-    Plug 'git@github.com:w0rp/ale'
+    Plug 'git@github.com:dense-analysis/ale'
     "let g:ale_kotlin_ktlint_executable='/usr/local/bin/ktlint'
     let g:ale_kotlin_languageserver_executable='/Users/z001rw6/work/KotlinLanguageServer/build/install/kotlin-language-server/bin/kotlin-language-server'
     let g:ale_python_auto_pipenv=1
-" }}}}
-" NCM2 {{{{
-    Plug 'git@github.com:ncm2/ncm2'
-    Plug 'git@github.com:ncm2/ncm2-jedi'
 " }}}}
 " Vim http client (REST) {{{{
     let g:http_client_verify_ssl=0
     Plug 'git@github.com:aquach/vim-http-client'
     let g:http_client_focus_output_window=0
-"}}}}}
+"}}}}
+" Tagbar again {{{{
+    Plug 'majutsushi/tagbar'
+"}}}}
+
+" Jedi - python {{{{
+    Plug 'davidhalter/jedi-vim'
+"}}}}
+
+" Conqueror of Completion? {{{{
+    "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"}}}}
 
 call plug#end()
 " }}}
@@ -267,6 +274,6 @@ call plug#end()
     autocmd Filetype xml setlocal softtabstop=4      "Backspace will delete two spaces for auto-indenting"
     autocmd Filetype xml setlocal expandtab          "Use spaces instead of tabs"
 
-    let g:python_host_prog = '/Users/z001rw6/.pyenv/versions/2.7.15/bin/python2.7'  " Python 2
-    let g:python3_host_prog = '/Users/z001rw6/.pyenv/versions/3.7.2/bin/python3.7'  " Python 3
+    let g:python_host_prog = '~/.pyenv/versions/2.7.15/bin/python2.7'  " Python 2
+    let g:python3_host_prog = '~/.pyenv/versions/3.7.2/bin/python3.7'  " Python 3
 " }}}
