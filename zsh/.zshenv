@@ -40,7 +40,7 @@ export PATH=${OLD_PATH}:${HOME}/bin
 # Not sure this is needed
 #alias tmux='tmux -2'
 
-eval "$(direnv hook zsh)"
+#eval "$(direnv hook zsh)"
 
 ## sharing history is a giant pain in the ass
 unsetopt share_history
