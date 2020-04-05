@@ -24,40 +24,38 @@
 
     let mapleader=","
 " }}}
+"
+if has("termguicolors")
+  set termguicolors
+endif
 
-" - For Neovim: ~/.local/share/nvim/plugged
-" - Avoid using standard Vim directory names like 'plugin'
 " Vim Plug plugin list {{{
 call plug#begin('~/.local/share/nvim/plugged')
 " Tmux navigator {{{
-    Plug 'christoomey/vim-tmux-navigator'
+    Plug 'git@github.com:christoomey/vim-tmux-navigator'
         " Helps with background color in tmux
+        set t_Co=256
         set t_ut=
 " }}}
-" vim Surround {{{
-    Plug 'tpope/vim-surround'
+" Fugitive {{{{
+    Plug 'git@github.com:tpope/vim-fugitive'
+    nnoremap <silent> <leader>gs :Gstatus<CR>
+    nnoremap <silent> <leader>gd :Gdiff<CR>
+    nnoremap <silent> <leader>gc :Gcommit<CR>
+    nnoremap <silent> <leader>gb :Gblame<CR>
+    nnoremap <silent> <leader>gl :Glog<CR>
+    nnoremap <silent> <leader>gp :Git push<CR>
+    nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
+    nnoremap <silent> <leader>gg :GitGutterToggle<CR>
+" }}}}
+" Surround {{{
+    Plug 'git@github.com:tpope/vim-surround'
 " }}}
-" Git gutter {{{
-    Plug 'airblade/vim-gitgutter'
-" }}}
-" molokai {{{
-    Plug 'tomasr/molokai'
-    Plug 'fcevado/molokai_dark'
-" }}}
-" One dark {{{
-    Plug 'joshdick/onedark.vim'
-" }}}
-" One dark really dark {{{
-    Plug 'rakr/vim-one'
-" }}}
-" VS Code Colors {{{
-    Plug 'tomasiser/vim-code-dark'
-" }}}
-" VS Code Colors again {{{
-    Plug 'Heorhiy/VisualStudioDark.vim'
+" GitGutter {{{
+    Plug 'git@github.com:airblade/vim-gitgutter'
 " }}}
 " NerdTree {{{
-    Plug 'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
+    Plug 'git@github.com:scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
     let NERDTreeShowBookmarks=1
     let NERDTreeIgnore=['\.pyc', '\.class', '\.swo$', '\.swp', '.git']
     let NERDTreeChDirMode=0
@@ -72,49 +70,87 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'scrooloose/nerdcommenter'
 " }}}
 " DBExt {{{
-    Plug 'vim-scripts/dbext.vim'
-" }}}
-" FZF {{{
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'junegunn/fzf.vim'
-    "let FZF_DEFAULT_COMMAND='rg --files --hidden --follow --ignore'
-    "nnoremap <silent> <leader>t :FZF<CR>
-    " :FZF == :Files which doesn't seem to respect .gitignore
-    " :GFiles considers version control
-    nnoremap <silent> <c-p> :GFiles <CR>
+    Plug 'git@github.com:vim-scripts/dbext.vim'
+    "source $HOME/.psql.vim
 " }}}
 " ripgrep {{{
-    Plug 'jremmen/vim-ripgrep'
+    Plug 'git@github.com:jremmen/vim-ripgrep'
+" }}}
+" Tabularize {{{{
+    Plug 'git@github.com:godlygeek/tabular'
+        nmap <Leader>a& :Tabularize /&<CR>
+        vmap <Leader>a& :Tabularize /&<CR>
+        nmap <Leader>a= :Tabularize /=<CR>
+        vmap <Leader>a= :Tabularize /=<CR>
+        nmap <Leader>a: :Tabularize /:<CR>
+        vmap <Leader>a: :Tabularize /:<CR>
+        nmap <Leader>a:: :Tabularize /:\zs<CR>
+        vmap <Leader>a:: :Tabularize /:\zs<CR>
+        nmap <Leader>a, :Tabularize /,<CR>
+        vmap <Leader>a, :Tabularize /,<CR>
+        nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+        vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+"}}}}
+" FZF {{{
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    "set -gx FZF_DEFAULT_COMMAND  'rg --files --no-ignore-vcs --hidden'
+    let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore-vcs --hidden '
+    nnoremap <silent> <leader>t :FZF<CR>
+    nnoremap <silent> <c-p> :FZF<CR>
 " }}}
 " Airline {{{
-    Plug 'bling/vim-airline'
+    Plug 'git@github.com:bling/vim-airline'
 " }}}
 " json {{{
-    Plug 'elzr/vim-json'
+    Plug 'git@github.com:elzr/vim-json'
 " }}}
 " rainbow parens {{{
-    Plug 'luochen1990/rainbow'
+    Plug 'git@github.com:luochen1990/rainbow'
+    let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 " }}}
 " EditorConfig {{{
-    Plug 'editorconfig/editorconfig-vim'
+    Plug 'git@github.com:editorconfig/editorconfig-vim'
     let g:EditorConfig_exclude_patterns=[ 'fugitive://.*' ]
     let g:EditorConfig_exec_path='/usr/local/bin/editorconfig'
     let g:EditorConfig_code_mode='external_command'
 " }}}
 " Kotlin {{{
-    Plug 'udalov/kotlin-vim'
+    Plug 'git@github.com:udalov/kotlin-vim'
 " }}}
 " ALE {{{
-    Plug 'w0rp/ale'
+    Plug 'git@github.com:w0rp/ale'
     let g:ale_kotlin_languageserver_executable='/home/mikedd/work/KotlinLanguageServer/build/install/kotlin-language-server/bin/kotlin-language-server'
 " }}}
-" Http Client {{{
-    Plug 'aquach/vim-http-client'
-    let g:http_client_verify_ssl=0
-    let g:http_clien_focus_output_window=0
+" Rust {{{
+    Plug 'git@github.com:rust-lang/rust.vim'
 " }}}
 " Tagbar {{{
     Plug 'majutsushi/tagbar'
+" }}}
+" Coc {{{
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" }}}
+" Syntasitc {{{
+    Plug 'vim-syntastic/syntastic'
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
+" }}}
+" Colors {{{
+    Plug 'tomasiser/vim-code-dark'
+    Plug 'rakr/vim-one'
+    Plug 'jacoborus/tender.vim'
+    Plug 'romainl/apprentice'
+    Plug 'rakr/vim-two-firewatch'
+    Plug 'tomasr/molokai'
+    Plug 'fcevado/molokai_dark'
+    Plug 'joshdick/onedark.vim'
+    Plug 'Heorhiy/VisualStudioDark.vim'
 " }}}
 call plug#end()
 " }}}
@@ -126,64 +162,60 @@ syntax on
 set background=dark
 color codedark
 " }}}
+" Backup and Swap {{{
+    set backup                      " Backups are nice ...
+    if has('persistent_undo')
+        set undofile                " So is persistent undo ...
+        set undolevels=1000         " Maximum number of changes that can be undone
+        set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
+    endif
+"}}}
+" Git {{{
+    " Instead of reverting the cursor to the last position in the buffer, we
+    " set it to the first line when editing a git commit message
+    au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+"}}}
+" Initialize directories {{{
+" =========================================================================================
+" Functions (from SPF13)
+" =========================================================================================
+    function! InitializeDirectories()
+        let parent = $HOME
+        let prefix = 'vim'
+        let dir_list = {
+                    \ 'backup': 'backupdir',
+                    \ 'views': 'viewdir',
+                    \ 'swap': 'directory' }
 
-" Backups {{{
-set backup
-if has ('persistent_undo')
-  set undofile            " persistent undo
-  set undolevels=1000     " number of changes that undo / redo remember
-  set undoreload=10000    " max lines to save for undo on a buffer reload
-endif
+        if has('persistent_undo')
+            let dir_list['undo'] = 'undodir'
+        endif
 
+        let common_dir = parent . '/.' . prefix
 
-" Save your backups to a less annoying place than the current directory.
-" If you have .vim-backup in the current directory, it'll use that.
-" Otherwise it saves it to ~/.vim/backup or . if all else fails.
-if isdirectory($HOME . '/.vim/backup') == 0
-  call mkdir($HOME.'/.vim/backup', 'p')
-endif
-set backupdir-=.
-set backupdir+=.
-set backupdir-=~/
-set backupdir^=~/.vim/backup/
-set backupdir^=./.vim-backup/
-set backup
+        for [dirname, settingname] in items(dir_list)
+            let directory = common_dir . dirname . '/'
+            if exists("*mkdir")
+                if !isdirectory(directory)
+                    call mkdir(directory)
+                endif
+            endif
+            if !isdirectory(directory)
+                echo "Warning: Unable to create backup directory: " . directory
+                echo "Try: mkdir -p " . directory
+            else
+                let directory = substitute(directory, " ", "\\\\ ", "g")
+                exec "set " . settingname . "=" . directory
+            endif
+        endfor
+    endfunction
+    " Finish local init (SPF13)
+    call InitializeDirectories()
 
-" Save your swp files to a less annoying place than the current directory.
-" If you have .vim-swap in the current directory, it'll use that.
-" Otherwise it saves it to ~/.vim/swap, ~/tmp or .
-if isdirectory($HOME . '/.vim/swap') == 0
-  call mkdir($HOME.'/.vim/swap', 'p')
-endif
-set directory=./.vim-swap//
-set directory+=~/.vim/swap//
-set directory+=~/tmp//
-set directory+=.
-
-" viminfo stores the the state of your previous editing session
-if exists('+shada')
-  set shada+=n~/.nvim/shada
-else
-  set viminfo+=n~/.vim/viminfo
-endif
-
-" This is only present in 7.3+ {{{3
-if exists('+undofile')
-  " undofile - This allows you to use undos after exiting and restarting
-  " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
-  " :help undo-persistence
-  if isdirectory($HOME . '/.vim/undo') == 0
-    call mkdir($HOME.'/.vim/undo', 'p')
-  endif
-  set undodir=./.vim-undo//
-  set undodir+=~/.vim/undo//
-  set undofile
-endif
+" }}}
 
 " Development settings {{{
-"
-" I'm not sure what this does or whether I ever used it properlyy
-" set complete = .,w,b,u,t,i
+    set complete=.,w,b,u,t,i
 
 " Markdown highlighting
 au BufNewFile,BufRead *.md set filetype=markdown
@@ -199,3 +231,5 @@ autocmd Filetype python setlocal shiftwidth=4
 autocmd Filetype python setlocal softtabstop=4
 autocmd Filetype python setlocal expandtab
 " }}}
+let g:python_host_prog = "~/.pyenv/versions/2.7.17/bin/python"  " Python 2
+let g:python3_host_prog = "~/.pyenv/versions/3.8.2/bin/python"  " Python 3
