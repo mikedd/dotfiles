@@ -3,14 +3,19 @@
 . ${HOME}/.drone.token.sh
 
 # Docker env
-DOCKER_ENV_NAME=docker
-eval "$(docker-machine env ${DOCKER_ENV_NAME})"
+#DOCKER_ENV_NAME=docker
+#eval "$(docker-machine env ${DOCKER_ENV_NAME})"
 
-# Spark environment variables for findspark
-export SPARK_LOCAL_IP=127.0.0.1
-export SPARK_HOME=/usr/local/Cellar/apache-spark/1.6.1/libexec
+# Needed for tmux
+export SHELL=/bin/zsh
 
-# Hadoop
-export HADOOP_HOME=/usr/local/share/hadoop-2.7.1
+export SSL_CERT_FILE=${HOME}/tgt-ca-bundle.crt
 
-. ${HOME}/target_certs.sh
+alias vim='nvim'
+export EDITOR='nvim'
+
+eval "$(pipenv --completion)"
+
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+
+export PATH="$HOME/.cargo/bin:$PATH"
