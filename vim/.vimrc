@@ -1,41 +1,17 @@
 " vim:fdm=marker
 " Initialization {{{
-    set nocompatible    " Be iMproved
-
-    set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
-    let g:rehash256 = 1
-
-    " Windows compatibility {{{{
-    if !(has('win16') || has('win32') || has('win64'))
-        set shell=/bin/sh
-    endif
-
-    if has('win32') || has('win64')
-        set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
-    endif
-    " backspace doesn't work on windows without doing this
-    set bs=2
-    " }}}}
-
-    " disable the bells
-    set noeb vb t_vb=
-
-    "  Key (re)Mappings
-    let mapleader = ','
-
-    " Get out of insert mode
-    :imap  jj <Esc>
-
-" Search {{{{
-    let s:has_ag = executable('ag')
-    let s:has_ack = executable('ack')
-" }}}}
-
+let mapleader=","
 " }}}
+"
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 " Vim Plug plugin list {{{
-    call plug#begin('~/.vim/plugged')
+    call plug#begin('~/.local/share/nvim/plugged~/.vim/plugged')
 " Fugitive {{{{
-    Plug 'git@github.com:tpope/vim-fugitive'
+    Plug 'https://github.com/tpope/vim-fugitive.git'
         nnoremap <silent> <leader>gs :Gstatus<CR>
         nnoremap <silent> <leader>gd :Gdiff<CR>
         nnoremap <silent> <leader>gc :Gcommit<CR>
@@ -46,21 +22,16 @@
         nnoremap <silent> <leader>gg :GitGutterToggle<CR>
 " }}}}
 " Surround {{{{
-    Plug 'git@github.com:tpope/vim-surround'
+    Plug 'https://github.com/tpope/vim-surround'
 " }}}}
 " GitGutter {{{{
-    Plug 'git@github.com:airblade/vim-gitgutter'
-" }}}}
-" Molokai {{{{
-    Plug 'git@github.com:tomasr/molokai'
+    Plug 'https://github.com/airblade/vim-gitgutter'
 " }}}}
 " Tmux navigator {{{{
-    Plug 'git@github.com:christoomey/vim-tmux-navigator'
-        " Helps with background color in tmux
-        set t_ut=
+    Plug 'https://github.com/christoomey/vim-tmux-navigator'
 " }}}}
 " NerdTree {{{{
-    Plug 'git@github.com:scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
+    Plug 'https://github.com/scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
         let NERDTreeShowBookmarks=1
         let NERDTreeIgnore=['\.pyc', '\.class', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
         let NERDTreeChDirMode=0
@@ -72,44 +43,24 @@
         map <silent> <F2> :NERDTreeToggle <CR>
 " }}}}
 " NerdCommenter {{{{
-    Plug 'git@github.com:scrooloose/nerdcommenter'
-" }}}}
-" Syntastic {{{{
-    Plug 'git@github.com:scrooloose/syntastic'
-    " Can't trust fsc to work properly
-    let g:syntastic_mode_map = { 'passive_filetypes': ['scala'] }
-    " Eslint autodetection on OSX is muddy.. Try eslint_d.
-    let g:syntastic_javascript_checkers = [ 'eslint_d', 'eslint' ]
-    let g:syntastic_javascript_eslint_exec = '/Users/z001rw6/.nvm/versions/node/v6.9.4/bin/eslint_d'
-" }}}}
-" Delimitmate {{{{
-    Plug 'git@github.com:vim-scripts/delimitMate.vim'
-        let delimitMate_expand_cr = 1
-        let delimitMate_smart_matchpairs=1
-" }}}}
-" YouCompleteMe {{{{
-    Plug 'git@github.com:Valloric/YouCompleteMe', { 'do': './install.sh' }
-" }}}}
-" Autotags {{{{
-    Plug 'git@github.com:basilgor/vim-autotags'
+    Plug 'https://github.com/scrooloose/nerdcommenter'
 " }}}}
 " DBExt {{{{
-    Plug 'git@github.com:vim-scripts/dbext.vim'
-    "let g:dbext_default_profile_ASA_ODBC = 'type=ODBC:user=dba:passwd=sql:dsnname=SQL Anywhere 10 Demo'
-    " Does not work, not a valid database type
-    source $HOME/.psql.vim 
+    Plug 'https://github.com/vim-scripts/dbext.vim'
+    source $HOME/.psql.vim
 " }}}}
-" Ack - actually Ag in disguise{{{{
-    Plug 'git@github.com:mileszs/ack.vim'
-    if executable('ag')
-        let g:ackprg = 'ag --vimgrep'
-    endif
-    cnoreabbrev Ack Ack!
-    cnoreabbrev Ag Ack!
-    "nnoremap <Leader>a :Ack!<Space>
-" }}}
+" dadbod {{{{
+    Plug 'https://github.com/tpope/vim-dadbod'
+" }}}}
+" dadbod {{{{
+    Plug 'https://github.com/tpope/vim-dotenv'
+" }}}}
+" RipGrep {{{{
+    Plug 'https://github.com/jremmen/vim-ripgrep'
+    let g:rg_command = 'rg --hidden --vimgrep'
+" }}}}
 " Tabularize {{{{
-    Plug 'git@github.com:godlygeek/tabular'
+    Plug 'https://github.com/godlygeek/tabular'
         nmap <Leader>a& :Tabularize /&<CR>
         vmap <Leader>a& :Tabularize /&<CR>
         nmap <Leader>a= :Tabularize /=<CR>
@@ -123,93 +74,81 @@
         nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
         vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 "}}}}
-" CtrlP {{{{"
-    "Plug 'git@github.com:kien/ctrlp.vim'
-        "let g:ctrlp_map = '<c-t>'
-" }}}}
 " FZF {{{{"
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
         "let g:ctrlp_map = '<c-t>'
-        let $FZF_DEFAULT_COMMAND = 'ag -l '
-        nnoremap <silent> <leader>t :FZF<CR>
-        nnoremap <silent> <c-p> :FZF<CR>
+        "let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+        "nnoremap <silent> <leader>t :FZF<CR>
+        "nnoremap <silent> <c-p> :FZF<CR>
 " }}}}
-" ZenCoding for fast HTML completions {{{{
-    Plug 'git@github.com:mattn/emmet-vim'
+" SKIM {{{{"
+    Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
+        "let g:ctrlp_map = '<c-t>'
+        let $FZF_DEFAULT_COMMAND = 'rg --hidden --files'
+        let $SK_DEFAULT_COMMAND = 'rg --hidden --files'
+        nnoremap <silent> <leader>t :SK<CR>
+        nnoremap <silent> <c-p> :SK<CR>
 " }}}}
-" {{{{ airline and bufferline
-    Plug 'git@github.com:bling/vim-airline'
-    "Plug 'git@github.com:bling/vim-bufferline'
-" }}}}
-" SpeedDating  - needed by some other plugin? {{{{
-    Plug 'git@github.com:tpope/vim-speeddating'
-" }}}}
-" Cassandra CQL syntax {{{{
-    Plug 'git@github.com:elubow/cql-vim'
-" }}}}
-" Scala syntax {{{{
-    Plug 'git@github.com:derekwyatt/vim-scala'
-" }}}}
-" MediaWiki syntax {{{{
-    Plug 'git@github.com:chikamichi/mediawiki.vim'
-" }}}}
-" Hive syntax {{{{
-    Plug 'git@github.com:autowitch/hive.vim'
-" }}}}
-" Docker syntax {{{{
-    Plug 'git@github.com:docker/docker',  {'rtp' : '/contrib/syntax/vim'}
+" airline and bufferline {{{{
+    Plug 'https://github.com/bling/vim-airline'
 " }}}}
 " Json syntax {{{{
-    Plug 'git@github.com:elzr/vim-json'
+    Plug 'https://github.com/elzr/vim-json'
 " }}}}
 " PlantUml syntax {{{{
-    Plug 'git@github.com:aklt/plantuml-syntax'
-    let g:plantuml_executable_script='java -jar /usr/local/Cellar/plantuml/8041/plantuml.8041.jar'
+    "Plug 'https://github.com/aklt/plantuml-syntax'
+    "let g:plantuml_executable_script='java -jar /usr/local/Cellar/plantuml/8041/plantuml.8041.jar'
 " }}}}
 " Rainbow parens syntax {{{{
-    Plug 'git@github.com:luochen1990/rainbow'
+    Plug 'https://github.com/luochen1990/rainbow'
     let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 " }}}}
 " EditorConfig {{{{
-    Plug 'git@github.com:editorconfig/editorconfig-vim'
+    Plug 'https://github.com/editorconfig/editorconfig-vim'
     let g:EditorConfig_exclude_patterns = ['fugitive://.*']
     let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
-    let g:EditorConfig_code_mode = 'external_command'
+    let g:EditorConfig_core_mode = 'external_command'
 "}}}}}
-" Markdown preview {{{{
-    Plug 'git@github.com:JamshedVesuna/vim-markdown-preview'
-    let vim_markdown_preview_github=0
-    let vim_markdown_preview_hotkey='<C-m>'
-"}}}}}
-" Java complete 2 {{{{
-    Plug 'git@github.com:artur-shaik/vim-javacomplete2'
-    let g:JavaComplete_ImportSortType='packageName'
-    " Google Style import order
-    let g:JavaComplete_ImportOrder = ['com.google.', '*', 'java.', 'javax.']
-    autocmd FileType java setlocal omnifunc=javacomplete#Complete
-    nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
-    imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
-    nmap <F5> <Plug>(JavaComplete-Imports-Add)
-    imap <F5> <Plug>(JavaComplete-Imports-Add)
-    nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
-    imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
-    nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
-    imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
-"}}}}}
-" Vim http client (REST) {{{{
-    let g:http_client_verify_ssl=0
-    Plug 'git@github.com:aquach/vim-http-client'
-    let g:http_client_focus_output_window=0
-"}}}}}
-" Colors"? {{{{
-   Plug 'git@github.com:joshdick/onedark.vim'
-" }}}}
 " Vim Kotlin {{{{
-    Plug 'git@github.com:udalov/kotlin-vim'
+    Plug 'https://github.com/udalov/kotlin-vim'
 "}}}}
-" VS Code colorscheme {{{{
-    Plug 'git@github.com:tomasiser/vim-code-dark'
-"}}}}
+" ALE {{{{
+    Plug 'https://github.com/dense-analysis/ale'
+    "let g:ale_kotlin_languageserver_executable='/Users/z001rw6/work/KotlinLanguageServer/build/install/kotlin-language-server/bin/kotlin-language-server'
+    let g:ale_kotlin_languageserver_executable='/Users/z001rw6/work/KotlinLanguageServer/server/build/install/server/bin/kotlin-language-server'
+    let g:ale_python_auto_pipenv=1
+" }}}}
+" Conqueror Of Completion {{{{
+    Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'for': ['rust'] }
+"}}}}}
+" Go {{{{
+    "let g:http_client_verify_ssl=0
+    "Plug 'https://github.com/fatih/vim-go'
+"}}}}}
+" Jedi {{{{
+    Plug 'davidhalter/jedi-vim'
+"}}}}}
+" rust-lang/rust.vim {{{{
+    Plug 'rust-lang/rust.vim'
+"}}}}}
+" postgres syntax {{{{
+    Plug 'lifepillar/pgsql.vim'
+"}}}}}
+" Re Structured text {{{{
+    Plug 'gu-fan/InstantRst'
+    Plug 'gu-fan/riv.vim'
+"}}}}}
+" color schemes {{{{
+    Plug 'https://github.com/joshdick/onedark.vim'
+    Plug 'https://github.com/tomasiser/vim-code-dark'
+    Plug 'https://github.com/tomasr/molokai'
+    Plug 'danilo-augusto/vim-afterglow'
+    Plug 'nightsense/carbonized'
+    Plug 'NLKNguyen/papercolor-theme'
+    Plug 'jacoborus/tender.vim'
+    Plug 'chriskempson/base16-vim'
+    Plug 'ayu-theme/ayu-vim'
+"}}}}}
 
 call plug#end()
 " }}}
@@ -267,6 +206,7 @@ syntax on
         set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
         set showcmd                 " Show partial commands in status line and
     endif
+
 " }}}
 " Backup and Swap {{{
     set backup                      " Backups are nice ...
@@ -278,13 +218,7 @@ syntax on
 "}}}
 " Colors {{{
     set background=dark
-    "if filereadable(expand("~/.vim/plugged/vim-one/colors/one.vim"))
         color codedark
-    "else
-    "if filereadable(expand("~/.vim/plugged/molokai/colors/molokai.vim"))
-        "color molokai
-    "endif
-    "endif
 " }}}
 " Git {{{
     " Instead of reverting the cursor to the last position in the buffer, we
@@ -361,18 +295,6 @@ syntax on
     autocmd Filetype javascript setlocal softtabstop=2      "Backspace will delete two spaces for auto-indenting"
     autocmd Filetype javascript setlocal expandtab          "Use spaces instead of tabs"
 
-    "{{{{ json }}}}
-    autocmd Filetype json setlocal tabstop=2          "Tab width = 2"
-    autocmd Filetype json setlocal shiftwidth=2       "Auto indent = 2"
-    autocmd Filetype json setlocal softtabstop=2      "Backspace will delete two spaces for auto-indenting"
-    autocmd Filetype json setlocal expandtab          "Use spaces instead of tabs"
-
-    "{{{{ Java}}}}
-    autocmd Filetype java setlocal tabstop=4          "Tab width = 2"
-    autocmd Filetype java setlocal shiftwidth=4       "Auto indent = 2"
-    autocmd Filetype java setlocal softtabstop=4      "Backspace will delete two spaces for auto-indenting"
-    autocmd Filetype java setlocal expandtab          "Use spaces instead of tabs"
-
     "{{{{ xml}}}}
     autocmd Filetype xml setlocal foldmethod=syntax  "Makeit fold"
     autocmd Filetype xml setlocal tabstop=4          "Tab width = 2"
@@ -380,24 +302,9 @@ syntax on
     autocmd Filetype xml setlocal softtabstop=4      "Backspace will delete two spaces for auto-indenting"
     autocmd Filetype xml setlocal expandtab          "Use spaces instead of tabs"
 
-    "{{{{ Ruby}}}}
-    autocmd Filetype ruby  setlocal tabstop=2          "Tab width = 2"
-    autocmd Filetype ruby  setlocal shiftwidth=2       "Auto indent = 2"
-    autocmd Filetype ruby  setlocal softtabstop=2      "Backspace will delete two spaces for auto-indenting"
-    autocmd Filetype ruby  setlocal expandtab          "Use spaces instead of tabs"
-
-    "{{{{ Yaml}}}}
-    autocmd Filetype yaml  setlocal tabstop=2          "Tab width = 2"
-    autocmd Filetype yaml  setlocal shiftwidth=2       "Auto indent = 2"
-    autocmd Filetype yaml  setlocal softtabstop=2      "Backspace will delete two spaces for auto-indenting"
-    autocmd Filetype yaml  setlocal expandtab          "Use spaces instead of tabs"
-
-    "{{{{ Chef & Other devops cruft}}}}
-    autocmd BufNewFile,BufRead Gemfile set filetype=ruby
-    autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
-    autocmd BufNewFile,BufRead Berksfile set filetype=ruby
-
     "{{{{ plantuml }}}}
     autocmd Filetype plantuml let s:makecommand='java -jar /usr/local/Cellar/plantuml/8031/plantuml.8031.jar %'
 "}}}
 
+let g:python_host_prog = '/Users/z001rw6/.pyenv/versions/2.7.15/bin/python2.7'  " Python 2
+let g:python3_host_prog = '/Users/z001rw6/.pyenv/versions/3.7.3/bin/python3.7'  " Python 3

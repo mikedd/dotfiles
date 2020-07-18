@@ -13,13 +13,10 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-export TERM=xterm-256color
+export TERM=screen-256color
 
 alias ls='ls -G'
 
-# Keep your homebrew token out of the repository you idiot...
-. ${HOME}/.homebrew.token.sh
-. ${HOME}/.drone6.token.sh
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home
 
@@ -38,3 +35,5 @@ export SSL_CERT_FILE=${HOME}/tgt-ca-bundle.crt
 ## Add the pem key for openstack
 # Slows down new windows in tmux
 #ssh-add ${HOME}/Desktop/supply-test.pem
+
+export PATH="$HOME/.cargo/bin:$PATH"

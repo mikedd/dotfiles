@@ -7,7 +7,7 @@ plugins=(git vi-mode docker)
 
 # User configuration
 
-export PATH="/opt/chefdk/bin:/Users/z001rw6/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/embedded/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/chefdk/bin:/Users/z001rw6/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/embedded/bin:/usr/local/go/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -27,16 +27,8 @@ bindkey '^w' backward-kill-word
 # crtl-r history
 bindkey '^r' history-incremental-search-backward
 
-# Node version manager
-export NVM_DIR="$HOME/.nvm"
-. "$(brew --prefix nvm)/nvm.sh"
-
 alias kk="kubectl"
 alias gw="./gradlew"
-alias kkcp="kubectl --context dmo-ttc"
-alias kkep="kubectl --context dmo-tte"
-alias kkcs="kubectl --context dmo-test-ttc"
-alias kkes="kubectl --context dmo-test-tte"
 
 ## From https://www.topbug.net/blog/2016/09/27/make-gnu-less-more-powerful/
 #export LESS='--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
@@ -57,12 +49,6 @@ if type lesspipe.sh >/dev/null 2>&1; then
    export LESSOPEN='|lesspipe.sh %s'
 fi
 
-#if type pygmentize >/dev/null 2>&1; then
-      #export LESSCOLORIZER='pygmentize'
-#fi
-
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 OLD_PATH=${PATH}
 export PATH=${OLD_PATH}:${HOME}/bin
 
@@ -70,10 +56,21 @@ export PATH=${OLD_PATH}:${HOME}/bin
 # kube complete
 source <(kubectl completion zsh)  # setup autocomplete in zsh
 
-export PATH="$HOME/.yarn/bin:$PATH"
-
 ##############################################################################
 # Enable auto loading environment variables
 ##############################################################################
-eval "$(direnv hook zsh)"
+eval "$(pyenv init -)"
 
+alias http='http --verify=/Users/z001rw6/tgt-ca-bundle.crt'
+alias pe=pipenv
+alias dc=docker-compose
+alias tw=timew
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/z001rw6/.sdkman"
+[[ -s "/Users/z001rw6/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/z001rw6/.sdkman/bin/sdkman-init.sh"
+fpath+=${ZDOTDIR:-~}/.zsh_functions
