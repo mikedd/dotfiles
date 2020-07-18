@@ -2,10 +2,16 @@
 " Initialization {{{
 let mapleader=","
 " }}}
+"
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 " Vim Plug plugin list {{{
     call plug#begin('~/.local/share/nvim/plugged~/.vim/plugged')
 " Fugitive {{{{
-    Plug 'git@github.com:tpope/vim-fugitive'
+    Plug 'https://github.com/tpope/vim-fugitive.git'
         nnoremap <silent> <leader>gs :Gstatus<CR>
         nnoremap <silent> <leader>gd :Gdiff<CR>
         nnoremap <silent> <leader>gc :Gcommit<CR>
@@ -16,21 +22,16 @@ let mapleader=","
         nnoremap <silent> <leader>gg :GitGutterToggle<CR>
 " }}}}
 " Surround {{{{
-    Plug 'git@github.com:tpope/vim-surround'
+    Plug 'https://github.com/tpope/vim-surround'
 " }}}}
 " GitGutter {{{{
-    Plug 'git@github.com:airblade/vim-gitgutter'
-" }}}}
-" Molokai {{{{
-    Plug 'git@github.com:tomasr/molokai'
+    Plug 'https://github.com/airblade/vim-gitgutter'
 " }}}}
 " Tmux navigator {{{{
-    Plug 'git@github.com:christoomey/vim-tmux-navigator'
-        " Helps with background color in tmux
-        set t_ut=
+    Plug 'https://github.com/christoomey/vim-tmux-navigator'
 " }}}}
 " NerdTree {{{{
-    Plug 'git@github.com:scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
+    Plug 'https://github.com/scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
         let NERDTreeShowBookmarks=1
         let NERDTreeIgnore=['\.pyc', '\.class', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
         let NERDTreeChDirMode=0
@@ -42,18 +43,24 @@ let mapleader=","
         map <silent> <F2> :NERDTreeToggle <CR>
 " }}}}
 " NerdCommenter {{{{
-    Plug 'git@github.com:scrooloose/nerdcommenter'
+    Plug 'https://github.com/scrooloose/nerdcommenter'
 " }}}}
 " DBExt {{{{
-    Plug 'git@github.com:vim-scripts/dbext.vim'
+    Plug 'https://github.com/vim-scripts/dbext.vim'
     source $HOME/.psql.vim
 " }}}}
+" dadbod {{{{
+    Plug 'https://github.com/tpope/vim-dadbod'
+" }}}}
+" dadbod {{{{
+    Plug 'https://github.com/tpope/vim-dotenv'
+" }}}}
 " RipGrep {{{{
-    Plug 'git@github.com:jremmen/vim-ripgrep'
-
+    Plug 'https://github.com/jremmen/vim-ripgrep'
+    let g:rg_command = 'rg --hidden --vimgrep'
 " }}}}
 " Tabularize {{{{
-    Plug 'git@github.com:godlygeek/tabular'
+    Plug 'https://github.com/godlygeek/tabular'
         nmap <Leader>a& :Tabularize /&<CR>
         vmap <Leader>a& :Tabularize /&<CR>
         nmap <Leader>a= :Tabularize /=<CR>
@@ -68,55 +75,79 @@ let mapleader=","
         vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 "}}}}
 " FZF {{{{"
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
         "let g:ctrlp_map = '<c-t>'
-        let $FZF_DEFAULT_COMMAND = 'ag -l '
-        nnoremap <silent> <leader>t :FZF<CR>
-        nnoremap <silent> <c-p> :FZF<CR>
+        "let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+        "nnoremap <silent> <leader>t :FZF<CR>
+        "nnoremap <silent> <c-p> :FZF<CR>
+" }}}}
+" SKIM {{{{"
+    Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
+        "let g:ctrlp_map = '<c-t>'
+        let $FZF_DEFAULT_COMMAND = 'rg --hidden --files'
+        let $SK_DEFAULT_COMMAND = 'rg --hidden --files'
+        nnoremap <silent> <leader>t :SK<CR>
+        nnoremap <silent> <c-p> :SK<CR>
 " }}}}
 " airline and bufferline {{{{
-    Plug 'git@github.com:bling/vim-airline'
+    Plug 'https://github.com/bling/vim-airline'
 " }}}}
 " Json syntax {{{{
-    Plug 'git@github.com:elzr/vim-json'
+    Plug 'https://github.com/elzr/vim-json'
 " }}}}
 " PlantUml syntax {{{{
-    "Plug 'git@github.com:aklt/plantuml-syntax'
+    "Plug 'https://github.com/aklt/plantuml-syntax'
     "let g:plantuml_executable_script='java -jar /usr/local/Cellar/plantuml/8041/plantuml.8041.jar'
 " }}}}
 " Rainbow parens syntax {{{{
-    Plug 'git@github.com:luochen1990/rainbow'
+    Plug 'https://github.com/luochen1990/rainbow'
     let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 " }}}}
 " EditorConfig {{{{
-    Plug 'git@github.com:editorconfig/editorconfig-vim'
+    Plug 'https://github.com/editorconfig/editorconfig-vim'
     let g:EditorConfig_exclude_patterns = ['fugitive://.*']
     let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
-    let g:EditorConfig_code_mode = 'external_command'
+    let g:EditorConfig_core_mode = 'external_command'
 "}}}}}
-" Colors"? {{{{
-   Plug 'git@github.com:joshdick/onedark.vim'
-" }}}}
 " Vim Kotlin {{{{
-    Plug 'git@github.com:udalov/kotlin-vim'
-"}}}}
-" VS Code colorscheme {{{{
-    Plug 'git@github.com:tomasiser/vim-code-dark'
+    Plug 'https://github.com/udalov/kotlin-vim'
 "}}}}
 " ALE {{{{
-    Plug 'git@github.com:w0rp/ale'
-    "let g:ale_kotlin_ktlint_executable='/usr/local/bin/ktlint'
-    let g:ale_kotlin_languageserver_executable='/Users/z001rw6/work/KotlinLanguageServer/build/install/kotlin-language-server/bin/kotlin-language-server'
+    Plug 'https://github.com/dense-analysis/ale'
+    "let g:ale_kotlin_languageserver_executable='/Users/z001rw6/work/KotlinLanguageServer/build/install/kotlin-language-server/bin/kotlin-language-server'
+    let g:ale_kotlin_languageserver_executable='/Users/z001rw6/work/KotlinLanguageServer/server/build/install/server/bin/kotlin-language-server'
     let g:ale_python_auto_pipenv=1
 " }}}}
-" NCM2 {{{{
-    Plug 'git@github.com:ncm2/ncm2'
-    Plug 'git@github.com:ncm2/ncm2-jedi'
-" }}}}
-" Vim http client (REST) {{{{
-    let g:http_client_verify_ssl=0
-    Plug 'git@github.com:aquach/vim-http-client'
-    let g:http_client_focus_output_window=0
+" Conqueror Of Completion {{{{
+    Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'for': ['rust'] }
+"}}}}}
+" Go {{{{
+    "let g:http_client_verify_ssl=0
+    "Plug 'https://github.com/fatih/vim-go'
+"}}}}}
+" Jedi {{{{
+    Plug 'davidhalter/jedi-vim'
+"}}}}}
+" rust-lang/rust.vim {{{{
+    Plug 'rust-lang/rust.vim'
+"}}}}}
+" postgres syntax {{{{
+    Plug 'lifepillar/pgsql.vim'
+"}}}}}
+" Re Structured text {{{{
+    Plug 'gu-fan/InstantRst'
+    Plug 'gu-fan/riv.vim'
+"}}}}}
+" color schemes {{{{
+    Plug 'https://github.com/joshdick/onedark.vim'
+    Plug 'https://github.com/tomasiser/vim-code-dark'
+    Plug 'https://github.com/tomasr/molokai'
+    Plug 'danilo-augusto/vim-afterglow'
+    Plug 'nightsense/carbonized'
+    Plug 'NLKNguyen/papercolor-theme'
+    Plug 'jacoborus/tender.vim'
+    Plug 'chriskempson/base16-vim'
+    Plug 'ayu-theme/ayu-vim'
 "}}}}}
 
 call plug#end()
@@ -275,5 +306,5 @@ syntax on
     autocmd Filetype plantuml let s:makecommand='java -jar /usr/local/Cellar/plantuml/8031/plantuml.8031.jar %'
 "}}}
 
-    let g:python_host_prog = '/Users/z001rw6/.pyenv/versions/2.7.15/bin/python2.7'  " Python 2
-    let g:python3_host_prog = '/Users/z001rw6/.pyenv/versions/3.7.2/bin/python3.7'  " Python 3
+let g:python_host_prog = '/Users/z001rw6/.pyenv/versions/2.7.15/bin/python2.7'  " Python 2
+let g:python3_host_prog = '/Users/z001rw6/.pyenv/versions/3.7.3/bin/python3.7'  " Python 3
