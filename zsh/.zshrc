@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/z001rw6/.oh-my-zsh
 
-ZSH_THEME="mikedd"
+# ZSH_THEME="mikedd"
 
 plugins=(git vi-mode docker)
 
@@ -74,3 +74,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export SDKMAN_DIR="/Users/z001rw6/.sdkman"
 [[ -s "/Users/z001rw6/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/z001rw6/.sdkman/bin/sdkman-init.sh"
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+# Use starship prompt
+eval "$(starship init zsh)"
