@@ -44,6 +44,7 @@ endif
 " }}}}
 " NerdCommenter {{{{
     Plug 'https://github.com/scrooloose/nerdcommenter'
+    Plug 'tpope/vim-commentary'
 " }}}}
 " DBExt {{{{
     Plug 'https://github.com/vim-scripts/dbext.vim'
@@ -83,9 +84,10 @@ endif
 " }}}}
 " SKIM {{{{"
     Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
+    Plug 'lotabout/skim'
         "let g:ctrlp_map = '<c-t>'
-        let $FZF_DEFAULT_COMMAND = 'rg --hidden --files'
-        let $SK_DEFAULT_COMMAND = 'rg --hidden --files'
+        let $SKIM_DEFAULT_COMMAND = 'rg --hidden --files'
+        "command! -bang -nargs=* Rg call fzf#vim#rg_interactive(<q-args>, fzf#vim#with_preview('right:50%:hidden', 'alt-h'))
         nnoremap <silent> <leader>t :SK<CR>
         nnoremap <silent> <c-p> :SK<CR>
 " }}}}
@@ -270,6 +272,7 @@ endif
 " Go {{{{
     "let g:http_client_verify_ssl=0
     "Plug 'https://github.com/fatih/vim-go'
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 "}}}}}
 " Jedi {{{{
     Plug 'davidhalter/jedi-vim'
