@@ -9,13 +9,27 @@ sudo apt install -y zsh neovim tmux
 mkdir -p ${HOME}/.config/tmux
 mkdir -p ${HOME}/.config/nvim
 
-ln -s ${DIR}/tmux/.tmux.conf ${HOME}/.config/tmux/tmux.conf
+if [ ! -f ${HOME}/.config/tmux/tmux.conf ]
+then
+    ln -s ${DIR}/tmux/.tmux.conf ${HOME}/.config/tmux/tmux.conf
+fi
 
-ln -s ${DIR}/zsh/.zshrc ${HOME}/.zshrc
-ln -s ${DIR}/zsh/.zshenv ${HOME}/.zshenv
+if [ ! -f ${HOME}/.zshrc ]
+then
+    ln -s ${DIR}/zsh/.zshrc ${HOME}/.zshrc
+fi
+if [ ! -f ${HOME}/.zshenv ]
+then
+    ln -s ${DIR}/zsh/.zshenv ${HOME}/.zshenv
+fi
 
-ln -s ${DIR}/vim/.vim/init.vim ${HOME}/.config/nvim/init.vim
+if [ ! -f ${HOME}/.config/nvim/init.vim ]
+then
+    ln -s ${DIR}/vim/.vim/init.vim ${HOME}/.config/nvim/init.vim
+fi
 
 sudo tic -xe alacritty,alacritty-direct ${DIR}/alacritty/alacritty.info
 
+echo "ZSH is usually in /usr/bin/zsh"
+chsh -s $(which zsh)
 
