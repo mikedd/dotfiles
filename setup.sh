@@ -15,3 +15,6 @@ ln -s ${DIR}/zsh/.zshrc ${HOME}/.zshrc
 ln -s ${DIR}/zsh/.zshenv ${HOME}/.zshenv
 
 ln -s ${DIR}/vim/.vim/init.vim ${HOME}/.config/nvim/init.vim
+
+
+sudo tic -xs alacritty,alacritty-direct ${DIR}/alacritty/alacritty.info
