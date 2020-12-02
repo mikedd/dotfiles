@@ -35,10 +35,4 @@ chsh -s $(which zsh)
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# if [ ! -f ${HOME}/.oh-my-zsh/themes/mikedd.zsh-theme ]
-# then
-#     ln -s ${DIR}/zsh/oh-my-zsh/themes/mikedd.zsh.theme ${HOME}/.oh-my-zsh/themes/mikedd.zsh-theme
-# fi
-
-
 sh -c curl -fsSL https://starship.rs/install.sh | bash
