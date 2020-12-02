@@ -6,8 +6,15 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 sudo apt install -y zsh neovim tmux
 
-mkdir -p ${HOME}/.config/tmux
-mkdir -p ${HOME}/.config/nvim
+if [ ! -d ${HOME}/.config/tmux]
+then
+    mkdir -p ${HOME}/.config/tmux
+fi
+
+if [ ! -d ${HOME}/.config/nvim]
+then
+    mkdir -p ${HOME}/.config/nvim
+fi
 
 if [ ! -f ${HOME}/.config/tmux/tmux.conf ]
 then
@@ -30,9 +37,20 @@ fi
 
 sudo tic -xe alacritty,alacritty-direct ${DIR}/alacritty/alacritty.info
 
-echo "ZSH is usually in /usr/bin/zsh setting shell to $(which zsh)"
-chsh -s $(which zsh)
+if [ "$(echo $SHELL)" -ne "zsh"]
+then
+    echo "ZSH is usually in /usr/bin/zsh setting shell to $(which zsh)"
+    chsh -s $(which zsh)
+fi
 
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+if [ ! -d ${HOME}/t.oh-my-zsh ]
+then
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
-sh -c curl -fsSL https://starship.rs/install.sh | bash
+which cargo
+if [ $? -ne 0 ]
+then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
+
