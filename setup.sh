@@ -30,6 +30,9 @@ fi
 
 sudo tic -xe alacritty,alacritty-direct ${DIR}/alacritty/alacritty.info
 
-echo "ZSH is usually in /usr/bin/zsh"
+echo "ZSH is usually in /usr/bin/zsh setting shell to $(which zsh)"
 chsh -s $(which zsh)
 
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+sh -c curl -fsSL https://starship.rs/install.sh | bash
