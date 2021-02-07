@@ -42,7 +42,6 @@
 
     set nofixendofline              "Do not add an end of line character
 
-
     let mapleader=","
 " }}}
 
@@ -71,9 +70,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 " }}}}
 " Tmux navigator {{{{
     Plug 'christoomey/vim-tmux-navigator'
-        " Helps with background color in tmux
-        "set t_Co=256
-        "set t_ut=
 " }}}}
 " NerdTree {{{{
     Plug 'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
@@ -341,7 +337,6 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'Heorhiy/VisualStudioDark.vim'
     Plug 'chriskempson/base16-vim'
     Plug 'ayu-theme/ayu-vim'
-
 " }}}}
 
 call plug#end()
