@@ -1,5 +1,60 @@
 " vim:fdm=marker
-" Initialization {{{
+" General configuration {{{
+"
+filetype plugin indent on
+syntax on
+
+    " Copy Pasta {{{{
+        set clipboard=unnamed       "Share clipboard with OSX
+    "}}}}
+
+    set showmode                    " Display the current mode
+    set cursorline                  " Highlight current line
+
+    set backspace=indent,eol,start  " Backspace for dummies
+    set linespace=0                 " No extra spaces between rows
+    set nu                          " Line numbers on
+    set showmatch                   " Show matching brackets/parenthesis
+    "set incsearch                   " Find as you type search
+    set hlsearch                    " Highlight search terms
+    set winminheight=0              " Windows can be 0 line high
+    set ignorecase                  " Case insensitive search
+    set smartcase                   " Case sensitive when uc present
+    set wildmenu                    " Show list instead of just completing
+    set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
+    set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
+    set scrolljump=5                " Lines to scroll when cursor leaves screen
+    set scrolloff=3                 " Minimum lines to keep above and below cursor
+    set foldenable                  " Auto fold code
+    set list
+    set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+
+    set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
+    set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
+    set virtualedit=onemore             " Allow for cursor beyond last character
+    set history=1000                    " Store a ton of history (default is 20)
+    set hidden                          " Allow buffer switching without saving
+
+    set nowrap                      " Wrap long lines
+    set autoindent                  " Indent at the same level of the previous line
+    set shiftwidth=4                " Use indents of 4 spaces
+    set expandtab                   " Tabs are spaces, not tabs
+    set tabstop=4                   " An indentation every four columns
+    set softtabstop=4               " Let backspace delete indent
+    "set matchpairs+=<:>             " Match, to be used with %
+    set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
+
+    highlight clear SignColumn      " SignColumn should match background for
+                                    " things like vim-gitgutter
+
+    set nofixendofline              " Do not add a new line character
+
+    if has('cmdline_info')
+        set ruler                   " Show the ruler
+        set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
+        set showcmd                 " Show partial commands in status line and
+    endif
+
 let mapleader=","
 " }}}
 "
@@ -25,15 +80,15 @@ endif
     Plug 'https://github.com/tpope/vim-surround'
 " }}}}
 " GitGutter {{{{
-    " Plug 'https://github.com/airblade/vim-gitgutter'
+    Plug 'https://github.com/airblade/vim-gitgutter'
 " }}}}
 " Vim signify {{{{
     " Plug 'https://github.com/airblade/vim-gitgutter'
-    if has('nvim') || has('patch-8.0.902')
-        Plug 'mhinz/vim-signify'
-    else
-        Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
-    endif
+    " if has('nvim') || has('patch-8.0.902')
+    "     Plug 'mhinz/vim-signify'
+    " else
+    "     Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+    " endif
 " }}}}
 " Tmux navigator {{{{
     Plug 'https://github.com/christoomey/vim-tmux-navigator'
@@ -64,7 +119,7 @@ endif
     source $HOME/.dadbod-db.vim
 
     " }}}}
-" dadbod {{{{
+" dotenv {{{{
     Plug 'https://github.com/tpope/vim-dotenv'
 " }}}}
 " RipGrep {{{{
@@ -86,20 +141,15 @@ endif
         nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
         vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 "}}}}
-" FZF {{{{"
-    "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-        "let g:ctrlp_map = '<c-t>'
-        "let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
-        "nnoremap <silent> <leader>t :FZF<CR>
-        "nnoremap <silent> <c-p> :FZF<CR>
 " }}}}
 " SKIM {{{{"
+    " This does not work if you have an existing .skim directory (might be a
+    " problem if you install from cargo). Wipe the old dir out and re-run
+    " plug-install
     Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
     Plug 'lotabout/skim'
-        "let g:ctrlp_map = '<c-t>'
-        "let $FZF_DEFAULT_COMMAND = 'rg --hidden --files'
-        "let $SK_DEFAULT_COMMAND = 'rg --hidden --files'
-        nnoremap <silent> <leader>t :SK<CR>
+        let $SKIM_DEFAULT_COMMAND = 'git ls-tree -r --name-only HEAD || rg --files'
+        " nnoremap <silent> <leader>t :SK<CR>
         nnoremap <silent> <c-p> :SK<CR>
 " }}}}
 " airline and bufferline {{{{
@@ -134,9 +184,9 @@ endif
 " Conqueror Of Completion {{{{
     Plug 'neoclide/coc.nvim'
 
-    " Taken from the coc readme.md
-        " Give more space for displaying messages.
-        "set cmdheight=2
+
+    " TextEdit might fail if hidden is not set.
+    set hidden
 
         " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
         " delays and poor user experience.
@@ -281,6 +331,26 @@ endif
         " Resume latest coc list.
         nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 "}}}}}
+
+" NeoFormat {{{{
+    Plug 'sbdchd/neoformat'
+    " TODO configure
+    let g:neoformat_enabled_python = [ 'black' ]
+" }}}}
+" Test {{{{
+    Plug 'janko/vim-test'
+    nnoremap <silent> tt :TestNearest<CR>
+    nnoremap <silent> tf :TestFile<CR>
+    nnoremap <silent> ts :TestSuite<CR>
+    nnoremap <silent> tl :TestLast<CR>
+    " TODO configure
+    let test#strategy = "neovim"
+    let test#neovim#term_position = "vertical"
+    if has('nvim')
+        tmap <C-o> <C-\><C-n>
+    endif
+" }}}}
+
 " Go {{{{
     "let g:http_client_verify_ssl=0
     "Plug 'https://github.com/fatih/vim-go'
@@ -300,73 +370,25 @@ endif
     Plug 'gu-fan/riv.vim'
 "}}}}}
 " color schemes {{{{
-    Plug 'https://github.com/joshdick/onedark.vim'
-    Plug 'https://github.com/tomasiser/vim-code-dark'
-    Plug 'https://github.com/tomasr/molokai'
-    Plug 'danilo-augusto/vim-afterglow'
-    Plug 'nightsense/carbonized'
-    Plug 'NLKNguyen/papercolor-theme'
-    Plug 'jacoborus/tender.vim'
-    Plug 'chriskempson/base16-vim'
+    " Plug 'https://github.com/joshdick/onedark.vim'
+    " Plug 'https://github.com/tomasiser/vim-code-dark'
+    " Plug 'https://github.com/tomasr/molokai'
+    " Plug 'danilo-augusto/vim-afterglow'
+    " Plug 'nightsense/carbonized'
+    " Plug 'NLKNguyen/papercolor-theme'
+    " Plug 'jacoborus/tender.vim'
+    " Plug 'chriskempson/base16-vim'
     Plug 'ayu-theme/ayu-vim'
 "}}}}}
 
 call plug#end()
+
+set background=dark
+color ayu
 " }}}
 " General Configuration {{{
 filetype plugin indent on
 syntax on
-
-    " Copy Pasta {{{{
-        set clipboard=unnamed       "Share clipboard with OSX
-    "}}}}
-
-    set showmode                    " Display the current mode
-    set cursorline                  " Highlight current line
-
-    set backspace=indent,eol,start  " Backspace for dummies
-    set linespace=0                 " No extra spaces between rows
-    set nu                          " Line numbers on
-    set showmatch                   " Show matching brackets/parenthesis
-    "set incsearch                   " Find as you type search
-    set hlsearch                    " Highlight search terms
-    set winminheight=0              " Windows can be 0 line high
-    set ignorecase                  " Case insensitive search
-    set smartcase                   " Case sensitive when uc present
-    set wildmenu                    " Show list instead of just completing
-    set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
-    set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
-    set scrolljump=5                " Lines to scroll when cursor leaves screen
-    set scrolloff=3                 " Minimum lines to keep above and below cursor
-    set foldenable                  " Auto fold code
-    set list
-    set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
-
-    set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
-    set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
-    set virtualedit=onemore             " Allow for cursor beyond last character
-    set history=1000                    " Store a ton of history (default is 20)
-    set hidden                          " Allow buffer switching without saving
-
-    set nowrap                      " Wrap long lines
-    set autoindent                  " Indent at the same level of the previous line
-    set shiftwidth=4                " Use indents of 4 spaces
-    set expandtab                   " Tabs are spaces, not tabs
-    set tabstop=4                   " An indentation every four columns
-    set softtabstop=4               " Let backspace delete indent
-    "set matchpairs+=<:>             " Match, to be used with %
-    set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
-
-    highlight clear SignColumn      " SignColumn should match background for
-                                    " things like vim-gitgutter
-
-    set nofixendofline              " Do not add a new line character
-
-    if has('cmdline_info')
-        set ruler                   " Show the ruler
-        set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
-        set showcmd                 " Show partial commands in status line and
-    endif
 
 " }}}
 " Backup and Swap {{{
@@ -377,15 +399,12 @@ syntax on
         set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
     endif
 "}}}
-" Colors {{{
-    set background=dark
-        color ayu
-" }}}
 " Git {{{
     " Instead of reverting the cursor to the last position in the buffer, we
     " set it to the first line when editing a git commit message
     au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 "}}}
+"
 " Initialize directories {{{
 " =========================================================================================
 " Functions (from SPF13)
@@ -423,9 +442,9 @@ syntax on
     " Finish local init (SPF13)
     call InitializeDirectories()
 " }}}
-" Development {{{
+" Development settings {{{
     " set completion
-    set complete=.,w,b,u,t,i
+    " set complete=.,w,b,u,t,i
 
     " Filetypes
     " gradle syntax highlighting
@@ -439,7 +458,7 @@ syntax on
     autocmd FileType c,cpp,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e"
     nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
-    "Tidy yo XML
+    "Tidy your XML
     let s:has_tidy = executable('tidy')
     if s:has_tidy
         if !exists(':Thtml')
@@ -449,22 +468,6 @@ syntax on
             command Txml  :%!tidy -q -i --show-errors 0 -xml
         endif
     endif
-
-    "{{{{ JavaScript}}}}
-    autocmd Filetype javascript setlocal tabstop=2          "Tab width = 2"
-    autocmd Filetype javascript setlocal shiftwidth=2       "Auto indent = 2"
-    autocmd Filetype javascript setlocal softtabstop=2      "Backspace will delete two spaces for auto-indenting"
-    autocmd Filetype javascript setlocal expandtab          "Use spaces instead of tabs"
-
-    "{{{{ xml}}}}
-    autocmd Filetype xml setlocal foldmethod=syntax  "Makeit fold"
-    autocmd Filetype xml setlocal tabstop=4          "Tab width = 2"
-    autocmd Filetype xml setlocal shiftwidth=4       "Auto indent = 2"
-    autocmd Filetype xml setlocal softtabstop=4      "Backspace will delete two spaces for auto-indenting"
-    autocmd Filetype xml setlocal expandtab          "Use spaces instead of tabs"
-
-    "{{{{ plantuml }}}}
-    autocmd Filetype plantuml let s:makecommand='java -jar /usr/local/Cellar/plantuml/8031/plantuml.8031.jar %'
 "}}}
 
 let g:python_host_prog = '/Users/z001rw6/.pyenv/versions/2.7.15/bin/python2.7'  " Python 2
