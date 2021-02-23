@@ -14,8 +14,8 @@ export SSL_CERT_FILE=${HOME}/tgt-ca-bundle.crt
 alias vim='nvim'
 export EDITOR='nvim'
 
-eval "$(pipenv --completion)"
+eval "$(pyenv init - --no-rehash)"
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
 
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.cargo/bin:${HOME}/bin:$PATH"
