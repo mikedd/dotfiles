@@ -25,7 +25,15 @@ endif
     Plug 'https://github.com/tpope/vim-surround'
 " }}}}
 " GitGutter {{{{
-    Plug 'https://github.com/airblade/vim-gitgutter'
+    " Plug 'https://github.com/airblade/vim-gitgutter'
+" }}}}
+" Vim signify {{{{
+    " Plug 'https://github.com/airblade/vim-gitgutter'
+    if has('nvim') || has('patch-8.0.902')
+        Plug 'mhinz/vim-signify'
+    else
+        Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+    endif
 " }}}}
 " Tmux navigator {{{{
     Plug 'https://github.com/christoomey/vim-tmux-navigator'
@@ -52,7 +60,10 @@ endif
 " }}}}
 " dadbod {{{{
     Plug 'https://github.com/tpope/vim-dadbod'
-" }}}}
+    Plug 'kristijanhusak/vim-dadbod-ui'
+    source $HOME/.dadbod-db.vim
+
+    " }}}}
 " dadbod {{{{
     Plug 'https://github.com/tpope/vim-dotenv'
 " }}}}
@@ -86,8 +97,8 @@ endif
     Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
     Plug 'lotabout/skim'
         "let g:ctrlp_map = '<c-t>'
-        let $SKIM_DEFAULT_COMMAND = 'rg --hidden --files'
-        "command! -bang -nargs=* Rg call fzf#vim#rg_interactive(<q-args>, fzf#vim#with_preview('right:50%:hidden', 'alt-h'))
+        "let $FZF_DEFAULT_COMMAND = 'rg --hidden --files'
+        "let $SK_DEFAULT_COMMAND = 'rg --hidden --files'
         nnoremap <silent> <leader>t :SK<CR>
         nnoremap <silent> <c-p> :SK<CR>
 " }}}}
@@ -117,18 +128,19 @@ endif
 " ALE {{{{
     Plug 'https://github.com/dense-analysis/ale'
     "let g:ale_kotlin_languageserver_executable='/Users/z001rw6/work/KotlinLanguageServer/build/install/kotlin-language-server/bin/kotlin-language-server'
-    let g:ale_kotlin_languageserver_executable='/Users/z001rw6/work/KotlinLanguageServer/server/build/install/server/bin/kotlin-language-server'
+    " let g:ale_kotlin_languageserver_executable='/Users/z001rw6/work/KotlinLanguageServer/server/build/install/server/bin/kotlin-language-server'
     let g:ale_python_auto_pipenv=1
 " }}}}
 " Conqueror Of Completion {{{{
-    Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release' }
+    Plug 'neoclide/coc.nvim'
+
     " Taken from the coc readme.md
         " Give more space for displaying messages.
         "set cmdheight=2
 
         " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
         " delays and poor user experience.
-        set updatetime=300
+        set updatetime=100
 
         " Don't pass messages to |ins-completion-menu|.
         "set shortmess+=c
@@ -275,7 +287,7 @@ endif
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 "}}}}}
 " Jedi {{{{
-    Plug 'davidhalter/jedi-vim'
+    " Plug 'davidhalter/jedi-vim'
 "}}}}}
 " rust-lang/rust.vim {{{{
     Plug 'rust-lang/rust.vim'
@@ -367,7 +379,7 @@ syntax on
 "}}}
 " Colors {{{
     set background=dark
-        color codedark
+        color ayu
 " }}}
 " Git {{{
     " Instead of reverting the cursor to the last position in the buffer, we
@@ -456,4 +468,5 @@ syntax on
 "}}}
 
 let g:python_host_prog = '/Users/z001rw6/.pyenv/versions/2.7.15/bin/python2.7'  " Python 2
-let g:python3_host_prog = '/Users/z001rw6/.pyenv/versions/3.7.3/bin/python3.7'  " Python 3
+let g:python3_host_prog = '/Users/z001rw6/.pyenv/versions/3.7.7/bin/python3.7'  " Python 3
+

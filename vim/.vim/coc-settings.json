@@ -1,8 +1,10 @@
 { 
   "languageserver": {
     "kotlin": {
-      "command": "/Users/z001rw6/work/KotlinLanguageServer/server/build/install/server/bin/kotlin-language-server",
+      "command": "/Users/z001rw6/work/kotlin-language-server/server/build/install/server/bin/kotlin-language-server",
       "filetypes": ["kotlin"]
     }
   }
 }
+
+
