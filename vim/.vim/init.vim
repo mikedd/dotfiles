@@ -1,52 +1,58 @@
 " vim:fdm=marker
 " General configuration {{{
 "
-    set clipboard=unnamedplus       "copy to the system clipboard
-    set showmode                    " Display the current mode
-    set cursorline                  " Highlight current line
 
-    set backspace=indent,eol,start  " Backspace for dummies
-    set linespace=0                 " No extra spaces between rows
-    set nu                          "show line numbers
-    set showmatch                   " Show matching brackets/parenthesis
-    "set incsearch                   " Find as you type search
-    set hlsearch                    " Highlight search terms
-    set winminheight=0              " Windows can be 0 line high
-    set ignorecase                  " Case insensitive search
-    set smartcase                   " Case sensitive when uc present
-    set wildmenu                    " Show list instead of just completing
-    set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
-    set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
-    set scrolljump=5                " Lines to scroll when cursor leaves screen
-    set scrolloff=3                 " Minimum lines to keep above and below cursor
-    set foldenable                  " Auto fold code
-    set list
-    set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+"set incsearch                   " Find as you type search
+" set autoindent                  " Indent at the same level of the previous line
+" set backspace=indent,eol,start  " Backspace for dummies
+set clipboard=unnamedplus       "copy to the system clipboard
+set complete=.,w,b,u,t,i
+set completeopt=menuone,noinsert,noselect  " From devOnDuty
+set cmdheight=1                 " From devOnDuty
+set cursorline                  " Highlight current line
+set expandtab                   " Tabs are spaces, not tabs
+" set foldenable                  " Auto fold code
+set hidden                      " Allow buffer switching without saving
+set history=1000                    " Store a ton of history (default is 20)
+" set hlsearch                    " Highlight search terms
+set ignorecase                  " Case insensitive search
+" set linespace=0                 " No extra spaces between rows
+set list
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+" set nowrap                      " do not wrap long lines
+set number                          "show line numbers
+set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
+" set scrolljump=5                " Lines to scroll when cursor leaves screen
+" set scrolloff=3                 " Minimum lines to keep above and below cursor
+" set shiftwidth=4                " Use indents of 4 spaces
+" set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
+set shortmess+=c                " From devOnDuty
+set showmatch                   " Show matching brackets/parenthesis
+" set showmode                    " Display the current mode
+set smartcase                   " Case sensitive when uc present
+set softtabstop=4               " Let backspace delete indent
+set tabstop=4                   " An indentation every four columns
+" set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
+"set virtualedit=onemore             " Allow for cursor beyond last character
+"set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
+"set wildmenu                    " Show list instead of just completing
+"set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
+"set winminheight=0              " Windows can be 0 line high
+highlight clear SignColumn      " SignColumn should match background for things like vim-gitgutter
 
-    set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
-    set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
-    set virtualedit=onemore             " Allow for cursor beyond last character
-    set history=1000                    " Store a ton of history (default is 20)
-    set hidden                      " Allow buffer switching without saving
+set nofixendofline              "Do not add an end of line character
 
-    set nowrap                      " do not wrap long lines
-    set autoindent                  " Indent at the same level of the previous line
-    set shiftwidth=4                " Use indents of 4 spaces
-    set expandtab                   " Tabs are spaces, not tabs
-    set tabstop=4                   " An indentation every four columns
-    set softtabstop=4               " Let backspace delete indent
-    set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
+let mapleader=","
+" }}}
 
-    highlight clear SignColumn      " SignColumn should match background for
-                                    " things like vim-gitgutter
-
-    set nofixendofline              "Do not add an end of line character
-
-    let mapleader=","
+" Misc from dev on duty{{{
+let g:netrw_banner=0 " disable banner in netrw
+let g:netrw_liststyle=3 " tree view in netrw
+let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'json=javascript'] " syntax highlighting in markdown
 " }}}
 
 " if has("termguicolors")
-  set termguicolors
+set termguicolors
 " endif
 
 " Vim Plug plugin list {{{
@@ -72,19 +78,19 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'christoomey/vim-tmux-navigator'
 " }}}}
 " NerdTree {{{{
-    Plug 'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
-    let NERDTreeShowBookmarks=1
-    let NERDTreeIgnore=['\.pyc', '\.class', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
-    let NERDTreeChDirMode=0
-    let NERDTreeQuitOnOpen=1
-    let NERDTreeMouseMode=2
-    let NERDTreeShowHidden=1
-    let NERDTreeKeepTreeInNewTab=1
-    let g:nerdtree_tabs_open_on_gui_startup=0
-    map <silent> <F2> :NERDTreeToggle <CR>
+    " Plug 'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
+    " let NERDTreeShowBookmarks=1
+    " let NERDTreeIgnore=['\.pyc', '\.class', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+    " let NERDTreeChDirMode=0
+    " let NERDTreeQuitOnOpen=1
+    " let NERDTreeMouseMode=2
+    " let NERDTreeShowHidden=1
+    " let NERDTreeKeepTreeInNewTab=1
+    " let g:nerdtree_tabs_open_on_gui_startup=0
+    " map <silent> <F2> :NERDTreeToggle <CR>
 " }}}}
 " commenting {{{{
-    Plug 'scrooloose/nerdcommenter'
+    " Plug 'scrooloose/nerdcommenter'
     Plug 'tpope/vim-commentary'
 " }}}}
 " DBExt {{{{
@@ -119,9 +125,12 @@ call plug#begin('~/.local/share/nvim/plugged')
         vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 "}}}}
 " SKIM {{{{
-    Plug 'lotabout/skim'
-    let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
-    let $SK_DEFAULT_COMMAND = 'rg --hidden --files'
+    " This does not work if you have an existing .skim directory (might be a
+    " problem if you install from cargo). Wipe the old dir out and re-run
+    " plug-install
+    Plug 'lotabout/skim' , { 'dir': '~/.skim', 'do': './install' }
+    Plug 'lotabout/skim.vim'
+    let $SKIM_DEFAULT_COMMAND = 'git ls-tree -r --name-only HEAD || rg --files'
     "nnoremap <silent> <leader>t :SK<CR>
     nnoremap <silent> <c-p> :SK<CR>
 " }}}}
@@ -176,7 +185,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     " set nowritebackup
 
     " Give more space for displaying messages.
-    set cmdheight=2
+    " set cmdheight=2
 
     " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
     " delays and poor user experience.
@@ -201,7 +210,7 @@ call plug#begin('~/.local/share/nvim/plugged')
           \ pumvisible() ? "\<C-n>" :
           \ <SID>check_back_space() ? "\<TAB>" :
           \ coc#refresh()
-    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+    " inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
     function! s:check_back_space() abort
       let col = col('.') - 1
@@ -294,7 +303,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     command! -nargs=0 Format :call CocAction('format')
 
     " Add `:Fold` command to fold current buffer.
-    command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+    " command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
     " Add `:OR` command for organize imports of the current buffer.
     command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
@@ -322,20 +331,41 @@ call plug#begin('~/.local/share/nvim/plugged')
     " Resume latest coc list.
     nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " }}}}
+
+" NeoFormat {{{{
+    Plug 'sbdchd/neoformat'
+    " TODO configure
+    let g:neoformat_enabled_python = [ 'black' ]
+" }}}}
+" Test {{{{
+    Plug 'janko/vim-test'
+    nnoremap <silent> tt :TestNearest<CR>
+    nnoremap <silent> tf :TestFile<CR>
+    nnoremap <silent> ts :TestSuite<CR>
+    nnoremap <silent> tl :TestLast<CR>
+    " TODO configure
+    let test#strategy = "neovim"
+    let test#neovim#term_position = "vertical"
+    if has('nvim')
+        tmap <C-o> <C-\><C-n>
+    endif
+" }}}}
+
+
 " color schemes {{{{
-    Plug 'joshdick/onedark.vim'
-    Plug 'tomasiser/vim-code-dark'
-    Plug 'rakr/vim-one'
-    Plug 'danilo-augusto/vim-afterglow'
-    Plug 'nightsense/carbonized'
-    Plug 'NLKNguyen/papercolor-theme'
-    Plug 'jacoborus/tender.vim'
-    Plug 'romainl/apprentice'
-    Plug 'rakr/vim-two-firewatch'
-    Plug 'tomasr/molokai'
-    Plug 'fcevado/molokai_dark'
-    Plug 'Heorhiy/VisualStudioDark.vim'
-    Plug 'chriskempson/base16-vim'
+    " Plug 'joshdick/onedark.vim'
+    " Plug 'tomasiser/vim-code-dark'
+    " Plug 'rakr/vim-one'
+    " Plug 'danilo-augusto/vim-afterglow'
+    " Plug 'nightsense/carbonized'
+    " Plug 'NLKNguyen/papercolor-theme'
+    " Plug 'jacoborus/tender.vim'
+    " Plug 'romainl/apprentice'
+    " Plug 'rakr/vim-two-firewatch'
+    " Plug 'tomasr/molokai'
+    " Plug 'fcevado/molokai_dark'
+    " Plug 'Heorhiy/VisualStudioDark.vim'
+    " Plug 'chriskempson/base16-vim'
     Plug 'ayu-theme/ayu-vim'
 " }}}}
 
@@ -362,6 +392,7 @@ syntax on
     " set it to the first line when editing a git commit message
     au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 "}}}
+
 " Initialize directories {{{
 " =========================================================================================
 " Functions (from SPF13)
@@ -401,7 +432,6 @@ syntax on
 " }}}
 
 " Development settings {{{
-    set complete=.,w,b,u,t,i
 
     " Filetypes
     " gradle syntax highlighting
