@@ -1,12 +1,10 @@
 " vim:fdm=marker
 " General configuration {{{
 "
-filetype plugin indent on
-syntax on
+    filetype plugin indent on
+    syntax on
 
-    " Copy Pasta {{{{
-        set clipboard=unnamed       "Share clipboard with OSX
-    "}}}}
+    set clipboard=unnamed       "Share clipboard with OSX
 
     set showmode                    " Display the current mode
     set cursorline                  " Highlight current line
@@ -55,7 +53,7 @@ syntax on
         set showcmd                 " Show partial commands in status line and
     endif
 
-let mapleader=","
+    let mapleader=","
 " }}}
 "
 if exists('+termguicolors')
@@ -64,12 +62,12 @@ if exists('+termguicolors')
   set termguicolors
 endif
 " Vim Plug plugin list {{{
-    call plug#begin('~/.local/share/nvim/plugged~/.vim/plugged')
+    call plug#begin('~/.local/share/nvim/plugged/.vim/plugged')
 " Fugitive {{{{
     Plug 'https://github.com/tpope/vim-fugitive.git'
         nnoremap <silent> <leader>gs :Gstatus<CR>
         nnoremap <silent> <leader>gd :Gdiff<CR>
-        nnoremap <silent> <leader>gc :Gcommit<CR>
+        nnoremap <silent> <leader>gc :Git commit<CR>
         nnoremap <silent> <leader>gb :Gblame<CR>
         nnoremap <silent> <leader>gl :Glog<CR>
         nnoremap <silent> <leader>gp :Git push<CR>
@@ -113,12 +111,6 @@ endif
     Plug 'https://github.com/vim-scripts/dbext.vim'
     source $HOME/.psql.vim
 " }}}}
-" dadbod {{{{
-    Plug 'https://github.com/tpope/vim-dadbod'
-    Plug 'kristijanhusak/vim-dadbod-ui'
-    source $HOME/.dadbod-db.vim
-
-    " }}}}
 " dotenv {{{{
     Plug 'https://github.com/tpope/vim-dotenv'
 " }}}}
@@ -148,7 +140,7 @@ endif
     " plug-install
     Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
     Plug 'lotabout/skim'
-        let $SKIM_DEFAULT_COMMAND = 'git ls-tree -r --name-only HEAD || rg --files'
+        " let $SKIM_DEFAULT_COMMAND = 'git ls-tree -r --name-only HEAD || rg --files'
         " nnoremap <silent> <leader>t :SK<CR>
         nnoremap <silent> <c-p> :SK<CR>
 " }}}}
@@ -157,10 +149,6 @@ endif
 " }}}}
 " Json syntax {{{{
     Plug 'https://github.com/elzr/vim-json'
-" }}}}
-" PlantUml syntax {{{{
-    "Plug 'https://github.com/aklt/plantuml-syntax'
-    "let g:plantuml_executable_script='java -jar /usr/local/Cellar/plantuml/8041/plantuml.8041.jar'
 " }}}}
 " Rainbow parens syntax {{{{
     Plug 'https://github.com/luochen1990/rainbow'
@@ -351,11 +339,6 @@ endif
     endif
 " }}}}
 
-" Go {{{{
-    "let g:http_client_verify_ssl=0
-    "Plug 'https://github.com/fatih/vim-go'
-    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-"}}}}}
 " Jedi {{{{
     " Plug 'davidhalter/jedi-vim'
 "}}}}}
@@ -381,7 +364,30 @@ endif
     Plug 'ayu-theme/ayu-vim'
 "}}}}}
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 call plug#end()
+
+" Enable treesitter - must be done after call plug#end
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    },
+  },
+  indent = {
+    enable = true
+  }
+}
+EOF
 
 set background=dark
 color ayu
