@@ -36,6 +36,7 @@ alias http='http --verify=/Users/z001rw6/tgt-ca-bundle.crt'
 alias pe=pipenv
 alias dc=docker-compose
 alias tw=timew
+alias ls=exa
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
