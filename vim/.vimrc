@@ -25,15 +25,7 @@ endif
     Plug 'https://github.com/tpope/vim-surround'
 " }}}}
 " GitGutter {{{{
-    " Plug 'https://github.com/airblade/vim-gitgutter'
-" }}}}
-" Vim signify {{{{
-    " Plug 'https://github.com/airblade/vim-gitgutter'
-    if has('nvim') || has('patch-8.0.902')
-        Plug 'mhinz/vim-signify'
-    else
-        Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
-    endif
+    Plug 'https://github.com/airblade/vim-gitgutter'
 " }}}}
 " Tmux navigator {{{{
     Plug 'https://github.com/christoomey/vim-tmux-navigator'
@@ -86,13 +78,6 @@ endif
         nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
         vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 "}}}}
-" FZF {{{{"
-    "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-        "let g:ctrlp_map = '<c-t>'
-        "let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
-        "nnoremap <silent> <leader>t :FZF<CR>
-        "nnoremap <silent> <c-p> :FZF<CR>
-" }}}}
 " SKIM {{{{"
     Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
     Plug 'lotabout/skim'
@@ -131,163 +116,10 @@ endif
     " let g:ale_kotlin_languageserver_executable='/Users/z001rw6/work/KotlinLanguageServer/server/build/install/server/bin/kotlin-language-server'
     let g:ale_python_auto_pipenv=1
 " }}}}
-" Conqueror Of Completion {{{{
-    Plug 'neoclide/coc.nvim'
-
-    " Taken from the coc readme.md
-        " Give more space for displaying messages.
-        "set cmdheight=2
-
-        " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-        " delays and poor user experience.
-        set updatetime=100
-
-        " Don't pass messages to |ins-completion-menu|.
-        "set shortmess+=c
-
-        " Always show the signcolumn, otherwise it would shift the text each time
-        " diagnostics appear/become resolved.
-        if has("patch-8.1.1564")
-          " Recently vim can merge signcolumn and number column into one
-          set signcolumn=number
-        else
-          set signcolumn=yes
-        endif
-
-        " Use tab for trigger completion with characters ahead and navigate.
-        " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-        " other plugin before putting this into your config.
-        inoremap <silent><expr> <TAB>
-              \ pumvisible() ? "\<C-n>" :
-              \ <SID>check_back_space() ? "\<TAB>" :
-              \ coc#refresh()
-        inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-        function! s:check_back_space() abort
-          let col = col('.') - 1
-          return !col || getline('.')[col - 1]  =~# '\s'
-        endfunction
-
-        " Use <c-space> to trigger completion.
-        if has('nvim')
-          inoremap <silent><expr> <c-space> coc#refresh()
-        else
-          inoremap <silent><expr> <c-@> coc#refresh()
-        endif
-        " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-        " position. Coc only does snippet and additional edit on confirm.
-        " <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-        if exists('*complete_info')
-          inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-        else
-          inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-        endif
-
-        " Use `[g` and `]g` to navigate diagnostics
-        " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-        nmap <silent> [g <Plug>(coc-diagnostic-prev)
-        nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-        " GoTo code navigation.
-        nmap <silent> gd <Plug>(coc-definition)
-        nmap <silent> gy <Plug>(coc-type-definition)
-        nmap <silent> gi <Plug>(coc-implementation)
-        nmap <silent> gr <Plug>(coc-references)
-
-        " Use K to show documentation in preview window.
-        nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-        function! s:show_documentation()
-          if (index(['vim','help'], &filetype) >= 0)
-            execute 'h '.expand('<cword>')
-          else
-            call CocAction('doHover')
-          endif
-        endfunction
-
-        " Highlight the symbol and its references when holding the cursor.
-        autocmd CursorHold * silent call CocActionAsync('highlight')
-
-        " Symbol renaming.
-        nmap <leader>rn <Plug>(coc-rename)
-
-        " Formatting selected code.
-        xmap <leader>f  <Plug>(coc-format-selected)
-        nmap <leader>f  <Plug>(coc-format-selected)
-
-        augroup mygroup
-          autocmd!
-          " Setup formatexpr specified filetype(s).
-          autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-          " Update signature help on jump placeholder.
-          autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-        augroup end
-
-        " Applying codeAction to the selected region.
-        " Example: `<leader>aap` for current paragraph
-        xmap <leader>a  <Plug>(coc-codeaction-selected)
-        nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-        " Remap keys for applying codeAction to the current buffer.
-        nmap <leader>ac  <Plug>(coc-codeaction)
-        " Apply AutoFix to problem on the current line.
-        nmap <leader>qf  <Plug>(coc-fix-current)
-
-        " Map function and class text objects
-        " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-        xmap if <Plug>(coc-funcobj-i)
-        omap if <Plug>(coc-funcobj-i)
-        xmap af <Plug>(coc-funcobj-a)
-        omap af <Plug>(coc-funcobj-a)
-        xmap ic <Plug>(coc-classobj-i)
-        omap ic <Plug>(coc-classobj-i)
-        xmap ac <Plug>(coc-classobj-a)
-        omap ac <Plug>(coc-classobj-a)
-
-        " Use CTRL-S for selections ranges.
-        " Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
-        nmap <silent> <C-s> <Plug>(coc-range-select)
-        xmap <silent> <C-s> <Plug>(coc-range-select)
-
-        " Add `:Format` command to format current buffer.
-        command! -nargs=0 Format :call CocAction('format')
-
-        " Add `:Fold` command to fold current buffer.
-        command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-        " Add `:OR` command for organize imports of the current buffer.
-        command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-        " Add (Neo)Vim's native statusline support.
-        " NOTE: Please see `:h coc-status` for integrations with external plugins that
-        " provide custom statusline: lightline.vim, vim-airline.
-        set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-        " Mappings for CoCList
-        " Show all diagnostics.
-        nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
-        " Manage extensions.
-        nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-        " Show commands.
-        nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-        " Find symbol of current document.
-        nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-        " Search workspace symbols.
-        nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-        " Do default action for next item.
-        nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-        " Do default action for previous item.
-        nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-        " Resume latest coc list.
-        nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-"}}}}}
 " Go {{{{
     "let g:http_client_verify_ssl=0
     "Plug 'https://github.com/fatih/vim-go'
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-"}}}}}
-" Jedi {{{{
-    " Plug 'davidhalter/jedi-vim'
 "}}}}}
 " rust-lang/rust.vim {{{{
     Plug 'rust-lang/rust.vim'
@@ -299,6 +131,39 @@ endif
     Plug 'gu-fan/InstantRst'
     Plug 'gu-fan/riv.vim'
 "}}}}}
+" Toml - not just cargo {{{{
+    Plug 'cespare/vim-toml'
+" }}}}
+" LSP Config {{{{
+    Plug 'neovim/nvim-lspconfig'
+" }}}}
+" Completion {{{{
+    Plug 'hrsh7th/nvim-compe'
+" }}}}
+
+" NeoFormat {{{{
+    Plug 'sbdchd/neoformat'
+    " TODO configure
+    let g:neoformat_enabled_python = [ 'black' ]
+" }}}}
+" Test {{{{
+    Plug 'janko/vim-test'
+    nnoremap <silent> tt :TestNearest<CR>
+    nnoremap <silent> tf :TestFile<CR>
+    nnoremap <silent> ts :TestSuite<CR>
+    nnoremap <silent> tl :TestLast<CR>
+    " TODO configure
+    let test#strategy = "neovim"
+    let test#neovim#term_position = "vertical"
+    if has('nvim')
+        tmap <C-o> <C-\><C-n>
+    endif
+" }}}}
+
+" TreeSitter {{{{
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+" }}}}
+
 " color schemes {{{{
     Plug 'https://github.com/joshdick/onedark.vim'
     Plug 'https://github.com/tomasiser/vim-code-dark'
@@ -312,6 +177,92 @@ endif
 "}}}}}
 
 call plug#end()
+
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "gni",
+    },
+  },
+  indent = {
+    enable = true
+  }
+}
+
+require'lspconfig'.pyright.setup {}
+require'lspconfig'.rust_analyzer.setup {}
+require'lspconfig'.kotlin_language_server.setup{}
+
+-- hrsh7th/nvim-compe
+require'compe'.setup { 
+  enabled = true;
+  autocomplete = true;
+  source = {
+    path = true;
+    buffer = true;
+    nvim_lsp = true;
+    nvim_lua = true;
+    -- treesitter = true;
+  };
+}
+
+-- nvim-compe tab completion
+local t = function(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+local check_back_space = function()
+    local col = vim.fn.col('.') - 1
+    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+        return true
+    else
+        return false
+    end
+end
+
+-- Use (s-)tab to:
+--- move to prev/next item in completion menuone
+--- jump to prev/next snippet's placeholder
+_G.tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t "<C-n>"
+--  elseif vim.fn.call("vsnip#available", {1}) == 1 then
+--    return t "<Plug>(vsnip-expand-or-jump)"
+  elseif check_back_space() then
+    return t "<Tab>"
+  else
+    return vim.fn['compe#complete']()
+  end
+end
+_G.s_tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t "<C-p>"
+--  elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
+--    return t "<Plug>(vsnip-jump-prev)"
+  else
+    return t "<S-Tab>"
+  end
+end
+
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+
+-- end nvim-compe tab completion
+
+
+EOF
+
+
+
 " }}}
 " General Configuration {{{
 filetype plugin indent on
@@ -438,17 +389,6 @@ syntax on
     " Remove trailing whitespace
     autocmd FileType c,cpp,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e"
     nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-
-    "Tidy yo XML
-    let s:has_tidy = executable('tidy')
-    if s:has_tidy
-        if !exists(':Thtml')
-            command Thtml :%!tidy -q -i --show-errors 0
-        endif
-        if !exists(':Txml')
-            command Txml  :%!tidy -q -i --show-errors 0 -xml
-        endif
-    endif
 
     "{{{{ JavaScript}}}}
     autocmd Filetype javascript setlocal tabstop=2          "Tab width = 2"
