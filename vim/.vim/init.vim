@@ -2,9 +2,11 @@
 " General configuration {{{
 "
 
+filetype plugin indent on
+syntax on
 "set incsearch                   " Find as you type search
-" set autoindent                  " Indent at the same level of the previous line
-" set backspace=indent,eol,start  " Backspace for dummies
+set autoindent                  " Indent at the same level of the previous line
+set backspace=indent,eol,start  " Backspace for dummies
 set clipboard=unnamedplus       "copy to the system clipboard
 set complete=.,w,b,u,t,i
 set completeopt=menuone,noinsert,noselect  " From devOnDuty
@@ -24,7 +26,7 @@ set number                          "show line numbers
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 " set scrolljump=5                " Lines to scroll when cursor leaves screen
 " set scrolloff=3                 " Minimum lines to keep above and below cursor
-" set shiftwidth=4                " Use indents of 4 spaces
+set shiftwidth=4                " Use indents of 4 spaces
 " set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
 set shortmess+=c                " From devOnDuty
 set showmatch                   " Show matching brackets/parenthesis
@@ -351,6 +353,9 @@ call plug#begin('~/.local/share/nvim/plugged')
     endif
 " }}}}
 
+" TreeSitter {{{{
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+" }}}}
 
 " color schemes {{{{
     " Plug 'joshdick/onedark.vim'
@@ -370,13 +375,29 @@ call plug#begin('~/.local/share/nvim/plugged')
 " }}}}
 
 call plug#end()
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "gni",
+    },
+  },
+  indent = {
+    enable = true
+  }
+}
+EOF
+
 
 set background=dark
 color ayu
 " }}}
 " General Configuration {{{
-filetype plugin indent on
-syntax on
 
 " }}}
 " Backup and Swap {{{
@@ -455,6 +476,6 @@ syntax on
       endif
 " }}}
 
-let g:python_host_prog = "~/.pyenv/versions/2.7.17/bin/python"  " Python 2
+let g:python_host_prog = "~/.pyenv/versions/2.7.18/bin/python"  " Python 2
 let g:python3_host_prog = "~/.pyenv/versions/3.8.5/bin/python"  " Python 3
 
