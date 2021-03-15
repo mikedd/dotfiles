@@ -206,6 +206,13 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 " }}}}
 
+" Telescope {{{{
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+" }}}}
+
+
 " color schemes {{{{
     " Plug 'joshdick/onedark.vim'
     " Plug 'tomasiser/vim-code-dark'
@@ -222,9 +229,10 @@ call plug#begin('~/.local/share/nvim/plugged')
     " Plug 'chriskempson/base16-vim'
     Plug 'ayu-theme/ayu-vim'
 " }}}}
-
 call plug#end()
 " }}}
+
+" lua inline configuration
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   highlight = {
@@ -278,6 +286,14 @@ nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> gS    <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> gR    <cmd>lua vim.lsp.buf.rename()<CR>
+
+
+" Configuration for telescope
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fq <cmd>Telescope quickfix<cr>
 
 set background=dark
 color ayu
