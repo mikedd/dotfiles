@@ -88,6 +88,6 @@ color ayu
     nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " }}}
 
-let g:python_host_prog = "~/.pyenv/versions/2.7.18/bin/python"  " Python 2
-let g:python3_host_prog = "~/.pyenv/versions/3.8.5/bin/python"  " Python 3
+" let g:python_host_prog = "~/.pyenv/versions/2.7.18/bin/python"  " Python 2
+" let g:python3_host_prog = "~/.pyenv/versions/3.8.5/bin/python"  " Python 3
 

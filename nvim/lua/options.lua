@@ -34,6 +34,8 @@ vim.wo.number = true
 
 --- not options - global vars
 vim.api.nvim_set_var('mapleader', ',')
+vim.api.nvim_set_var('markdown_fenced_languages', {'javascript', 'js=javascript', 'json=javascript', 'python', 'sql'})
 vim.api.nvim_set_var('netrw_banner', false)
 vim.api.nvim_set_var('netrw_liststyle', 3) -- tree style listing
-vim.api.nvim_set_var('markdown_fenced_languages', {'javascript', 'js=javascript', 'json=javascript', 'python', 'sql'})  
+vim.api.nvim_set_var('python_host_prog', '/home/mike/.pyenv/versions/2.7.18/bin/python')
+vim.api.nvim_set_var('python3_host_prog', '/home/mike/.pyenv/versions/3.8.5/bin/python')
