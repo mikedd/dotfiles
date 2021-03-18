@@ -6,12 +6,13 @@
 -- vim._update_package_paths()
 
 return require('packer').startup(function()
-  -- Packer can manage itself 
+  -- Packer can manage itself
   use {'wbthomason/packer.nvim'}
 
     use 'tpope/vim-fugitive'
     use 'tpope/vim-surround'
-    use 'airblade/vim-gitgutter'
+    -- use 'airblade/vim-gitgutter'
+    use 'mhinz/vim-signify'
     use 'christoomey/vim-tmux-navigator'
     -- use 'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
     -- use 'scrooloose/nerdcommenter'
