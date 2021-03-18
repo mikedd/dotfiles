@@ -3,10 +3,8 @@ lua require("plugins")
 " vim:fdm=marker
 " General configuration {{{
 "
-syntax on
 lua require('options')
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
-set number                          "show line numbers
+" set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 highlight clear SignColumn      " SignColumn should match background for things like vim-gitgutter
 
