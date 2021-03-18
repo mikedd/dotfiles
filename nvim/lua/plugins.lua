@@ -6,8 +6,8 @@
 -- vim._update_package_paths()
 
 return require('packer').startup(function()
-  -- Packer can manage itself as an optional plugin
-  use {'wbthomason/packer.nvim', opt = true}
+  -- Packer can manage itself 
+  use {'wbthomason/packer.nvim'}
 
     use 'tpope/vim-fugitive'
     use 'tpope/vim-surround'
@@ -22,8 +22,8 @@ return require('packer').startup(function()
     use 'tpope/vim-dotenv'
     use 'jremmen/vim-ripgrep'
     use 'godlygeek/tabular'
-    use {'lotabout/skim' , run = 'cd ${HOME}/.skim &&./install' }
-    use 'lotabout/skim.vim'
+    -- use {'lotabout/skim' , run = 'cd ${HOME}/.skim &&./install' }
+    -- use 'lotabout/skim.vim'
     use 'vim-airline/vim-airline'
     use 'elzr/vim-json'
     use 'luochen1990/rainbow'
