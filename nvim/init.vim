@@ -23,14 +23,6 @@ lua require('fugitive')
 set background=dark
 color ayu
 " }}}
-" Backup and Swap {{{
-    set backup                      " Backups are nice ...
-    if has('persistent_undo')
-        set undofile                " So is persistent undo ...
-        set undolevels=1000         " Maximum number of changes that can be undone
-        set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
-    endif
-"}}}
 " Git {{{
     " Instead of reverting the cursor to the last position in the buffer, we
     " set it to the first line when editing a git commit message

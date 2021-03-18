@@ -4,6 +4,7 @@
 
 -- global options
 vim.o.backspace = 'indent,eol,start'
+vim.o.backup = 'true'
 vim.o.clipboard = 'unnamedplus'
 vim.o.completeopt = 'menuone,noinsert,noselect' -- from devOnDuty and nvim-lua/completion-nvim
 vim.o.cmdheight = 1
@@ -16,6 +17,7 @@ vim.o.shortmess = vim.o.shortmess .. "c" -- string concat
 vim.o.showmatch = true
 vim.o.smartcase = true
 vim.o.termguicolors = true
+vim.o.undolevels = 1000 
 
 -- buffer options
 vim.bo.autoindent = true
@@ -25,6 +27,7 @@ vim.bo.fixendofline = false
 vim.bo.shiftwidth = 4
 vim.bo.softtabstop = 4
 vim.bo.tabstop = 4
+vim.bo.undofile = true 
 
 -- window options
 vim.wo.cursorline = true
