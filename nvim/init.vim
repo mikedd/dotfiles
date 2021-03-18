@@ -5,8 +5,6 @@ lua require("plugins")
 "
 lua require('options')
 
-set nofixendofline              "Do not add an end of line character
-
 let mapleader=","
 " }}}
 

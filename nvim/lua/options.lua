@@ -20,6 +20,7 @@ vim.o.smartcase = true
 vim.bo.autoindent = true
 vim.bo.complete = '.,w,b,u,t,i'
 vim.bo.expandtab = true
+vim.bo.fixendofline = false
 vim.bo.shiftwidth = 4
 vim.bo.softtabstop = 4
 vim.bo.tabstop = 4
