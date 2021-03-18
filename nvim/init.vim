@@ -1,35 +1,10 @@
 lua require("plugins")
-
-" vim:fdm=marker
-" General configuration {{{
-"
 lua require('options')
 
-let mapleader=","
-" }}}
+" vim:fdm=marker
 
-" Misc from dev on duty{{{
-let g:netrw_banner=0 " disable banner in netrw
-let g:netrw_liststyle=3 " tree view in netrw
-let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'json=javascript'] " syntax highlighting in markdown
-" }}}
-
-" if has("termguicolors")
-set termguicolors
-" endif
-" Plugin config {{{
-" }}}}
-" DBExt {{{{
-    source $HOME/.psql.vim
-" }}}}
-" SKIM {{{{
-    " let $SKIM_DEFAULT_COMMAND = 'git ls-tree -r --name-only HEAD || rg --files'
-    "nnoremap <silent> <leader>t :SK<CR>
-    " nnoremap <silent> <c-p> :SK<CR>
-" }}}}
-" rainbow parens {{{{
-    " let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
-" }}}}
+" DBExt
+source $HOME/.psql.vim
 
 lua require('treesitter')
 lua require('nvim-compe')

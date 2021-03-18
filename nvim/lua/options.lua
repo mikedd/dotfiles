@@ -15,6 +15,7 @@ vim.o.pastetoggle = '<F12>'
 vim.o.shortmess = vim.o.shortmess .. "c" -- string concat
 vim.o.showmatch = true
 vim.o.smartcase = true
+vim.o.termguicolors = true
 
 -- buffer options
 vim.bo.autoindent = true
@@ -29,3 +30,10 @@ vim.bo.tabstop = 4
 vim.wo.cursorline = true
 vim.wo.list = true
 vim.wo.number = true
+
+
+--- not options - global vars
+vim.api.nvim_set_var('mapleader', ',')
+vim.api.nvim_set_var('netrw_banner', false)
+vim.api.nvim_set_var('netrw_liststyle', 3) -- tree style listing
+vim.api.nvim_set_var('markdown_fenced_languages', {'javascript', 'js=javascript', 'json=javascript', 'python', 'sql'})  
