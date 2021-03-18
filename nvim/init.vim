@@ -4,7 +4,6 @@ lua require("plugins")
 " General configuration {{{
 "
 lua require('options')
-" set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 highlight clear SignColumn      " SignColumn should match background for things like vim-gitgutter
 
