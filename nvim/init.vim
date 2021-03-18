@@ -4,7 +4,6 @@ lua require("plugins")
 " General configuration {{{
 "
 lua require('options')
-highlight clear SignColumn      " SignColumn should match background for things like vim-gitgutter
 
 set nofixendofline              "Do not add an end of line character
 
