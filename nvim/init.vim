@@ -3,8 +3,6 @@ lua require("plugins")
 " vim:fdm=marker
 " General configuration {{{
 "
-
-filetype plugin indent on
 syntax on
 lua require('options')
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
