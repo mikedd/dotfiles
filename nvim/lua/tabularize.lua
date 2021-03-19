@@ -1,0 +1,8 @@
+vim.api.nvim_set_keymap('n', '<Leader>a,', ':Tabularize /,<CR>', {})
+vim.api.nvim_set_keymap('v', '<Leader>a,', ':Tabularize /,<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader>a=', ':Tabularize /=<CR>', {})
+vim.api.nvim_set_keymap('v', '<Leader>a=', ':Tabularize /=<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader>a&', ':Tabularize /&<CR>', {})
+vim.api.nvim_set_keymap('v', '<Leader>a&', ':Tabularize /&<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader>a<Bar>', ':Tabularize /<Bar><CR>', {})
+vim.api.nvim_set_keymap('v', '<Leader>a<Bar>', ':Tabularize /<Bar><CR>', {})
