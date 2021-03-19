@@ -42,23 +42,10 @@ return require('packer').startup(function()
     use 'sbdchd/neoformat'
     use 'janko/vim-test'
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }  -- We recommend updating the parsers on update
-    use 'nvim-lua/popup.nvim'
-    use 'nvim-lua/plenary.nvim'
-    use 'nvim-telescope/telescope.nvim'
-    -- use 'joshdick/onedark.vim'
-    -- use 'tomasiser/vim-code-dark'
-    -- use 'rakr/vim-one'
-    -- use 'danilo-augusto/vim-afterglow'
-    -- use 'nightsense/carbonized'
-    -- use 'NLKNguyen/papercolor-theme'
-    -- use 'jacoborus/tender.vim'
-    -- use 'romainl/apprentice'
-    -- use 'rakr/vim-two-firewatch'
-    -- use 'tomasr/molokai'
-    -- use 'fcevado/molokai_dark'
-    -- use 'Heorhiy/VisualStudioDark.vim'
-    --" use 'chriskempson/base16-vim'
+    use { 'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
     use 'ayu-theme/ayu-vim'
+
+
   -- -- Simple plugins can be specified as strings
   -- use '9mm/vim-closer'
 
