@@ -3,8 +3,9 @@
 -- vim.wo is shorthand for vim.api.nvim_win_set_option
 
 -- global options
+vim.o.background = 'dark'
 vim.o.backspace = 'indent,eol,start'
-vim.o.backup = 'true'
+vim.o.backup = true
 vim.o.clipboard = 'unnamedplus'
 vim.o.completeopt = 'menuone,noinsert,noselect' -- from devOnDuty and nvim-lua/completion-nvim
 vim.o.cmdheight = 1
@@ -33,7 +34,6 @@ vim.bo.undofile = true
 vim.wo.cursorline = true
 vim.wo.list = true
 vim.wo.number = true
-
 
 --- not options - global vars
 vim.api.nvim_set_var('mapleader', ',')

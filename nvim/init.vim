@@ -19,8 +19,6 @@ lua require('tabularize')
 lua require('ripgrep')
 lua require('fugitive')
 
-
-set background=dark
 color ayu
 " }}}
 " Git {{{
