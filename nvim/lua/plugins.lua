@@ -14,8 +14,6 @@ return require('packer').startup(function()
     -- use 'airblade/vim-gitgutter'
     use 'mhinz/vim-signify'
     use 'christoomey/vim-tmux-navigator'
-    -- use 'scrooloose/nerdtree', { 'on' : 'NERDTreeToggle' }
-    -- use 'scrooloose/nerdcommenter'
     use 'tpope/vim-commentary'
     use 'vim-scripts/dbext.vim'
     use 'tpope/vim-dadbod'
@@ -23,8 +21,6 @@ return require('packer').startup(function()
     use 'tpope/vim-dotenv'
     use 'jremmen/vim-ripgrep'
     use 'godlygeek/tabular'
-    -- use {'lotabout/skim' , run = 'cd ${HOME}/.skim &&./install' }
-    -- use 'lotabout/skim.vim'
     use 'vim-airline/vim-airline'
     use 'elzr/vim-json'
     use 'luochen1990/rainbow'
@@ -32,7 +28,6 @@ return require('packer').startup(function()
     use 'udalov/kotlin-vim'
     use 'dense-analysis/ale'
     use 'rust-lang/rust.vim'
-    -- use 'davidhalter/jedi-vim'
     use 'lifepillar/pgsql.vim'
     use 'gu-fan/InstantRst'
     use 'gu-fan/riv.vim'
@@ -106,9 +101,4 @@ return require('packer').startup(function()
   --   config = function() require('gitsigns').setup() end
   -- }
 
-  -- -- You can specify multiple plugins in a single call
-  -- use {'tjdevries/colorbuddy.vim', {'nvim-treesitter/nvim-treesitter', opt = true}}
-
-  -- You can alias plugin names
-  -- use {'dracula/vim', as = 'dracula'}
 end)
