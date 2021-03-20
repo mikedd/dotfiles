@@ -14,11 +14,11 @@ vim.o.history = 1000
 vim.o.ignorecase = true
 vim.o.listchars = 'tab:› ,trail:•,extends:#,nbsp:.'
 vim.o.pastetoggle = '<F12>'
-vim.o.shortmess = vim.o.shortmess .. "c" -- string concat
+vim.o.shortmess = vim.o.shortmess .. "c" -- +="c"
 vim.o.showmatch = true
 vim.o.smartcase = true
 vim.o.termguicolors = true
-vim.o.undolevels = 1000 
+vim.o.undolevels = 1000
 
 -- buffer options
 vim.bo.autoindent = true
@@ -28,7 +28,7 @@ vim.bo.fixendofline = false
 vim.bo.shiftwidth = 4
 vim.bo.softtabstop = 4
 vim.bo.tabstop = 4
-vim.bo.undofile = true 
+vim.bo.undofile = true
 
 -- window options
 vim.wo.cursorline = true
