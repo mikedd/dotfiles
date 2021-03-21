@@ -46,7 +46,8 @@ return require('packer').startup(function(use)
         cmd = 'MarkdownPreview'
     }
     use 'mfussenegger/nvim-dap'
-
+    use 'mfussenegger/nvim-dap-python'
+    use 'theHamsta/nvim-dap-virtual-text'
     -- Potential plugins
     -- -- Simple plugins can be specified as strings
     -- use '9mm/vim-closer'

@@ -18,6 +18,7 @@ lua require('rainbow')
 lua require('tabularize')
 lua require('ripgrep')
 lua require('fugitive')
+lua require('nvim-dap')
 
 color ayu
 " }}}
