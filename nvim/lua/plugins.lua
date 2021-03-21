@@ -40,20 +40,17 @@ return require('packer').startup(function(use)
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
     }
     use 'ayu-theme/ayu-vim'
+    use {
+        'iamcco/markdown-preview.nvim',
+        run = 'cd app && yarn install',
+        cmd = 'MarkdownPreview'
+    }
+    use 'mfussenegger/nvim-dap'
 
+    -- Potential plugins
     -- -- Simple plugins can be specified as strings
     -- use '9mm/vim-closer'
 
-    -- -- Plugins can have post-install/update hooks
-    -- use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
-
     -- -- Post-install/update hook with call of vimscript function with argument
     -- use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
-
-    -- -- Use specific branch, dependency and run lua file after load
-    -- use {
-    --   'glepnir/galaxyline.nvim', branch = 'main', config = function() require'statusline' end,
-    --   requires = {'kyazdani42/nvim-web-devicons'}
-    -- }
-
 end)
