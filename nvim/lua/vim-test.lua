@@ -1,6 +1,6 @@
 vim.api.nvim_set_keymap("n", "tt", ":TestNearest<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "tf", ":TestFile<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "ts", ":TestSuiet<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "ts", ":TestSuite<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "tl", ":TestLast<CR>", { noremap = true, silent = true })
 
 vim.api.nvim_set_var('test#strategy', 'neovim')
