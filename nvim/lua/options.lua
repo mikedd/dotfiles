@@ -1,39 +1,42 @@
--- vim.o is shorthand for vim.api.nvim_set_option
--- vim.bo is shorthand for vim.api.nvim_buf_set_option
--- vim.wo is shorthand for vim.api.nvim_win_set_option
+-- vim.api.nvim_set_option('is shorthand for vim.api.nvim_set_option
+-- vim.api.nvim_buf_set_option('is shorthand for vim.api.nvim_buf_set_option
+-- vim.api.nvim_win_set_option('is shorthand for vim.api.nvim_win_set_option
 
 -- global options
-vim.o.background = 'dark'
-vim.o.backspace = 'indent,eol,start'
-vim.o.backup = true
-vim.o.clipboard = 'unnamedplus'
-vim.o.completeopt = 'menuone,noinsert,noselect' -- from devOnDuty and nvim-lua/completion-nvim
-vim.o.cmdheight = 1
-vim.o.hidden = true
-vim.o.history = 1000
-vim.o.ignorecase = true
-vim.o.listchars = 'tab:› ,trail:•,extends:#,nbsp:.'
-vim.o.pastetoggle = '<F12>'
-vim.o.shortmess = vim.o.shortmess .. "c" -- +="c"
-vim.o.showmatch = true
-vim.o.smartcase = true
-vim.o.termguicolors = true
-vim.o.undolevels = 1000
+vim.api.nvim_set_option('background', 'dark')
+vim.api.nvim_set_option('backspace', 'indent,eol,start')
+vim.api.nvim_set_option('backup', true)
+vim.api.nvim_set_option('clipboard', 'unnamedplus')
+vim.api.nvim_set_option('completeopt', 'menuone,noinsert,noselect') -- from devOnDuty and nvim-lua/completion-nvim
+vim.api.nvim_set_option('cmdheight', 1)
+vim.api.nvim_set_option('hidden', true)
+vim.api.nvim_set_option('history', 1000)
+vim.api.nvim_set_option('ignorecase', true)
+vim.api.nvim_set_option('listchars', 'tab:› ,trail:•,extends:#,nbsp:.')
+vim.api.nvim_set_option('pastetoggle', '<F12>')
+
+local shortmess = vim.api.nvim_get_option('shortmess') .. "c"
+vim.api.nvim_set_option('shortmess', shortmess) -- +="c"
+
+vim.api.nvim_set_option('showmatch', true)
+vim.api.nvim_set_option('smartcase', true)
+vim.api.nvim_set_option('termguicolors', true)
+vim.api.nvim_set_option('undolevels', 1000)
 
 -- buffer options
-vim.bo.autoindent = true
-vim.bo.complete = '.,w,b,u,t,i'
-vim.bo.expandtab = true
-vim.bo.fixendofline = false
-vim.bo.shiftwidth = 4
-vim.bo.softtabstop = 4
-vim.bo.tabstop = 4
-vim.bo.undofile = true
+vim.api.nvim_buf_set_option(0, 'autoindent', true)
+vim.api.nvim_buf_set_option(0, 'complete', '.,w,b,u,t,i')
+vim.api.nvim_buf_set_option(0, 'expandtab', true)
+vim.api.nvim_buf_set_option(0, 'fixendofline', false)
+vim.api.nvim_buf_set_option(0, 'shiftwidth', 4)
+vim.api.nvim_buf_set_option(0, 'softtabstop', 4)
+vim.api.nvim_buf_set_option(0, 'tabstop', 4)
+vim.api.nvim_buf_set_option(0, 'undofile', true)
 
 -- window options
-vim.wo.cursorline = true
-vim.wo.list = true
-vim.wo.number = true
+vim.api.nvim_win_set_option(0, 'cursorline', true)
+vim.api.nvim_win_set_option(0, 'list', true)
+vim.api.nvim_win_set_option(0, 'number', true)
 
 --- not options - global vars
 vim.api.nvim_set_var('mapleader', ',')
