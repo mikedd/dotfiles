@@ -1,7 +1,6 @@
 -- require'lspconfig'.pyright.setup {}
 -- require'lspconfig'.rust_analyzer.setup {}
 -- require'lspconfig'.kotlin_language_server.setup {}
-
 -- copied from lsp-config
 local nvim_lsp = require('lspconfig')
 
