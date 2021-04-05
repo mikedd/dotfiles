@@ -25,7 +25,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Cargo install did this
-source "$HOME/.cargo/env
+source "$HOME/.cargo/env"
 
 # Node Version manager
 export NVM_DIR="$HOME/.nvm"
