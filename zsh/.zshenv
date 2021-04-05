@@ -21,11 +21,10 @@ export PATH=${OLD_PATH}:${HOME}/bin
 ## sharing history is a giant pain 
 unsetopt share_history
 
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
 alias vim='nvim'
 alias dc='docker-compose'
-alias pe='pipenv'
+alias pe='poetry'
+alias ls='exa'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"' 
@@ -34,3 +33,10 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 export PYENV_ROOT="${HOME}/.pyenv"
 export PATH="${PYENV_ROOT}/bin:${PATH}"
 export PATH="${PATH}:${HOME}/.local/bin/"
+
+# Cargo install did this
+source "$HOME/.cargo/env
+
+# Node Version manager
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
