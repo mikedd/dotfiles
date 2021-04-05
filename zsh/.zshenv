@@ -35,7 +35,7 @@ export PATH="${PYENV_ROOT}/bin:${PATH}"
 export PATH="${PATH}:${HOME}/.local/bin/"
 
 # Cargo install did this
-source "$HOME/.cargo/env
+source "$HOME/.cargo/env"
 
 # Node Version manager
 export NVM_DIR="$HOME/.nvm"
