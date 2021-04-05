@@ -2,7 +2,7 @@ lua require("plugins")
 lua require('options')
 
 " DBExt
-source $HOME/.psql.vim
+" source $HOME/.psql.vim
 
 lua require('backups')
 lua require('treesitter')
