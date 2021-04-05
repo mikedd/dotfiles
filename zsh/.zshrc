@@ -3,7 +3,7 @@ export ZSH=${HOME}/.oh-my-zsh
 
 # ZSH_THEME="mikedd"
 
-plugins=(git vi-mode docker cargo tmux pipenv pyenv)
+plugins=(git vi-mode docker cargo tmux pyenv)
 
 # User configuration
 
@@ -29,14 +29,5 @@ bindkey '^r' history-incremental-search-backward
 
 export EDITOR=nvim
 
-alias pe=pipenv
 
-#export PATH="${HOME}/.cargo/bin:/home/mike/.pyenv/bin:${HOME}/.local/bin:$PATH"
-
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
-
-# export TERM=alacritty
-fpath+=${ZDOTDIR:-~}/.zsh_functions
-
-eval '$(starship init zsh)'
+eval "$(starship init zsh)"
