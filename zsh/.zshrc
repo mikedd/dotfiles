@@ -21,10 +21,13 @@ bindkey '^w' backward-kill-word
 # crtl-r history
 bindkey '^r' history-incremental-search-backward
 
-export EDITOR=nvim
-
-alias pe=pipenv
-
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 eval "$(starship init zsh)"
+
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+alias pe=poetry
+alias ls=exa
+alias sk='SKIM_DEFAULT_COMMAND="fd -H --type f || git ls-tree -r --name-only HEAD " sk'
+alias dc='docker-compose'
