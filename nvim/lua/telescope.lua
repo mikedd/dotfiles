@@ -13,10 +13,3 @@ set_keymap('n', '<leader>fr', [[<cmd>lua require('telescope.builtin').lsp_refere
 set_keymap('n', '<leader>fa', [[<cmd>lua require('telescope.builtin').lsp_code_actions()<cr>]], opts)
 set_keymap('n', '<leader>fd', [[<cmd>lua require('telescope.builtin').lsp_document_diagnostics()<cr>]], opts)
 set_keymap('n', '<leader>fs', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>]], opts)
-
--- " Configuration for telescope
--- nnoremap <leader>ff <cmd>Telescope find_files<cr>
--- nnoremap <leader>fg <cmd>Telescope live_grep<cr>
--- nnoremap <leader>fb <cmd>Telescope buffers<cr>
--- nnoremap <leader>fh <cmd>Telescope help_tags<cr>
--- nnoremap <leader>fq <cmd>Telescope quickfix<cr>
