@@ -2,6 +2,8 @@
 -- vim.api.nvim_buf_set_option('is shorthand for vim.api.nvim_buf_set_option
 -- vim.api.nvim_win_set_option('is shorthand for vim.api.nvim_win_set_option
 
+
+local home_dir = os.getenv("HOME") .. "/.vim"
 -- global options
 vim.api.nvim_set_option('background', 'dark')
 vim.api.nvim_set_option('backspace', 'indent,eol,start')
@@ -22,6 +24,12 @@ vim.api.nvim_set_option('showmatch', true)
 vim.api.nvim_set_option('smartcase', true)
 vim.api.nvim_set_option('termguicolors', true)
 vim.api.nvim_set_option('undolevels', 1000)
+
+-- backup
+vim.api.nvim_set_option('backupdir', home_dir .. '/backup')
+vim.api.nvim_set_option('viewdir', home_dir .. '/views')
+vim.api.nvim_set_option('directory', home_dir .. '/swap')
+vim.api.nvim_set_option('undodir', home_dir .. '/undo')
 
 -- buffer options
 vim.api.nvim_buf_set_option(0, 'autoindent', true)

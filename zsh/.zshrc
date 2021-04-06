@@ -1,11 +1,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.oh-my-zsh
 
-# ZSH_THEME="mikedd"
 
 plugins=(git vi-mode docker cargo tmux pyenv)
-
-# User configuration
 
 source $ZSH/oh-my-zsh.sh
 
@@ -25,9 +22,13 @@ bindkey '^w' backward-kill-word
 # crtl-r history
 bindkey '^r' history-incremental-search-backward
 
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export EDITOR=nvim
-
+fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 eval "$(starship init zsh)"
+
+alias pe=poetry
+alias ls=exa
+alias sk='SKIM_DEFAULT_COMMAND="fd -H --type f || git ls-tree -r --name-only HEAD " sk'
+alias dc='docker-compose'
+
+
