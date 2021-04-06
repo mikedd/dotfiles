@@ -1,10 +1,11 @@
+filetype plugin indent on
+
 lua require("plugins")
 lua require('options')
 
 " DBExt
 source $HOME/.psql.vim
 
-lua require('backups')
 lua require('treesitter')
 lua require('nvim-compe')
 lua require('lsp-config')
