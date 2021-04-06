@@ -9,7 +9,7 @@ source $HOME/.psql.vim
 lua require('treesitter')
 lua require('nvim-compe')
 lua require('lsp-config')
-lua require('telescope')
+lua require('telescope-config')
 lua require('vim-test')
 lua require('neoformat')
 lua require('ale')
@@ -19,6 +19,7 @@ lua require('tabularize')
 lua require('ripgrep')
 lua require('fugitive')
 lua require('nvim-dap')
+lua require('dadbod-commands')
 
 color ayu
     " Instead of reverting the cursor to the last position in the buffer, we
