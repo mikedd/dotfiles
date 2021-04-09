@@ -1,0 +1,68 @@
+# shell:
+#   program: /usr/bin/zsh
+
+# Any items in the `env` entry below will be added as
+# environment variables. Some entries may override variables
+# set by alacritty itself.
+env:
+  # TERM variable
+  #
+  # This value is used to set the `$TERM` environment variable for
+  # each instance of Alacritty. If it is not present, alacritty will
+  # check the local terminfo database and use `alacritty` if it is
+  # available, otherwise `xterm-256color` is used.
+  TERM: alacritty
+
+font:
+  # Normal (roman) font face
+  normal:
+    family: Hack Nerd Font Mono
+    style: Regular
+
+  # Bold font face
+  bold:
+    family: Hack Nerd Font Mono
+    style: Bold
+
+  # Italic font face
+  italic:
+    family: Hack Nerd Font Mono
+    style: Italic
+
+  # Bold italic font face
+  bold_italic:
+    family: Hack Nerd Font Mono
+    style: Bold Italic
+
+  # Point size
+  size: 9.0
+
+code_dark: &code_dark
+  # Default colors
+  primary:
+    background: '#000000'
+    foreground: '#d4d4d4'
+
+  # Normal colors
+  normal:
+    black:   '#000000'
+    red:     '#f44747'
+    green:   '#608b4e'
+    yellow:  '#dcdcaa'
+    blue:    '#569cd6'
+    magenta: '#646695'
+    cyan:    '#00ffff'
+    white:   '#d4d4d4'
+
+  # Bright colors
+  bright:
+    black:   '#808080'
+    red:     '#d16969'
+    green:   '#b5cea8'
+    yellow:  '#d7ba7d'
+    blue:    '#9cdcfe'
+    magenta: '#c586c0'
+    cyan:    '#00ffff'
+    white:   '#ffffff'
+
+colors: *code_dark
