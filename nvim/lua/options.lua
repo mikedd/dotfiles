@@ -1,55 +1,60 @@
--- vim.api.nvim_set_option('is shorthand for vim.api.nvim_set_option
--- vim.api.nvim_buf_set_option('is shorthand for vim.api.nvim_buf_set_option
--- vim.api.nvim_win_set_option('is shorthand for vim.api.nvim_win_set_option
-
-
 local home_dir = os.getenv("HOME") .. "/.vim"
 -- global options
-vim.api.nvim_set_option('background', 'dark')
-vim.api.nvim_set_option('backspace', 'indent,eol,start')
-vim.api.nvim_set_option('backup', true)
-vim.api.nvim_set_option('clipboard', 'unnamedplus')
-vim.api.nvim_set_option('completeopt', 'menuone,noinsert,noselect') -- from devOnDuty and nvim-lua/completion-nvim
-vim.api.nvim_set_option('cmdheight', 1)
-vim.api.nvim_set_option('hidden', true)
-vim.api.nvim_set_option('history', 1000)
-vim.api.nvim_set_option('ignorecase', true)
-vim.api.nvim_set_option('listchars', 'tab:› ,trail:•,extends:#,nbsp:.')
-vim.api.nvim_set_option('pastetoggle', '<F12>')
+vim.o.background = 'dark'
+vim.o.backspace = 'indent,eol,start'
+vim.o.backup = true
+vim.o.clipboard = 'unnamedplus'
+vim.o.completeopt = 'menuone,noinsert,noselect' -- from devOnDuty and nvim-lua/completion-nvim
+vim.o.cmdheight = 1
+vim.o.hidden = true
+vim.o.history = 1000
+vim.o.ignorecase = true
+vim.o.listchars = 'tab:› ,trail:•,extends:#,nbsp:.'
+vim.o.pastetoggle = '<F12>'
 
 local shortmess = vim.api.nvim_get_option('shortmess') .. "c"
-vim.api.nvim_set_option('shortmess', shortmess) -- +="c"
+vim.o.shortmess = shortmess -- +="c"
 
-vim.api.nvim_set_option('showmatch', true)
-vim.api.nvim_set_option('smartcase', true)
-vim.api.nvim_set_option('termguicolors', true)
-vim.api.nvim_set_option('undolevels', 1000)
+vim.o.showmatch = true
+vim.o.smartcase = true
+vim.o.termguicolors = true
+vim.o.undolevels = 1000
 
 -- backup
-vim.api.nvim_set_option('backupdir', home_dir .. '/backup')
-vim.api.nvim_set_option('viewdir', home_dir .. '/views')
-vim.api.nvim_set_option('directory', home_dir .. '/swap')
-vim.api.nvim_set_option('undodir', home_dir .. '/undo')
+vim.o.backupdir = home_dir .. '/backup'
+vim.o.viewdir = home_dir .. '/views'
+vim.o.directory = home_dir .. '/swap'
+vim.o.undodir = home_dir .. '/undo'
 
--- buffer options
-vim.api.nvim_buf_set_option(0, 'autoindent', true)
-vim.api.nvim_buf_set_option(0, 'complete', '.,w,b,u,t,i')
-vim.api.nvim_buf_set_option(0, 'expandtab', true)
-vim.api.nvim_buf_set_option(0, 'fixendofline', false)
-vim.api.nvim_buf_set_option(0, 'shiftwidth', 4)
-vim.api.nvim_buf_set_option(0, 'softtabstop', 4)
-vim.api.nvim_buf_set_option(0, 'tabstop', 4)
-vim.api.nvim_buf_set_option(0, 'undofile', true)
+-- these appear to affect only the first buffer
+vim.bo.autoindent = true
+vim.bo.complete = '.,w,b,u,t,i'
+vim.bo.expandtab = true
+vim.bo.fixendofline = false
+vim.bo.shiftwidth = 4
+vim.bo.softtabstop = 4
+vim.bo.tabstop = 4
+vim.bo.undofile = true
+
+-- so redo them as non buffer options
+vim.o.autoindent = true
+vim.o.complete = '.,w,b,u,t,i'
+vim.o.expandtab = true
+vim.o.fixendofline = false
+vim.o.shiftwidth = 4
+vim.o.softtabstop = 4
+vim.o.tabstop = 4
+vim.o.undofile = true
 
 -- window options
-vim.api.nvim_win_set_option(0, 'cursorline', true)
-vim.api.nvim_win_set_option(0, 'list', true)
-vim.api.nvim_win_set_option(0, 'number', true)
+vim.wo.cursorline = true
+vim.wo.list = true
+vim.wo.number = true
 
 --- not options - global vars
-vim.api.nvim_set_var('mapleader', ',')
-vim.api.nvim_set_var('markdown_fenced_languages', {'javascript', 'js=javascript', 'json=javascript', 'python', 'sql'})
-vim.api.nvim_set_var('netrw_banner', false)
-vim.api.nvim_set_var('netrw_liststyle', 3) -- tree style listing
-vim.api.nvim_set_var('python_host_prog', '/home/mike/.pyenv/versions/2.7.18/bin/python')
-vim.api.nvim_set_var('python3_host_prog', '/home/mike/.pyenv/versions/3.8.5/bin/python')
+vim.g.mapleader = ','
+vim.g.markdown_fenced_languages = {'javascript', 'js=javascript', 'json=javascript', 'python', 'sql'}
+vim.g.netrw_banner = false
+vim.g.netrw_liststyle = 3 -- tree style listing
+vim.g.python_host_prog = '/home/mike/.pyenv/versions/2.7.18/bin/python'
+vim.g.python3_host_prog = '/home/mike/.pyenv/versions/3.8.5/bin/python'

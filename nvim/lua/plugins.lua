@@ -1,3 +1,5 @@
+local cmd = vim.api.nvim_command
+
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 return require('packer').startup(function(use)
     -- Packer can manage itself
@@ -39,12 +41,15 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
     }
-    use 'ayu-theme/ayu-vim'
     use {
-        'iamcco/markdown-preview.nvim',
-        run = 'cd app && yarn install',
-        cmd = 'MarkdownPreview'
+        "ayu-theme/ayu-vim",
+        config = require("plugin_config._ayu-theme").config
     }
+    -- use {
+    --     'iamcco/markdown-preview.nvim',
+    --     run = 'cd app && yarn install',
+    --     cmd = 'MarkdownPreview'
+    -- }
     use 'mfussenegger/nvim-dap'
     use 'mfussenegger/nvim-dap-python'
     use 'theHamsta/nvim-dap-virtual-text'
