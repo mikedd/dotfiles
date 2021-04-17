@@ -16,7 +16,7 @@ return require('packer').startup(function(use)
 
     use 'tpope/vim-commentary'
     use 'vim-scripts/dbext.vim'
-    use 'tpope/vim-dadbod'
+    -- use 'tpope/vim-dadbod'
     -- use 'kristijanhusak/vim-dadbod-ui'
     -- use 'tpope/vim-dotenv'
     use 'jremmen/vim-ripgrep'
@@ -50,6 +50,7 @@ return require('packer').startup(function(use)
     use 'mfussenegger/nvim-dap'
     use 'mfussenegger/nvim-dap-python'
     use 'theHamsta/nvim-dap-virtual-text'
+
     -- Potential plugins
     -- -- Simple plugins can be specified as strings
     -- use '9mm/vim-closer'
