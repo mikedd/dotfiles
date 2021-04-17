@@ -1,1 +1,1 @@
-vim.api.nvim_set_var('rainbow_active', 1)
+vim.g.rainbow_active = 1

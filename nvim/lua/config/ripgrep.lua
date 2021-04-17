@@ -1,1 +1,1 @@
-vim.api.nvim_set_var('rg_command', 'rg --hidden --vimgrep')
+vim.g.rg_command = 'rg --hidden --vimgrep'

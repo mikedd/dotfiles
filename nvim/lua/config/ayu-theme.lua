@@ -1,2 +1,1 @@
-local cmd = vim.api.nvim_command
-cmd("colorscheme ayu")
+vim.api.nvim_command("colorscheme ayu")
