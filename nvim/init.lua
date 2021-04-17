@@ -6,6 +6,7 @@ require "plugins"
 require "options"
 require "config"
 
+-- require "/home/mike/.dbext.lua"
 -- " DBExt
 -- source $HOME/.psql.vim
 

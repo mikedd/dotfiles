@@ -11,3 +11,11 @@ require 'config.tabularize'
 require 'config.telescope'
 require 'config.treesitter'
 require 'config.vim-test'
+
+-- try to load dbext config if one is available
+-- don't be stupid and add the dbext file to versions control - please
+local home = os.getenv("HOME")
+local dbext_config_path = home .. '/.config/nvim/lua/config/dbext.lua'
+if io.open(dbext_config_path, 'r') then
+    require 'config.dbext'
+end
