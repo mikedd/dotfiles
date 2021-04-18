@@ -16,26 +16,27 @@ env:
 font:
   # Normal (roman) font face
   normal:
-    family: Hack Nerd Font Mono
-    style: Regular
+    family: Hack
+    # family: Hack Nerd Font Mono
+    # style: Regular
 
   # Bold font face
-  bold:
-    family: Hack Nerd Font Mono
-    style: Bold
+  # bold:
+    # family: Hack Nerd Font Mono
+    # style: Bold
 
   # Italic font face
-  italic:
-    family: Hack Nerd Font Mono
-    style: Italic
+  # italic:
+  #   family: Hack Nerd Font Mono
+  #   style: Italic
 
   # Bold italic font face
-  bold_italic:
-    family: Hack Nerd Font Mono
-    style: Bold Italic
+  # bold_italic:
+  #   family: Hack Nerd Font Mono
+  #   style: Bold Italic
 
   # Point size
-  size: 9.0
+  size: 14.0
 
 code_dark: &code_dark
   # Default colors
