@@ -1,3 +1,4 @@
+-- local cmd = vim.api.nvim_command
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 return require('packer').startup(function(use)
     -- Packer can manage itself
@@ -11,19 +12,16 @@ return require('packer').startup(function(use)
         config = function() require('gitsigns').setup() end
     }
 
-    use 'christoomey/vim-tmux-navigator'
+    use 'numToStr/Navigator.nvim'
+
     use 'tpope/vim-commentary'
     use 'vim-scripts/dbext.vim'
-    use 'tpope/vim-dadbod'
-    use 'kristijanhusak/vim-dadbod-ui'
-    use 'tpope/vim-dotenv'
     use 'jremmen/vim-ripgrep'
     use 'godlygeek/tabular'
     use 'vim-airline/vim-airline'
     use 'elzr/vim-json'
     use 'luochen1990/rainbow'
     use 'editorconfig/editorconfig-vim'
-    use 'udalov/kotlin-vim'
     use 'dense-analysis/ale'
     use 'rust-lang/rust.vim'
     use 'lifepillar/pgsql.vim'
@@ -39,15 +37,16 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
     }
-    use 'ayu-theme/ayu-vim'
-    use {
-        'iamcco/markdown-preview.nvim',
-        run = 'cd app && yarn install',
-        cmd = 'MarkdownPreview'
-    }
+    use "ayu-theme/ayu-vim"
+    -- use {
+    --     'iamcco/markdown-preview.nvim',
+    --     run = 'cd app && yarn install',
+    --     cmd = 'MarkdownPreview'
+    -- }
     use 'mfussenegger/nvim-dap'
     use 'mfussenegger/nvim-dap-python'
     use 'theHamsta/nvim-dap-virtual-text'
+
     -- Potential plugins
     -- -- Simple plugins can be specified as strings
     -- use '9mm/vim-closer'
