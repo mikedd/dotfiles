@@ -1,6 +1,4 @@
 export EDITOR=nvim
-alias nvim=nvim.appimage
-
 
 ## Pathing
 OLD_PATH=${PATH}
