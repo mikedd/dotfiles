@@ -1,13 +1,13 @@
 [user]
-	name = mike
-	email = mike@aureuscattus.org
+	name = Michael Dick
+	email = mdick@aledade.com
 [alias]
 	co = checkout
 	stat = status
 	st = status
 	br = branch
 [core]
-	editor = nvim.appimage
+	editor = nvim
 [pull]
     rebase = false
 [merge]
@@ -15,7 +15,7 @@
 [mergetool]
   prompt = true
 [mergetool "nvim"]
-  cmd = nvim.appimage -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [pager]
 	branch = false
 	tag = false
