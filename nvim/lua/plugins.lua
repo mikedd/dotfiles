@@ -12,7 +12,7 @@ return require('packer').startup(function(use)
         config = function() require('gitsigns').setup() end
     }
 
-    use 'christoomey/vim-tmux-navigator'
+    use 'numToStr/Navigator.nvim'
 
     use 'tpope/vim-commentary'
     use 'vim-scripts/dbext.vim'
