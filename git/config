@@ -1,0 +1,21 @@
+[user]
+	name = mike
+	email = mike@aureuscattus.org
+[alias]
+	co = checkout
+	stat = status
+	st = status
+	br = branch
+[core]
+	editor = nvim.appimage
+[pull]
+    rebase = false
+[merge]
+  tool = nvim
+[mergetool]
+  prompt = true
+[mergetool "nvim"]
+  cmd = nvim.appimage -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[pager]
+	branch = false
+	tag = false
