@@ -16,8 +16,7 @@ env:
 font:
   # Normal (roman) font face
   normal:
-    family: Hack
-    # family: Hack Nerd Font Mono
+    family: Hack Nerd Font Mono
     # style: Regular
 
   # Bold font face
