@@ -19,7 +19,6 @@ return require('packer').startup(function(use)
     use 'jremmen/vim-ripgrep'
     use 'godlygeek/tabular'
     use 'vim-airline/vim-airline'
-    use 'elzr/vim-json'
     use 'luochen1990/rainbow'
     use 'editorconfig/editorconfig-vim'
     use 'dense-analysis/ale'
