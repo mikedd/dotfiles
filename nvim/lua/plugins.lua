@@ -14,7 +14,7 @@ return require('packer').startup(function(use)
 
     use 'numToStr/Navigator.nvim'
 
-    use 'tpope/vim-commentary'
+    use 'b3nj5m1n/kommentary'
     use 'vim-scripts/dbext.vim'
     use 'jremmen/vim-ripgrep'
     use 'godlygeek/tabular'
