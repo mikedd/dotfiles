@@ -19,7 +19,11 @@ return require('packer').startup(function(use)
     use 'jremmen/vim-ripgrep'
     use 'godlygeek/tabular'
     use 'vim-airline/vim-airline'
-    use 'luochen1990/rainbow'
+
+    -- Rainbow parens - treesitter is probably better but might not be needed anymore
+    -- use 'luochen1990/rainbow'
+    use 'p00f/nvim-ts-rainbow'
+
     use 'editorconfig/editorconfig-vim'
     use 'dense-analysis/ale'
     use 'rust-lang/rust.vim'
