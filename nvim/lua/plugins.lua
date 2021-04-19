@@ -26,7 +26,6 @@ return require('packer').startup(function(use)
     use 'lifepillar/pgsql.vim'
     use 'gu-fan/InstantRst'
     use 'gu-fan/riv.vim'
-    use 'cespare/vim-toml'
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/nvim-compe'
     use 'sbdchd/neoformat'
