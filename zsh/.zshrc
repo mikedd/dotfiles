@@ -14,7 +14,8 @@ bindkey '^N' down-history
 
 # Backspace and ^h working after returning from command mode
 bindkey '^?' backward-delete-char
-bindkey '^h' backward-delete-char
+# This binding seems like a really bad idea....
+# bindkey '^h' backward-delete-char
 
 bindkey '^w' backward-kill-word
 
@@ -30,5 +31,3 @@ alias ls=exa
 alias sk='SKIM_DEFAULT_COMMAND="fd -H --type f || git ls-tree -r --name-only HEAD " sk'
 alias dc='docker-compose'
 alias dct='docker-compose exec app python3 -m pytest'
-
-
