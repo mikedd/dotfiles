@@ -18,7 +18,12 @@ return require('packer').startup(function(use)
     use 'vim-scripts/dbext.vim'
     use 'jremmen/vim-ripgrep'
     use 'godlygeek/tabular'
-    use 'vim-airline/vim-airline'
+
+    -- use 'vim-airline/vim-airline'
+    use {
+        'hoob3rt/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
 
     -- Rainbow parens - treesitter is probably better but might not be needed anymore
     -- use 'luochen1990/rainbow'
