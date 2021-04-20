@@ -54,6 +54,8 @@ return require('packer').startup(function(use)
     use 'mfussenegger/nvim-dap-python'
     use 'theHamsta/nvim-dap-virtual-text'
 
+    use 'mhinz/vim-startify'
+
     -- Potential plugins
     -- -- Simple plugins can be specified as strings
     -- use '9mm/vim-closer'
