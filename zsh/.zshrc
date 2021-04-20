@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.oh-my-zsh
 
-plugins=(git vi-mode docker cargo tmux pipenv pyenv)
+plugins=(git vi-mode docker cargo tmux pyenv)
 
 source $ZSH/oh-my-zsh.sh
 
