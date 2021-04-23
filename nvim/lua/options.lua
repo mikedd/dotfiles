@@ -16,6 +16,10 @@ vim.o.pastetoggle = '<F12>'
 local shortmess = vim.api.nvim_get_option('shortmess') .. "c"
 vim.o.shortmess = shortmess -- +="c"
 
+-- set diffopt+=internal,algorithm:patience
+-- vim.api.nvim_set_var('diffopt', vim.api.nvim_get_var('diffopt') .. 'internal,algorithm:patience')
+-- vim.o.diffopt = 'internal,filler,closeoff,algorithm:patience'
+
 vim.o.showmatch = true
 vim.o.smartcase = true
 vim.o.termguicolors = true
