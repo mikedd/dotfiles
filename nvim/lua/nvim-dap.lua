@@ -5,7 +5,7 @@ require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
 --
 local set_keymap = vim.api.nvim_buf_set_keymap
 local opts = { noremap = true, silent = true }
-local cmd_dap = '<cmd>lua require("dap")
+local cmd_dap = '<cmd>lua require("dap")'
 
 vim.fn.sign_define('DapBreakpoint',
                    {text = '🟥', texthl = '', linehl = '', numhl = ''})
@@ -21,10 +21,10 @@ set_keymap('n', '<leader>b', cmd_dap .. '.toggle_breakpoint()<CR>', opts)
 set_keymap('n', '<leader>B', cmd_dap .. '.set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>', opts)
 set_keymap('n', '<leader>lp', cmd_dap .. '.set_breakpoint(nil, nil,  vim.fn.input("Log point message: "))<CR>', opts)
 
-set_keymap('n', '<leader>dr', '<cmd>lua require("dap").repl_openb()<CR>', opts)
-set_keymap('n', '<leader>dl', '<cmd>lua require("dap").run_last()<CR>', opts)
-set_keymap('n', '<leader>ds', '<cmd>lua require("dap").continue()<CR>', opts)
-set_keymap('n', '<leader>dr', '<cmd>lua require("dap").repl_open({}, "vsplit")<CR><C-w>l', opts)
+set_keymap('n', '<leader>dr', cmd_dap .. '.repl_openb()<CR>', opts)
+set_keymap('n', '<leader>dl', cmd_dap .. '.run_last()<CR>', opts)
+set_keymap('n', '<leader>ds', cmd_dap .. '.continue()<CR>', opts)
+set_keymap('n', '<leader>dr', cmd_dap .. '.repl_open({}, "vsplit")<CR><C-w>l', opts)
 set_keymap('n', '<leader>di', '<cmd>lua require("dap.ui.variables").visual_hover()<CR>', opts)
 set_keymap('n', '<leader>d?', '<cmd>lua require("dap.ui.variables").scopes()<CR>', opts)
 
