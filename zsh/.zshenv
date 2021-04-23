@@ -29,3 +29,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Cargo install did this
 source "$HOME/.cargo/env"
+
+## Needed to compile psycopg2
+export CFLAGS="-I/usr/local/opt/openssl/include" LDFLAGS="-L/usr/local/opt/openssl/lib"
