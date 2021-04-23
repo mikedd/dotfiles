@@ -56,6 +56,18 @@ return require('packer').startup(function(use)
 
     use 'mhinz/vim-startify'
 
+    use {
+      "folke/lsp-trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+      config = function()
+        require("trouble").setup {
+        }
+      end
+    }
+
+    -- Adds popups and other stuff using the built in lsp.. 
+    -- use  'glepnir/lspsaga.nvim'
+
     -- Potential plugins
     -- -- Simple plugins can be specified as strings
     -- use '9mm/vim-closer'
