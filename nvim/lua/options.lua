@@ -1,4 +1,5 @@
-local home_dir = os.getenv("HOME") .. "/.vim"
+local home_dir = os.getenv("HOME")
+local vim_dir = home_dir .. "/.vim"
 -- global options
 vim.o.background = 'dark'
 vim.o.backspace = 'indent,eol,start'
@@ -21,10 +22,10 @@ vim.o.termguicolors = true
 vim.o.undolevels = 1000
 
 -- backup
-vim.o.backupdir = home_dir .. '/backup'
-vim.o.viewdir = home_dir .. '/views'
-vim.o.directory = home_dir .. '/swap'
-vim.o.undodir = home_dir .. '/undo'
+vim.o.backupdir = vim_dir .. '/backup'
+vim.o.viewdir = vim_dir .. '/views'
+vim.o.directory = vim_dir .. '/swap'
+vim.o.undodir = vim_dir .. '/undo'
 
 -- these appear to affect only the first buffer
 vim.bo.autoindent = true
@@ -56,5 +57,8 @@ vim.g.mapleader = ','
 vim.g.markdown_fenced_languages = {'javascript', 'js=javascript', 'json=javascript', 'python', 'sql'}
 vim.g.netrw_banner = false
 vim.g.netrw_liststyle = 3 -- tree style listing
-vim.g.python_host_prog = '/home/mike/.pyenv/versions/2.7.18/bin/python'
-vim.g.python3_host_prog = '/home/mike/.pyenv/versions/3.8.5/bin/python'
+
+vim.g.python_host_prog = home_dir .. '/.pyenv/versions/2.7.18/bin/python'
+vim.g.python3_host_prog = home_dir .. '/.pyenv/versions/3.8.5/bin/python'
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
