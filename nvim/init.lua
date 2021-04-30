@@ -14,4 +14,3 @@ set_keymap('n', '<F5>', [[<cmd>:let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:n
     -- " Remove trailing whitespace
     -- autocmd FileType c,cpp,javscript autocmd BufWritePre <buffer> :%s/\s\+$//e"
     -- nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
--- " }}}
