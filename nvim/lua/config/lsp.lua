@@ -51,12 +51,12 @@ end
 
 -- Use a loop to conveniently both setup defined servers
 -- and map buffer local keybindings when the language server attaches
-local servers = { "pyright", "rust_analyzer" }
+local servers = { "pyright", 'tsserver', 'vuels' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup { on_attach = on_attach }
 end
 
--- Special rules for LUA
+--[[ -- Special rules for LUA
 local system_name
 if vim.fn.has("mac") == 1 then
   system_name = "macOS"
@@ -66,14 +66,14 @@ elseif vim.fn.has('win32') == 1 then
   system_name = "Windows"
 else
   print("Unsupported system for sumneko")
-end
+end ]]
 
 -- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
 -- local sumneko_root_path = vim.fn.stdpath('cache')..'/lspconfig/sumneko_lua/lua-language-server'
-local sumneko_root_path = os.getenv("HOME").."/work/lua-language-server"
-local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
+--[[ local sumneko_root_path = os.getenv("HOME").."/work/lua-language-server"
+local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server" ]]
 
-require'lspconfig'.sumneko_lua.setup {
+--[[ require'lspconfig'.sumneko_lua.setup {
   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
   settings = {
     Lua = {
@@ -96,5 +96,5 @@ require'lspconfig'.sumneko_lua.setup {
       },
     },
   },
-}
+} ]]
 
