@@ -14,6 +14,11 @@ export PATH="${PYENV_ROOT}/bin:${PATH}"
 ## psql
 export PATH="$PATH:/usr/local/opt/libpq/bin"
 
+# deno
+export DENO_INSTALL="/Users/mdick/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+# export PATH="$PATH:/
+
 ## sharing history is a giant pain
 unsetopt share_history
 
