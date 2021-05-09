@@ -45,6 +45,7 @@ return require('packer').startup(function(use)
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
     }
     use "ayu-theme/ayu-vim"
+    use "tomasiser/vim-code-dark"
     -- use {
     --     'iamcco/markdown-preview.nvim',
     --     run = 'cd app && yarn install',
@@ -65,7 +66,7 @@ return require('packer').startup(function(use)
       end
     }
 
-    -- Adds popups and other stuff using the built in lsp.. 
+    -- Adds popups and other stuff using the built in lsp..
     -- use  'glepnir/lspsaga.nvim'
 
     -- Potential plugins

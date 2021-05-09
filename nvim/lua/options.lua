@@ -62,3 +62,6 @@ vim.g.netrw_banner = false
 vim.g.netrw_liststyle = 3 -- tree style listing
 vim.g.python_host_prog = '/home/mike/.pyenv/versions/2.7.18/bin/python'
 vim.g.python3_host_prog = '/home/mike/.pyenv/versions/3.8.5/bin/python'
+
+-- vim.api.nvim_command("colorscheme ayu")
+vim.api.nvim_command("colorscheme codedark")
