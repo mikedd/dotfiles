@@ -59,6 +59,8 @@ return require('packer').startup(function(use)
     -- start screen?
     use 'glepnir/dashboard-nvim'
 
+    use 'norcalli/nvim-colorizer.lua'
+
     use {
       "folke/lsp-trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
