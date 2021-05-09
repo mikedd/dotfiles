@@ -56,6 +56,9 @@ return require('packer').startup(function(use)
     use 'mfussenegger/nvim-dap-python'
     use 'theHamsta/nvim-dap-virtual-text'
 
+    -- start screen?
+    use 'glepnir/dashboard-nvim'
+
     use {
       "folke/lsp-trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
