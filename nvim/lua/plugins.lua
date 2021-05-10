@@ -44,12 +44,12 @@ return require('packer').startup(function(use)
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
     }
     use "ayu-theme/ayu-vim"
-    use "tomasiser/vim-code-dark"
-    -- use {
-    --     'iamcco/markdown-preview.nvim',
-    --     run = 'cd app && yarn install',
-    --     cmd = 'MarkdownPreview'
-    -- }
+
+    use {
+        'iamcco/markdown-preview.nvim',
+        run = 'cd app && yarn install',
+        cmd = 'MarkdownPreview'
+    }
     use 'mfussenegger/nvim-dap'
     use 'mfussenegger/nvim-dap-python'
     use 'theHamsta/nvim-dap-virtual-text'
