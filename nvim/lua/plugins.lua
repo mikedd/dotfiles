@@ -32,8 +32,6 @@ return require('packer').startup(function(use)
     use 'dense-analysis/ale'
     use 'rust-lang/rust.vim'
     use 'lifepillar/pgsql.vim'
-    use 'gu-fan/InstantRst'
-    use 'gu-fan/riv.vim'
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/nvim-compe'
     use 'sbdchd/neoformat'
@@ -73,6 +71,8 @@ return require('packer').startup(function(use)
         }
       end
     }
+
+    use 'simrat39/symbols-outline.nvim'
 
     -- Adds popups and other stuff using the built in lsp.. 
     -- use  'glepnir/lspsaga.nvim'
