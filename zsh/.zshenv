@@ -37,3 +37,5 @@ source "$HOME/.cargo/env"
 
 ## Needed to compile psycopg2
 export CFLAGS="-I/usr/local/opt/openssl/include" LDFLAGS="-L/usr/local/opt/openssl/lib"
+
+export RIPGREP_CONFIG_PATH=${HOME}/.config/ripgrep/ripgrep.rc
