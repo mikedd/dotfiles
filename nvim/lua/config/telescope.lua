@@ -8,6 +8,9 @@ set_keymap('n', '<leader>fg', cmd_ts .. '.live_grep({hidden = true})<cr>', opts)
 set_keymap('n', '<leader>fb', cmd_ts .. '.buffers()<cr>', opts)
 set_keymap('n', '<leader>fh', cmd_ts .. '.help_tags()<cr>', opts)
 set_keymap('n', '<leader>fq', cmd_ts .. '.quickfix()<cr>', opts)
+set_keymap('n', '<leader>fch', cmd_ts .. '.command_history()<cr>', opts)
+set_keymap('n', '<leader>fo', cmd_ts .. '.oldfiles()<cr>', opts)
+set_keymap('n', '<leader>fC', cmd_ts .. '.commands()<cr>', opts)
 
 -- lsp
 set_keymap('n', '<leader>fr', cmd_ts .. '.lsp_references()<cr>', opts)

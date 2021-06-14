@@ -63,6 +63,6 @@ vim.g.netrw_banner = false
 vim.g.netrw_liststyle = 3 -- tree style listing
 
 vim.g.python_host_prog = home_dir .. '/.pyenv/versions/2.7.18/bin/python'
-vim.g.python3_host_prog = home_dir .. '/.pyenv/versions/3.8.5/bin/python'
+vim.g.python3_host_prog = home_dir .. '/.pyenv/versions/3.9.4/bin/python'
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
