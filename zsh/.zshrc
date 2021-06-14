@@ -11,12 +11,7 @@ export KEYTIMEOUT=1
 
 bindkey '^P' up-history
 bindkey '^N' down-history
-
-# Backspace and ^h working after returning from command mode
 bindkey '^?' backward-delete-char
-# This binding seems like a really bad idea....
-# bindkey '^h' backward-delete-char
-
 bindkey '^w' backward-kill-word
 
 # crtl-r history
@@ -26,8 +21,20 @@ bindkey '^r' history-incremental-search-backward
 
 eval "$(starship init zsh)"
 
-alias pe=pipenv
+alias pe=poetry
 alias ls=exa
 alias sk='SKIM_DEFAULT_COMMAND="fd -H --type f || git ls-tree -r --name-only HEAD " sk'
-alias dc='docker-compose'
-alias dct='docker-compose exec app python3 -m pytest'
+alias dc='docker compose'
+alias dct='docker compose exec app python3 -m pytest'
+
+OLD_PATH=${PATH}
+export PATH=${OLD_PATH}:${HOME}/bin
+export PATH="${PATH}:${HOME}/.local/bin/"
+## Pyenv
+export PYENV_ROOT="${HOME}/.pyenv"
+export PATH="${PYENV_ROOT}/shims:${PATH}"
+
+export PATH="$HOME/.poetry/bin:$PATH"
+
+## psql
+export PATH="$PATH:/usr/local/opt/libpq/bin"

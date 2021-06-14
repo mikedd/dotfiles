@@ -1,36 +1,21 @@
 export EDITOR=nvim
 
-## Pathing
-OLD_PATH=${PATH}
-export PATH=${OLD_PATH}:${HOME}/bin
-export PATH="${PATH}:${HOME}/.local/bin/"
-## Pyenv
-export PYENV_ROOT="${HOME}/.pyenv"
-export PATH="${PYENV_ROOT}/bin:${PATH}"
-
-# Poetry is not in use here
-# export PATH="$HOME/.poetry/bin:$PATH"
-
-## psql
-export PATH="$PATH:/usr/local/opt/libpq/bin"
-
-# deno
-export DENO_INSTALL="/Users/mdick/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
-# export PATH="$PATH:/
+#######################################################################
+# Don't do pathing here. Homebrew will completely screw it up
+# It could be the zsh plugins and other path munging - it's hard to 
+# tell with all the automagic in brew / oh-my-zsh
+#######################################################################
 
 ## sharing history is a giant pain
+# Given the way setting the path variable doesn't work ^^^^ this might 
+# be better in .zshrc
 unsetopt share_history
 
 export SKIM_DEFAULT_COMMAND="fd -H --type f || git ls-tree -r --name-only HEAD "
 
-# Pyenv
-# eval "$(pyenv init -)"
-
 # Node Version Manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Cargo install did this
 source "$HOME/.cargo/env"
