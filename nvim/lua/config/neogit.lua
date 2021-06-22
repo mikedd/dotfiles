@@ -9,5 +9,6 @@ set_keymap('n', '<leader>gp',
            '<cmd>lua require("neogit").open({ "push" })<CR>', opts)
 set_keymap('n', '<leader>gp',
            '<cmd>lua require("neogit").open({ "branch" })<CR>', opts)
+
 set_keymap('n', '<leader>gp',
            '<cmd>lua require("neogit").open({ "log" })<CR>', opts)

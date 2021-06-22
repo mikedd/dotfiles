@@ -1,4 +1,8 @@
 require'colorizer'.setup {
+    'css';
+    'javascript';
+    'vue';
+    'html';
     -- TODO for enable for all files
     -- to restrict
     --

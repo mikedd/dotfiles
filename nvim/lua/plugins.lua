@@ -24,16 +24,10 @@ return require('packer').startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 
-    -- Rainbow parens - treesitter is probably better but might not be needed anymore
-    -- use 'luochen1990/rainbow'
-    use 'p00f/nvim-ts-rainbow'
-
     use 'editorconfig/editorconfig-vim'
     use 'dense-analysis/ale'
     use 'rust-lang/rust.vim'
     use 'lifepillar/pgsql.vim'
-    use 'gu-fan/InstantRst'
-    use 'gu-fan/riv.vim'
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/nvim-compe'
     use 'sbdchd/neoformat'
@@ -43,7 +37,8 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
     }
-    use "ayu-theme/ayu-vim"
+
+    use "ChristianChiarulli/nvcode-color-schemes.vim"
 
     use {
         'iamcco/markdown-preview.nvim',
@@ -53,9 +48,6 @@ return require('packer').startup(function(use)
     use 'mfussenegger/nvim-dap'
     use 'mfussenegger/nvim-dap-python'
     use 'theHamsta/nvim-dap-virtual-text'
-
-    -- start screen?
-    use 'glepnir/dashboard-nvim'
 
     use 'norcalli/nvim-colorizer.lua'
 
