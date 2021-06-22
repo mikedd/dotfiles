@@ -1,5 +1,4 @@
 require 'config.ale'
-require 'config.ayu-theme'
 require 'config.editorconfig'
 require 'config.lsp'
 require 'config.lualine'

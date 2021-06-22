@@ -37,6 +37,7 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
     }
+    use "ayu-theme/ayu-vim"
 
     use "ChristianChiarulli/nvcode-color-schemes.vim"
 
