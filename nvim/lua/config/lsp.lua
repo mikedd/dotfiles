@@ -99,3 +99,4 @@ require'lspconfig'.sumneko_lua.setup {
   },
 }
 
+require('lspkind').init()

@@ -23,7 +23,6 @@ return require('packer').startup(function(use)
         'hoob3rt/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
-
     use 'editorconfig/editorconfig-vim'
     use 'dense-analysis/ale'
     use 'rust-lang/rust.vim'
@@ -65,6 +64,12 @@ return require('packer').startup(function(use)
         }
       end
     }
+
+    use 'onsails/lspkind-nvim'
+
+    use "windwp/nvim-autopairs"
+    use "alvan/vim-closetag"
+    use "tweekmonster/startuptime.vim"
 
     -- Adds popups and other stuff using the built in lsp..
     -- use  'glepnir/lspsaga.nvim'
