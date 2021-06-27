@@ -11,7 +11,9 @@ require 'config.rainbow'
 require 'config.ripgrep'
 require 'config.tabularize'
 require 'config.telescope'
+require 'config.todo-comments'
 require 'config.treesitter'
+require 'config.trouble'
 require 'config.vim-test'
 
 -- try to load dbext config if one is available

@@ -3,6 +3,7 @@ require'colorizer'.setup {
     'javascript';
     'vue';
     'html';
+    'lua';
     -- TODO for enable for all files
     -- to restrict
     --

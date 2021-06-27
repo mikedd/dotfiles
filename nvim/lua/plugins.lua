@@ -4,7 +4,6 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use {'wbthomason/packer.nvim'}
 
-    use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
     use 'tpope/vim-surround'
     use {
         'lewis6991/gitsigns.nvim',
@@ -67,8 +66,19 @@ return require('packer').startup(function(use)
 
     use 'onsails/lspkind-nvim'
 
-    use "windwp/nvim-autopairs"
-    use "alvan/vim-closetag"
+    -- use "windwp/nvim-autopairs"
+    -- use "alvan/vim-closetag"
+
+    use {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+    }
+
+    use {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+    }
+
     use "tweekmonster/startuptime.vim"
 
     -- Adds popups and other stuff using the built in lsp..
