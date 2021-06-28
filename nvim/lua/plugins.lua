@@ -4,7 +4,7 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use {'wbthomason/packer.nvim'}
 
-    use 'tpope/vim-fugitive'
+    -- use 'tpope/vim-fugitive'
     use 'tpope/vim-surround'
     use {
         'lewis6991/gitsigns.nvim',
@@ -68,6 +68,19 @@ return require('packer').startup(function(use)
     }
 
     use 'simrat39/symbols-outline.nvim'
+    use 'onsails/lspkind-nvim'
+    use {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+    }
+
+    use {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+    }
+
+    use "tweekmonster/startuptime.vim"
+
 
     -- Potential plugins
     -- -- Simple plugins can be specified as strings

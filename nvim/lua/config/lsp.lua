@@ -101,3 +101,4 @@ local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-s
   },
 } ]]
 
+require('lspkind').init()

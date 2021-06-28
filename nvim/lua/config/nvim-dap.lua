@@ -3,7 +3,9 @@ require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
 -- Do this for python files only
 -- require('dap-python').test_runner = 'pytest'
 --
-local set_keymap = vim.api.nvim_buf_set_keymap
+--MIKE: Look into whether we need to use buffer local settings
+-- local set_keymap = vim.api.nvim_buf_set_keymap
+local set_keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 local cmd_dap = '<cmd>lua require("dap")'
 
@@ -12,7 +14,7 @@ vim.fn.sign_define('DapBreakpoint',
 vim.fn.sign_define('DapStopped',
                    {text = '🟢', texthl = '', linehl = '', numhl = ''})
 
-set_keymap('n', '<leader>k', cmd_dap .. '.continue()<CR>', opts)
+set_keymap('n', '<leader>k' , cmd_dap .. '.continue()<CR>', opts)
 set_keymap('n', '<leader>j', cmd_dap .. '.step_over()<CR>', opts)
 set_keymap('n', '<leader>l', cmd_dap .. '.step_into()<CR>', opts)
 set_keymap('n', '<leader>h', cmd_dap .. '.step_out()<CR>', opts)
