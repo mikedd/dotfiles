@@ -38,3 +38,5 @@ export PATH="$HOME/.poetry/bin:$PATH"
 
 ## psql
 export PATH="$PATH:/usr/local/opt/libpq/bin"
+
+eval "$(pyenv init -)"
